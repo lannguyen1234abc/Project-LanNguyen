@@ -1,0 +1,64 @@
+.Button{
+    &_Dangki{
+        background-image: url("https://images.unsplash.com/photo-1536935779868-3ea6bd0de56e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=642&q=80");
+        height: 620px;
+        width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+.Menu{
+    &_Height{
+        height: 60px;
+    }
+}
+.Carousel{
+    &_Left{
+        &_Size{
+            height: 400px;
+            width: 100%;
+        }
+        &_Title{
+            border-radius: 15px !important;
+        }
+    }
+    &_Image1{
+            border-radius: 15px;
+            height: 400px;
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+    }
+    
+}
+.Product{
+    &_Style{
+        border-radius: 20px !important;
+        text-transform: uppercase;
+        color: white;
+        font-size: 20px;
+    }
+    &_Image1{
+            height: 200px;
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+    }
+}
+
+//Admin
+.Admin{
+    &_Size{
+        &_content{
+            width: 100%;
+            height: 550px;
+        }
+        &_footer{
+            width: 100%;
+            height: 50px;
+        }
+    }
+}
