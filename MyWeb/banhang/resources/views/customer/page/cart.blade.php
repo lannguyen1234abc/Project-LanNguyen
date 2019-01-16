@@ -45,34 +45,37 @@
                         </tr>
                     </thead>
                     <tbody>
-                    
+                    @if(Session::has('cart'))
+                    @foreach($product_cart as $product)
                         <tr>
                             <td> 
-                                <img src="http://sotaynauan.com/wp-content/uploads/2015/04/huong-dan-lam-banh-flan-chocolate-thom-ngon-dep-mat.jpg" alt="" style="width:300px;height:200px;">
+                                <div class="Product_Image1" alt="" style="background-image: url(banhang/image/products/{{$product['item']['image']}})">
+                                <!--@if($product['item']['promotion_price'] != 0)
+                                <div class="bg-warning" style="width:50px; height:30px;">
+                                <h4 class="text-center text-white"> Sale <h4>
+                                </div>
+                                @endif -->
+                                </div>
                             </td>
                             <td> 
-                                Bánh ngọt
+                                {{$product['item']['name']}}
                             </td>
                             <td> 
-                                ${{number_format(20000)}}
+                                {{number_format($product['item']['price'])}}
+                                
                             </td>
                             <td>
-                                <select name="product-qty" id="product-qty">
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-								</select>
+                                {{$product['quantity']}}
                             </td>
                             <td>
-                                ${{number_format(20000)}}
+                                {{number_format($product['price'])}}
                             </td>
                             <td>
-                                <a href="#" class="remove" title="Remove this item"><i class="far fa-trash-alt "></i></a>
+                                <a href="{{route('destroyproduct', $product['item']['id'])}}"> <i class="fas fa-trash-alt"></i> </a>
                             </td>
                         </tr>
-                   
+                    @endforeach
+                    @endif
                     </tbody>
                 </table>
             </div>
@@ -85,7 +88,7 @@
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"> 
-                            <b class="pr-3">SubTotal:</b> ${{number_format(20000)}} 
+                            <b class="pr-3">SubTotal:</b> ${{number_format($totalPrice)}} 
                         </li>
                         <li class="list-group-item"> 
                             <b class="pr-3">Shipping:</b> Free Shipping 

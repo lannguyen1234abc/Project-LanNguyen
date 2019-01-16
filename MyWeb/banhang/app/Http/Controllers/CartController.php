@@ -3,28 +3,45 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use App\Product;
 use App\Cart;
-use App\User;
+
+use Session;
 
 class CartController extends Controller
 {
-   /*public function index(){
-       $cart = Cart::with('products')->get();
-      
-       return view('customer.page.cart', ['cart'=>$cart]);
-   }*/
+    public function show(){
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        $cart = Session::get('cart');
+        $product_cart = $cart->items;
+        $totalPrice = $cart->totalPrice;
 
-   public function show($customer_id)
-    {
-        $cart = User::find($customer_id)->cart;
-        dd($cart);
-        /*$cart_id = $cart->cart_id;
-        $cart_details = Cart::find($cart_id)->products;
-        dd($cart_details);*/
-        return view('customer.page.cart',['cart_details'=>$cart_details,'cart_id'=>$cart_id]);
+        return view('customer.page.cart', compact('cart','product_cart', 'totalPrice'));
     }
+    public function getAddtoCart(Request $req, $id){
+        $product = Product::find($id);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->add($product, $product->id);
 
-    public function cart(){
         
+        $req->session()->put('cart', $cart );
+
+        //dd($cart);
+        return redirect()->back();
     }
+    public function destroy($id){
+        $product = Product::find($id);
+        $oldCart = Session::has('cart')?Session::get('cart'):null;
+        $cart = new Cart($oldCart);
+        $cart->reduceByOne($id);
+        
+        Session::put('cart', $cart);
+
+        //dd($cart);
+        return redirect()->back();
+    }
+    
 }

@@ -24,7 +24,7 @@ class CreateBilldetailsTable extends Migration
             $table->integer('quantity');
             $table->string('price');
             $table->string('promotion_price');
-            $table->double('total');
+           
             $table->timestamps();
         });
     }

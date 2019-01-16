@@ -14,9 +14,9 @@
     return view("data.giaodien");
 });*/
 
-Route::get('/giohang', function(){
+/*Route::get('/giohang', function(){
     return view("customer.page.cart");
-});
+});*/
 
 
 /// Customer
@@ -36,7 +36,11 @@ Route::post('/postDangnhap', 'UserController@postDangnhap')->name('postDangnhap'
 Route::get('/dangxuat', 'UserController@dangxuat')->name('dangxuat');
 
 //Giỏ hàng
-Route::get('/giohang/{customer_id}', 'CartController@show')->name('giohang');
+Route::get('/add-to-giohang/{id}', 'CartController@getAddtoCart')->name('getAddtoCart');
+
+Route::get('/giohang', 'CartController@show')->name('showCart');
+Route::get('/destroyproduct/{id}', 'CartController@destroy')->name('destroyproduct');
+
 
 ///Admin
 Route::get('/login/admin', 'UserController@adminLogin')->name('adminLogin');

@@ -68,7 +68,7 @@
                     @endif
 
                     <button class="btn btn-outline-info" > 
-                        <a href="http://localhost:8000/giohang"> <i class="fas fa-shopping-cart"></i> </a>
+                        <a href="{{route('showCart')}}"> <i class="fas fa-shopping-cart"></i> </a>
                     </button> 
                 </div>
             </div>

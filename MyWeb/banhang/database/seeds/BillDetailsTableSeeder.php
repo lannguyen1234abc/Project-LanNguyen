@@ -15,8 +15,7 @@ class BillDetailsTableSeeder extends Seeder
             'product_id'->product_id,
             'quantity'->quantity,
             'price'->price,
-            'promotion_price'->promotion_price,
-            'total'->total
+            'promotion_price'->promotion_price
         ]);
     }
 }
