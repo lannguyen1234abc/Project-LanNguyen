@@ -12,13 +12,21 @@ use Session;
 class CartController extends Controller
 {
     public function show(){
-        $oldCart = Session::get('cart');
-        $cart = new Cart($oldCart);
-        $cart = Session::get('cart');
+        if(Session::has('cart')){
+            $oldCart = Session::has('cart') ? Session::get('cart') : null;
+            $cart = new Cart($oldCart);
+            $cart = Session::get('cart');
+        }
+        else{
+            return view('customer.page.cart');
+        }
         $product_cart = $cart->items;
+        $totalQty = $cart->totalQty;
         $totalPrice = $cart->totalPrice;
 
-        return view('customer.page.cart', compact('cart','product_cart', 'totalPrice'));
+        //dd($cart);
+
+        return view('customer.page.cart', compact('cart','product_cart', 'totalQty', 'totalPrice'));
     }
     public function getAddtoCart(Request $req, $id){
         $product = Product::find($id);
@@ -37,8 +45,13 @@ class CartController extends Controller
         $oldCart = Session::has('cart')?Session::get('cart'):null;
         $cart = new Cart($oldCart);
         $cart->reduceByOne($id);
+        if(count($cart->items)>0){
+            Session::put('cart', $cart);
+        }
+        else{
+            Session::forget('cart', $cart);
+        }
         
-        Session::put('cart', $cart);
 
         //dd($cart);
         return redirect()->back();

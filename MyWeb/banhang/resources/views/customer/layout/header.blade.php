@@ -16,6 +16,10 @@
         li.nav-item:hover{
             background-color: gray;
         }
+
+        .link:hover{
+            text-decoration: none;
+        }
     
     </style>
 
@@ -50,25 +54,32 @@
                     @if(Auth::check())
                     
                     <button class="btn btn-outline-info mr-3"> 
-                        <a href="{{route('dangxuat')}}" class="text-decoration-none"> Đăng xuất </a> 
+                        <a href="{{route('dangxuat')}}" class="link"> Đăng xuất </a> 
                     </button>
                     
                     <button class="btn mr-3"> 
-                       Tài khoản,  
-                        <a href="" class="text-decoration-none"> {{Auth::user()->name}} ! </a> 
+                        <i class="fas fa-user text-info"></i>  
+                        <a href="" class="link"> {{Auth::user()->name}}  </a> 
                     </button>
                     
                     @else
                     <button class="btn btn-outline-info mr-3"> 
-                        <a href="{{route('dangki')}}" class="text-decoration-none"> Đăng kí </a> 
+                        <a href="{{route('dangki')}}" class="link"> Đăng kí </a> 
                     </button>
                     <button class="btn btn-outline-info mr-3"> 
-                        <a href="{{route('dangnhap')}}"> Đăng nhập </a>
+                        <a href="{{route('dangnhap')}}" class="link"> Đăng nhập </a>
                     </button>
                     @endif
 
-                    <button class="btn btn-outline-info" > 
-                        <a href="{{route('showCart')}}"> <i class="fas fa-shopping-cart"></i> </a>
+                    <button class="btn btn-white text-secondary" > 
+                        <a href="{{route('showCart')}}" class="link"> <i class="fas fa-shopping-cart"></i>  </a> <span class="pl-2"> Giỏ hàng </span>
+                        <span> 
+                            (@if(Session::has('cart')) 
+                                {{Session('cart')->totalQty}} 
+                            @else
+                                Trống
+                            @endif)
+                        </span>
                     </button> 
                 </div>
             </div>

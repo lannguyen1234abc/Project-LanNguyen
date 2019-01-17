@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   </head>
   <body>
-      
+  
       <div class="container mt-3">
         <div class="row">
             <div class="col-md-12">
@@ -36,42 +36,87 @@
                 <table class="table mt-3 ">
                     <thead class="thead-light">
                         <tr>
-                            <th class="image"> Image </th>
-                            <th class="product"> Product </th>
-                            <th class="price"> Price </th>
-                            <th class="quantity"> Quantity </th>
-                            <th class="total"> Total </th>
-                            <th class="remove"> Remove </th>
+                            <th class="image"> 
+                                <div class="d-flex justify-content-center align-items-center">Image 
+                                </div>
+                            </th>
+
+                            <th class="product"> 
+                                <div class="d-flex justify-content-center align-items-center">Product  
+                                </div>
+                            </th>
+                            <th class="price"> 
+                                <div class="d-flex justify-content-center align-items-center">Price  
+                                </div>
+                            </th>
+                            <th class="pro-price"> 
+                                <div class="d-flex justify-content-center align-items-center">Promotion Price  
+                                </div>
+                            </th>
+                            <th class="quantity"> 
+                                <div class="d-flex justify-content-center align-items-center">Quantity   
+                                </div>
+                            </th>
+                            <th class="total"> 
+                                <div class="d-flex justify-content-center align-items-center">Total    
+                                </div>
+                            </th>
+                            <th class="remove"> 
+                                <div class="d-flex justify-content-center align-items-center">Remove     
+                                </div>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
                     @if(Session::has('cart'))
                     @foreach($product_cart as $product)
-                        <tr>
-                            <td> 
-                                <div class="Product_Image1" alt="" style="background-image: url(banhang/image/products/{{$product['item']['image']}})">
-                                <!--@if($product['item']['promotion_price'] != 0)
+                        <tr >
+                            <td class="d-flex justify-content-center align-items-center"> 
+                                <div class="Product_Image2 " alt="" style="background-image: url(banhang/image/products/{{$product['item']['image']}})">
+                                @if($product['item']['promotion_price'] != 0)
                                 <div class="bg-warning" style="width:50px; height:30px;">
                                 <h4 class="text-center text-white"> Sale <h4>
                                 </div>
-                                @endif -->
+                                @endif 
                                 </div>
                             </td>
-                            <td> 
-                                {{$product['item']['name']}}
+                            <td > 
+                                <div class="d-flex justify-content-center align-items-center">
+                                    {{$product['item']['name']}}
+                                </div>
+                                
                             </td>
-                            <td> 
-                                {{number_format($product['item']['price'])}}
+                            <td > 
+                                <div class="d-flex justify-content-center">
+                                    {{number_format($product['item']['price'])}}
+                                </div>
+                                
+                                
+                            </td>
+                            <td > 
+                                <div class="d-flex justify-content-center">
+                                    {{number_format($product['item']['promotion_price'])}}
+                                </div>
+                                
                                 
                             </td>
                             <td>
-                                {{$product['quantity']}}
+                                <div class="d-flex justify-content-center">
+                                    {{$product['quantity']}}
+                                </div>
+                                
                             </td>
                             <td>
-                                {{number_format($product['price'])}}
+                                <div class="d-flex justify-content-center">
+                                    {{number_format($product['price'])}}
+                                </div>
+                                
                             </td>
                             <td>
-                                <a href="{{route('destroyproduct', $product['item']['id'])}}"> <i class="fas fa-trash-alt"></i> </a>
+                                <div class="d-flex justify-content-center">
+                                    <a href="{{route('destroyproduct', $product['item']['id'])}}"> <i class="fas fa-trash-alt"></i> </a>
+                                </div>
+                                
                             </td>
                         </tr>
                     @endforeach
@@ -88,7 +133,10 @@
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"> 
-                            <b class="pr-3">SubTotal:</b> ${{number_format($totalPrice)}} 
+                            <b class="pr-3">SubTotal:</b> 
+                            @if(Session::has('cart'))
+                                ${{number_format(Session('cart')->totalPrice)}}
+                            @endif
                         </li>
                         <li class="list-group-item"> 
                             <b class="pr-3">Shipping:</b> Free Shipping 
@@ -103,6 +151,9 @@
             </div>
         </div>
       </div>
+
+   
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -57,7 +57,7 @@
                                 <a href="{{route('getAddtoCart', $sp_type->id)}}"> <i class="fas fa-shopping-cart text-white"></i> </a> 
                             </button>
                             <button class="btn btn-outline-primary"> 
-                                <a href="{{route('chitietsanpham', $sp_type->id)}}"> Chi tiết >> </a> 
+                                <a href="{{route('chitietsanpham', $sp_type->id)}}" class="link"> Chi tiết >> </a> 
                             </button>
                         </div>
                         </div>
