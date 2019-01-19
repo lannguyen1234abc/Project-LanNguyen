@@ -10,15 +10,19 @@
 </head>
 <body>
     <div class="container mt-3">
+        <div class="row"> <h5 class="text-info"> Thông tin loại sản phẩm </h5> </div>
         <div class="row">
-            <div class="col-12">
+            <div class="col-md-5">
                 <form action="{{route('producttype.update', $type->id)}}" method="POST">
                 {{csrf_field()}}
                 <input type="hidden" name="_method" value="PUT" />
-
-                    Name: <input type="text" id="name" placeholder="Name" name="name" value="{{$type->name}}">
-
-                    Description: <input type="text" id="description" placeholder="Description" name="description" value="{{$type->description}}">
+                    <div class="mb-3 d-flex flex-column">
+                        <lable> <b> Name </b> </lable>
+                            <input type="text" id="name" placeholder="Name" name="name" value="{{$type->name}}">
+                            <lable> <b> Description </b> </lable>
+                            <input type="text" id="description" placeholder="Description" name="description" value="{{$type->description}}">
+                        </div>
+                        
 
                     <button type="submit"> SAVE
                     </button>

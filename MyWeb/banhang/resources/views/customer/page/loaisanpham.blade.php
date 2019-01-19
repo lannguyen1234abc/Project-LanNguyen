@@ -7,11 +7,11 @@
                 <h5>  Tìm thấy {{count($product_type)}} sản phẩm  </h5>
             </div>
         </div>
-    </div>
+</div>
     <div class="container mt-3 mb-5">
         <div class="row">
             <div class="col-md-3">
-                <div class="card Product_LoaiSP">
+                <div class="card Carousel_Left_Size">
                     <div class="card-header bg-info">
                         <h3 class="text-white text-capitalize"> Loại sản phẩm </h3>
                     </div>
@@ -44,10 +44,10 @@
                             <div class="d-flex flex-row">
 
                                 @if( $sp_type->promotion_price == 0 )
-                                    <span class="card-text pr-3">${{number_format($sp_type->price)}}</span>
+                                    <span class="card-text pr-3"> {{number_format($sp_type->price)}} đ</span>
                                 @else
-                                    <span class="card-text pr-3"> <del> ${{number_format($sp_type->price)}} </del> </span>
-                                    <span class="card-text"> ${{number_format($sp_type->promotion_price)}}
+                                    <span class="card-text pr-3"> <del>  {{number_format($sp_type->price)}}  </del> </span>
+                                    <span class="card-text"> {{number_format($sp_type->promotion_price)}} đ
                                     </span>
                                 @endif
 

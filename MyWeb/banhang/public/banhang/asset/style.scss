@@ -58,14 +58,67 @@
 
 //Admin
 .Admin{
+    
     &_Size{
-        &_content{
+        &_content-left{
             width: 100%;
-            height: 550px;
+            height: 500px;
+        }
+        &_content-right{
+            width: 100%;
+            height: auto;
+            
         }
         &_footer{
             width: 100%;
             height: 50px;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            
         }
     }
 }
+
+li.nav-item:hover{
+    background-color: gray;
+}
+
+.link:hover{
+    text-decoration: none;
+}
+
+//Bill
+.Bill{
+    &_form-block{
+        margin-bottom: 20px;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+    }
+    &_input{
+        width: 300px;
+        height: auto;
+    }
+    &_card-donhang{
+        &_left{
+            height: 140px;
+            width: 200px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            float: left;
+        }
+        &_right{
+            display: flex;
+            flex-direction: column;
+            float: left;
+            margin-left: 30px;
+        }
+    }
+
+}
+
+
+
+

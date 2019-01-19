@@ -15,7 +15,7 @@ class PageController extends Controller
     public function home(){
         $slides = Slide::all();
         $type_home = ProductType::all(); //loại sản phẩm
-        $new_products = Product::paginate(6);
+        $new_products = Product::all();
         
         return view('customer.page.trangchu',compact('slides','type_home', 'new_products'));
 
@@ -26,7 +26,7 @@ class PageController extends Controller
     
     public function product(){
         $type_product = ProductType::all();
-        $products = Product::paginate(6);
+        $products = Product::paginate(9);
         
         return view('customer.page.sanpham', compact('type_product', 'products'));
     }

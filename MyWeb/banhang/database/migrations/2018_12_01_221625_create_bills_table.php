@@ -17,6 +17,8 @@ class CreateBillsTable extends Migration
             $table->increments('id');
             $table->date('date_order')->nullable();
             $table->double('total');
+            $table->string('note')->nullable();
+            $table->string('payment')->nullable();
             $table->timestamps();
         });
     }

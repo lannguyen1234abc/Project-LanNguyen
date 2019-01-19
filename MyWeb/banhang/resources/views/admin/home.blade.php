@@ -1,8 +1,10 @@
 @extends('admin.master')
 @section('content')
-<div class="container-fluid Admin_Size_content">
+
+<div class="container-fluid ">
     <div class="row h-100">
-        <div class="col-md-2 bg-secondary shadow-lg rounded">
+    
+        <div class="col-md-2 bg-secondary shadow-lg rounded Admin_Size_content-left">
                 <div class="mb-3 text-white "> <h2> Dashboard </h2> </div>
                 
                 <div class="dropdown">
@@ -49,9 +51,11 @@
                 </div>
                 
         </div>
-        <div class="col-md-10">
+        <div class="col-md-10 Admin_Size_content-right">
             @yield('content-right')
         </div>
+
     </div>
 </div>
+
 @endsection

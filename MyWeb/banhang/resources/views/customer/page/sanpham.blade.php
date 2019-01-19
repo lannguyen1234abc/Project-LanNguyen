@@ -44,10 +44,10 @@
                             <div class="d-flex flex-row">
 
                                 @if( $index->promotion_price == 0 )
-                                    <span class="card-text pr-3">${{number_format($index->price)}}</span>
+                                    <span class="card-text pr-3"> {{number_format($index->price)}} đ</span>
                                 @else
-                                    <span class="card-text pr-3"> <del> ${{number_format($index->price)}} </del> </span>
-                                    <span class="card-text"> ${{number_format($index->promotion_price)}}
+                                    <span class="card-text pr-3"> <del> {{number_format($index->price)}} </del> </span>
+                                    <span class="card-text"> {{number_format($index->promotion_price)}} đ
                                     </span>
                                 @endif
 

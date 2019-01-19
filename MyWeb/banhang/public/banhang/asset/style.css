@@ -52,13 +52,66 @@
   background-size: cover;
 }
 
-.Admin_Size_content {
+.Admin_Size_content-left {
   width: 100%;
-  height: 550px;
+  height: 500px;
+}
+
+.Admin_Size_content-right {
+  width: 100%;
+  height: auto;
 }
 
 .Admin_Size_footer {
   width: 100%;
   height: 50px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+li.nav-item:hover {
+  background-color: gray;
+}
+
+.link:hover {
+  text-decoration: none;
+}
+
+.Bill_form-block {
+  margin-bottom: 20px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.Bill_input {
+  width: 300px;
+  height: auto;
+}
+
+.Bill_card-donhang_left {
+  height: 140px;
+  width: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  float: left;
+}
+
+.Bill_card-donhang_right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  float: left;
+  margin-left: 30px;
 }
 /*# sourceMappingURL=style.css.map */

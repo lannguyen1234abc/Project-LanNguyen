@@ -23,7 +23,7 @@ class CreateBilldetailsTable extends Migration
             
             $table->integer('quantity');
             $table->string('price');
-            $table->string('promotion_price');
+            $table->string('promotion_price')->nullable();
            
             $table->timestamps();
         });

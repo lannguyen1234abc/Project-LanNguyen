@@ -12,16 +12,7 @@
    
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-    <style>
-        li.nav-item:hover{
-            background-color: gray;
-        }
-
-        .link:hover{
-            text-decoration: none;
-        }
     
-    </style>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -89,13 +80,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="d-flex align-items-center text-danger">
-                          <i class="far fa-hand-peace display-3 mr-3"></i>
-                          <h4> <font face="Comic sans MS" size="10"> Lucky Cake </font> </h4>
+                          <i class="far fa-hand-peace display-4 mr-3"></i>
+                          <h4> <font face="Comic sans MS" size="8"> Lucky Cake </font> </h4>
                     </div>
                 </div>
             </div>
         </div>
-    <div class="sticky-top  Menu container-fluid bg-info mb-3 Menu_Height">
+    <div class="Menu container-fluid bg-info mb-3 Menu_Height sticky-top  ">
             <div class="row h-100">
                 <div class="col-md-12">
                     <nav class="navbar navbar-expand-lg navbar-light">

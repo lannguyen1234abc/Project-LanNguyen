@@ -37,10 +37,12 @@ Route::get('/dangxuat', 'UserController@dangxuat')->name('dangxuat');
 
 //Giỏ hàng
 Route::get('/add-to-giohang/{id}', 'CartController@getAddtoCart')->name('getAddtoCart');
-
 Route::get('/giohang', 'CartController@show')->name('showCart');
 Route::get('/destroyproduct/{id}', 'CartController@destroy')->name('destroyproduct');
 
+//Bill chi tiết
+Route::get('/dathang', 'BillController@getBill')->name('getBill');
+Route::post('/donhang', 'BillController@postBill')->name('postBill');
 
 ///Admin
 Route::get('/login/admin', 'UserController@adminLogin')->name('adminLogin');

@@ -13,7 +13,9 @@ class BillsTableSeeder extends Seeder
         Bill::create([
             'customer_id'->customer_id,
             'date_order'->date_order,
-            'total'->total
+            'total'->total,
+            'note'->note,
+            'payment'->payment
         ]);
     }
 }

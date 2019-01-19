@@ -52,58 +52,81 @@
           </div>
       </div>
 <div class="Product container mb-5">
-        <div class="row mb-5 d=flex justify-content-center">
+        <div class="row mb-5 d-flex justify-content-center">
             <div class="card-header Product_Style text-center bg-info">
                 Sản phẩm mới 
             </div> 
         </div>
         
         <div class="row mb-3">
-
-            @foreach($new_products as $index)
-            @if($index->new == 1)
-            <div class="col-md-3 mb-3">
-                <div class="card ">
-                    <div class="Product_Image1" alt="" style="background-image: url(banhang/image/products/{{$index->image}})">
-                        @if($index->promotion_price != 0)
-                        <div class="bg-warning" style="width:50px; height:30px;">
-                        <h4 class="text-center text-white"> Sale <h4>
-                        </div>
-                        @endif
+            <div class="col-md-3 ">
+                <div class="card-header bg-info text-white d-flex justify-content-center ">
+                    <h4> Tin mới nhất </h4>
+                </div>
+                <div class="card mb-3">
+                    <div class="Product_Image1" alt="" style="background-image: url(banhang/image/products/Banh-ngot-trai-cay.jpg)">       
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title"> {{$index->name}} </h5>
-                        <div class="d-flex flex-row">
-
-                            @if($index->promotion_price == 0)
-                                <span class="card-text pr-3">${{ number_format($index->price)}}</span>
-                            @else
-                                <span class="card-text pr-3"> <del>${{number_format($index->price)}} </del> </span>
-                                <span class="card-text"> ${{number_format($index->promotion_price)}}
-                                </span>
-                            @endif
-
-                        </div>
-                        <div class="d-flex flex-row mt-3">
-                            <button class="btn btn-warning"> 
-                                <a href="{{route('getAddtoCart', $index->id)}}"> <i class="fas fa-shopping-cart text-white"></i> </a> 
-                            </button>
-                            <button class="btn btn-outline-primary"> 
-                                <a href="{{route('chitietsanpham', $index->id)}}" class="link"> Chi tiết >> </a> 
-                            </button>
-                        </div>
-                        
+                        <a href="https://abby.vn/banh-ngot-phap-va-nhat-ban"> 
+                            Bánh ngọt Pháp và Nhật Bản làm mê mẩn giới trẻ
+                        </a>
                     </div>
+                </div>
+                <div class="card">
+                    <div class="Product_Image1" alt="" style="background-image: url(banhang/image/products/mochi-tin.jpg)">       
+                    </div>
+                    <div class="card-body">
+                        <a href="https://www.google.com/search?q=c%C3%A1c+m%E1%BA%ABu+b%C3%A1nh+mochi+%C4%91%E1%BA%B9p+nh%E1%BA%A5t&rlz=1C1PRFI_enVN807VN807&tbm=isch&tbo=u&source=univ&sa=X&ved=2ahUKEwjf3vHF0PrfAhXCdN4KHdwCDlEQsAR6BAgGEAE&biw=1366&bih=626"> 
+                            Những mẫu bánh Mochi đẹp nhất
+                        </a>
+                    </div>
+                </div>
+                    
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                @foreach($new_products as $index)
+                @if($index->new == 1)
+                <div class="col-md-4 mb-3">
+                    <div class="card ">
+                        <div class="Product_Image1" alt="" style="background-image: url(banhang/image/products/{{$index->image}})">
+                            @if($index->promotion_price != 0)
+                            <div class="bg-warning" style="width:50px; height:30px;">
+                            <h4 class="text-center text-white"> Sale <h4>
+                            </div>
+                            @endif
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"> {{$index->name}} </h5>
+                            <div class="d-flex flex-row">
+
+                                @if($index->promotion_price == 0)
+                                    <span class="card-text pr-3"> {{ number_format($index->price)}} đ</span>
+                                @else
+                                    <span class="card-text pr-3"> <del>{{number_format($index->price)}} </del> </span>
+                                    <span class="card-text"> {{number_format($index->promotion_price)}} đ
+                                    </span>
+                                @endif
+
+                            </div>
+                            <div class="d-flex flex-row mt-3">
+                                <button class="btn btn-warning"> 
+                                    <a href="{{route('getAddtoCart', $index->id)}}"> <i class="fas fa-shopping-cart text-white"></i> </a> 
+                                </button>
+                                <button class="btn btn-outline-primary"> 
+                                    <a href="{{route('chitietsanpham', $index->id)}}" class="link"> Chi tiết >> </a> 
+                                </button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                @endif
+                @endforeach
                 </div>
             </div>
-            @endif
-            @endforeach
-
+            
         </div>
-        <div class="row mt-5">
-                    <div class="col-md-12 d-flex justify-content-center display-5">
-                        {{$new_products->links("pagination::bootstrap-4")}}
-                    </div>
-                </div>
+        
 </div>
 @endsection

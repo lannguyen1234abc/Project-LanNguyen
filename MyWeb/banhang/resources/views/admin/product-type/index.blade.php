@@ -2,7 +2,7 @@
 @section('content-right')
 
 <div class="container-fluid Admin_Size_content">
-    <h1 class="text-center"> Product Type </h1>
+    <h4 class="text-center"> Product Type </h4>
     <table class="table table-hover table-bordered text-center">
         <thead>
             <tr>
@@ -46,8 +46,8 @@
           
         </tbody>
     </table>
-    <div class="row mt-5">
-                    <div class="col-md-12 d-flex justify-content-center display-5">
+    <div class="row mt-4">
+                    <div class="col-md-12 d-flex justify-content-center ">
                         {{$types->links("pagination::bootstrap-4")}}
                     </div>
                 </div>
