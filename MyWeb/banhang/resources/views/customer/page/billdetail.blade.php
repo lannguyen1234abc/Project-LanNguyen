@@ -85,7 +85,7 @@
                     <div class="card-body">
                         <ul class="list-unstyled">
                             <li class="">
-                                <input type="radio" name="gender" value="male" checked> Chuyển khoản <br>
+                                <input type="radio" name="payment" value="ATM" checked> Chuyển khoản <br>
                                 <div class="d-flex flex-column pl-5">
                                     <span> Chuyển khoản đến tài khoản: </span>
                                     <span> - STK: 0400324545 </span>
@@ -94,7 +94,7 @@
                                 </div>
                             </li>
                             <li class="">
-                                <input type="radio" name="gender" value="male" checked> Thanh toán khi nhận hàng <br>
+                                <input type="radio" name="payment" value="COD" checked> Thanh toán khi nhận hàng <br>
                                 <div class="pl-5">
                                     <span> Nhận tiền khi giao hàng tận nơi </span>
                                     

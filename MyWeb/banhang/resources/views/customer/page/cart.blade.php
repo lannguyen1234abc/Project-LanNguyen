@@ -38,7 +38,8 @@
                                 </div>
                             </th>
                             <th class="quantity"> 
-                                <div class="d-flex justify-content-center align-items-center">Quantity   
+                                <div class="d-flex justify-content-center align-items-center">
+                                    Quantity   
                                 </div>
                             </th>
                             <th class="total"> 

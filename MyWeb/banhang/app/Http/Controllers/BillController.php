@@ -13,6 +13,37 @@ use Session;
 
 class BillController extends Controller
 {
+    public function index(){
+        $bills = Bill::paginate(5);
+        //dd($bills);
+        return view('admin.bills.index', ['bills'=>$bills]);
+        
+    }
+    public function edit($id){
+        $bill = Bill::find($id);
+        return view('admin.bills.edit', ['bill'=>$bill]);
+    }
+    public function update(Request $request, $id)
+    {
+        $bill = Bill::find($id);
+        
+        $bill -> update([
+            'customer_id' => $request ->customer_id,
+            'date_order' => $request ->date_order,
+            'total' => $request ->total,
+            'note' => $request ->note,
+            'payment' => $request ->payment
+        ]);
+        return redirect()->route('bills.index');
+    }
+    public function destroy($id)
+    {
+       
+        Bill::destroy($id);
+        return redirect()->route('bills.index');
+    }
+
+
     public function getBill(){
         if(Session::has('cart')){
             $oldCart = Session::has('cart') ? Session::get('cart') : null;

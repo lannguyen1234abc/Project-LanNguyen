@@ -6,7 +6,7 @@
             <div class="col-md-6 offset-md-3 d-flex justify-content-center align-items-center flex-column Border-form">
                 <h1 class="text-uppercase mt-3 text-success"><font face="Comic sans MS" size="10"> register </font></h1>
                 
-                <form class=" d-flex flex-column mb-5 mt-5 w-100" action="{{route('postDangki')}}" method="POST">
+                <form class=" d-flex flex-column mb-5 mt-3 w-100" action="{{route('postDangki')}}" method="POST">
                 {{csrf_field()}}
                 <input type="hidden" name="_method" value="POST" />
                 @if(count($errors) > 0)

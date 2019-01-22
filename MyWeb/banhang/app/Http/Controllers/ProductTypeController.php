@@ -98,8 +98,10 @@ class ProductTypeController extends Controller
 
         $product_type = ProductType::find($id);
         $product_type->products()->delete();
-        // $post->save();
+        
         ProductType::destroy($id);
         return redirect()->route('producttype.index');
+
+
     }
 }

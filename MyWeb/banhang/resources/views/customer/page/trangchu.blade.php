@@ -60,36 +60,29 @@
         
         <div class="row mb-3">
             <div class="col-md-3 ">
-                <div class="card-header bg-info text-white d-flex justify-content-center ">
-                    <h4> Tin mới nhất </h4>
-                </div>
-                <div class="card mb-3">
-                    <div class="Product_Image1" alt="" style="background-image: url(banhang/image/products/Banh-ngot-trai-cay.jpg)">       
-                    </div>
-                    <div class="card-body">
-                        <a href="https://abby.vn/banh-ngot-phap-va-nhat-ban"> 
-                            Bánh ngọt Pháp và Nhật Bản làm mê mẩn giới trẻ
-                        </a>
-                    </div>
-                </div>
                 <div class="card">
-                    <div class="Product_Image1" alt="" style="background-image: url(banhang/image/products/mochi-tin.jpg)">       
+                    <div class="card-header bg-info text-white d-flex justify-content-center ">
+                        <h4> Tin mới nhất </h4>
                     </div>
-                    <div class="card-body">
-                        <a href="https://www.google.com/search?q=c%C3%A1c+m%E1%BA%ABu+b%C3%A1nh+mochi+%C4%91%E1%BA%B9p+nh%E1%BA%A5t&rlz=1C1PRFI_enVN807VN807&tbm=isch&tbo=u&source=univ&sa=X&ved=2ahUKEwjf3vHF0PrfAhXCdN4KHdwCDlEQsAR6BAgGEAE&biw=1366&bih=626"> 
-                            Những mẫu bánh Mochi đẹp nhất
-                        </a>
+                    @foreach($new as $n)
+                    <div class="mt-3 mb-3">
+                            <div class="Product_Tin_Image mr-3 ml-3" alt="" style="background-image: url(banhang/image/products/{{$n->image}})">       
+                            </div>
+                            <a href="https://abby.vn/banh-ngot-phap-va-nhat-ban"> 
+                                {{$n->content}}
+                            </a>
                     </div>
+                    @endforeach
                 </div>
-                    
             </div>
+
             <div class="col-md-9">
                 <div class="row">
                 @foreach($new_products as $index)
                 @if($index->new == 1)
                 <div class="col-md-4 mb-3">
                     <div class="card ">
-                        <div class="Product_Image1" alt="" style="background-image: url(banhang/image/products/{{$index->image}})">
+                        <div class="Product_Image1 " alt="" style="background-image: url(banhang/image/products/{{$index->image}})">
                             @if($index->promotion_price != 0)
                             <div class="bg-warning" style="width:50px; height:30px;">
                             <h4 class="text-center text-white"> Sale <h4>

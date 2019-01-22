@@ -6,7 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bill extends Model
 {
-    
+    protected $fillable = ['date_order', 'total', 'note', 'payment', 'created_at'];
+
+    public $timestamps = false;
+
     public function billdetails(){
         return $this->belongsToMany('App\BillDetail', 'bill_id', 'id');
     }

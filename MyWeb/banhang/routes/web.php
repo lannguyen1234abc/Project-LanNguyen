@@ -29,20 +29,25 @@ Route::get('/gioithieu', 'PageController@introduce')->name('gioithieu');
 Route::get('/search', 'PageController@search')->name('search');
 Route::get('/chitietsanpham/{id}', 'PageController@chitiet')->name('chitietsanpham');
 
+//Giỏ hàng
+Route::get('/add-to-giohang/{id}', 'CartController@getAddtoCart')->name('getAddtoCart');
+Route::get('/giohang', 'CartController@show')->name('showCart');
+Route::get('/destroyproduct/{id}', 'CartController@destroy')->name('destroyproduct');
+
+//Đơn hàng
+Route::get('/dathang', 'BillController@getBill')->name('getBill');
+Route::post('/donhang', 'BillController@postBill')->name('postBill');
+
+///Đăng kí - đăng nhập
 Route::get('/dangki', 'UserController@dangki')->name('dangki');
 Route::post('/postDangki', 'UserController@postDangki')->name('postDangki');
 Route::get('/dangnhap', 'UserController@dangnhap')->name('dangnhap');
 Route::post('/postDangnhap', 'UserController@postDangnhap')->name('postDangnhap');
 Route::get('/dangxuat', 'UserController@dangxuat')->name('dangxuat');
 
-//Giỏ hàng
-Route::get('/add-to-giohang/{id}', 'CartController@getAddtoCart')->name('getAddtoCart');
-Route::get('/giohang', 'CartController@show')->name('showCart');
-Route::get('/destroyproduct/{id}', 'CartController@destroy')->name('destroyproduct');
 
-//Bill chi tiết
-Route::get('/dathang', 'BillController@getBill')->name('getBill');
-Route::post('/donhang', 'BillController@postBill')->name('postBill');
+
+//////////////////////////////////////////////////////////////////////////
 
 ///Admin
 Route::get('/login/admin', 'UserController@adminLogin')->name('adminLogin');
@@ -60,7 +65,6 @@ Route::put('producttype/{id}', 'ProductTypeController@update')->name('producttyp
 
 /// Users
 Route::get('/users', 'UserController@index')->name('users.index');
-Route::get('/users/create', 'UserController@create')->name('users.create');
 Route::post('/users', 'UserController@store')->name('users.store');
 Route::get('/users/{id}', 'UserController@show')->name('users.show');
 Route::delete('/users/{id}', 'UserController@destroy')->name('users.destroy');
@@ -75,3 +79,15 @@ Route::get('/products/{id}', 'ProductController@show')->name('products.show');
 Route::delete('/products/{id}', 'ProductController@destroy')->name('products.destroy');
 Route::get('/products/{id}/edit', 'ProductController@edit')->name('products.edit');
 Route::put('products/{id}', 'ProductController@update')->name('products.update');
+
+///Bill
+Route::get('/bills', 'BillController@index')->name('bills.index');
+Route::delete('/bills/{id}', 'BillController@destroy')->name('bills.destroy');
+Route::get('/bills/{id}/edit', 'BillController@edit')->name('bills.edit');
+Route::put('/bills/{id}', 'BillController@update')->name('bills.update');
+
+///BillDetail
+Route::get('/billdetails', 'BillDetailController@index')->name('billdetails.index');
+/*Route::delete('/billdetails/{id}', 'BillDetailController@destroy')->name('billdetails.destroy');
+Route::get('/billdetails/{id}/edit', 'BillDetailController@edit')->name('billdetails.edit');
+Route::put('/billdetails/{id}', 'BillDetailController@update')->name('billdetails.update');*/

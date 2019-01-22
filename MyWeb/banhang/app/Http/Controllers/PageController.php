@@ -7,17 +7,18 @@ use App\ProductType;
 use App\Slide;
 use App\Product;
 use App\User;
-
+use App\News;
 
 
 class PageController extends Controller
 {
     public function home(){
         $slides = Slide::all();
+        $new = News::all();
         $type_home = ProductType::all(); //loại sản phẩm
         $new_products = Product::all();
         
-        return view('customer.page.trangchu',compact('slides','type_home', 'new_products'));
+        return view('customer.page.trangchu',compact('slides', 'new','type_home', 'new_products'));
 
         //return view('page.trangchu',['producttypes'=>$producttypes], ['slides'=>$slides]); 
         

@@ -22,8 +22,8 @@
 <body>
     <div class="Header container-fluid border-bottom">
         <div class="row mt-3 mb-3 ">
-            <div class="col-md-6 d-flex justify-content-center align-items-center">
-                <div>
+            <div class="col-md-6 d-flex justify-content-start align-items-center">
+                <div class="ml-5">
                     <b> <i class="fas fa-home"></i> </b>
                     <b class="pr-5"> 459 Tôn Đức Thắng, Liên Chiểu </b>
                     <b> <i class="fas fa-phone"></i> </b>

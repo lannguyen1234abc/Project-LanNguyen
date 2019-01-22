@@ -52,6 +52,24 @@
   background-size: cover;
 }
 
+.Product_Tin_Image {
+  width: 80px;
+  height: 80px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+  float: left;
+}
+
+.Product_Tin_Tin {
+  display: block;
+  float: right;
+  width: calc(100% - 70px);
+  float: right;
+  margin-right: 5px;
+}
+
 .Admin_Size_content-left {
   width: 100%;
   height: 500px;
@@ -68,6 +86,15 @@
   position: fixed;
   left: 0;
   bottom: 0;
+}
+
+.Admin_Size_image {
+  background-image: url("https://images.unsplash.com/photo-1488474339733-16a5dd4ba5e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=736&q=80");
+  height: 500px;
+  width: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 li.nav-item:hover {

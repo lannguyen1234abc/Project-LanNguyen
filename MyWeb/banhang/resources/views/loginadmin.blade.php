@@ -17,7 +17,7 @@
   </head>
   <body>
       
-  <div class="container mb-5">
+  <div class="container mt-3 mb-5 Admin_Size_image">
     <div class="row ">
       <div class="col-6 offset-3 d-flex justify-content-center align-items-center flex-column Border-form">
         <h1 class="text-uppercase mt-5 text-success"><font face="Comic sans MS" size="10"> Admin </font></h1>

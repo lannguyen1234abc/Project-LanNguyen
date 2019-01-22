@@ -46,13 +46,19 @@ class UserController extends Controller
             'password' => $request ->password,
             'address' => $request ->address,
             'remember_token' => $request ->remember_token,
+            'note' => $request ->note,
             'role' => $request ->role
+            
 
         ]);
         return redirect()->route('users.index');
     }
 
-    
+    public function show($id)
+    {
+        $user = User::find($id);
+        return view('admin.users.show', ['user'=> $user]);
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -84,6 +90,7 @@ class UserController extends Controller
             'address' => $request ->address,
             'password' => bcrypt($request ->password),
             'remember_token' => $request ->remember_token,
+            'note' => $request ->note,
             'role' => $request ->role
         ]);
         return redirect()->route('users.show', $id);

@@ -6,7 +6,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use Notifiable;
-
+   
     protected $fillable = [
         'name', 'email', 'phone_number','address', 'password', 'role', 'note', 'remember_token',
     ];

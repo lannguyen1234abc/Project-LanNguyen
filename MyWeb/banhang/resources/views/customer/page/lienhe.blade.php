@@ -10,9 +10,22 @@
     </div>
     <div class="container">
           <div class="row">
-              <div class="col-md-12">
-                  <p> Giới thiệu về một số loài bánh </p>
-              </div>
+                <div class="col-md-12 mb-5">
+                    <div class="d-flex flex-column">
+                        <div>
+                            <i class="fas fa-map-marker-alt mr-3"></i> <b> Địa chỉ:</b>
+                            <span> 459 Tôn Đức Thắng, Liên Chiểu, Hòa Khánh </span> 
+                        </div>
+                        <div>
+                            <i class="fas fa-phone-volume mr-3"></i> <b>Điện thoại:</b>
+                            <span> 123456789 </span>
+                        </div> 
+                        <div>
+                            <i class="fas fa-envelope mr-3"></i><b>Email:</b>
+                            <span> abc@gamil.com </span>
+                        </div>
+                    </div>
+                </div>
           </div>
       </div>  
 @endsection
