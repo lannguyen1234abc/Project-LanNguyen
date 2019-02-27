@@ -28,16 +28,9 @@
                         <td class="d-flex flex-row justify-content-center">
                             
                             <form action="{{route('users.edit', $user->id)}}" method="GET">
-                                <button class='btn btn-success ml-2'> EDIT </button> 
+                                <button class='btn btn-success ml-2'> <i class="far fa-edit"></i> </button> 
                             </form>
                             
-
-                            <form action="{{route('users.destroy', $user->id)}}" method="POST">
-                                {{csrf_field()}}
-                                <input type='hidden' value='DELETE' name='_method'>
-                                <button type='submit' class='btn btn-warning ml-2'> DELETE </button>
-                            </form>
-                                
                         </td>
                     </tr>
                

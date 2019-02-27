@@ -10,10 +10,10 @@ class Bill extends Model
 
     public $timestamps = false;
 
-    public function billdetails(){
-        return $this->belongsToMany('App\BillDetail', 'bill_id', 'id');
+    public function products(){
+        return $this->belongsToMany('App\Product', 'BillDetails', 'bill_id', 'product_id')->withPivot('price', 'promotion_price', 'quantity');
     }
     public function user(){
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User','customer_id');
     }
 }

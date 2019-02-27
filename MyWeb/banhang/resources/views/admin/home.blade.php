@@ -8,48 +8,50 @@
                 <div class="mb-3 text-white "> <h2> Dashboard </h2> </div>
                 
                 <div class="">
-                    <a class="text-white" href="{{route('users.index')}}">
+                    <div class="text-white">
                     <i class="fas fa-user mr-2"></i>
                         Users
-                    </a>
+                    </div>
+                    <ul class="text-white">
+                        <li ><a class="text-white" href="{{route('users.index')}}"> List </a></li>
+                    </ul>
                     
                 </div>
                      
                 <div class="d-flex flex-column">
-                    <a class="text-white" href="{{route('products.index')}}">
+                    <div class="text-white">
                     <i class="fab fa-product-hunt mr-2"></i>
                         Products
-                    </a>
+                    </div>
                     <ul class="text-white">
+                        <li ><a class="text-white"  href="{{route('products.index')}}"> List </a></li>
                         <li ><a class="text-white"  href="{{route('products.create')}}"> Add </a></li>
                     </ul>
                     
 
                 </div>
                 <div class="d-flex flex-column">
-                    <a class="text-white" href="{{route('producttype.index')}}">
+                    <div class="text-white">
                     <i class="fas fa-file-alt mr-2"></i>
                         ProductTypes
-                    </a>
+                    </div>
                     <ul class="text-white">
+                        <li ><a class="text-white"  href="{{route('producttype.index')}}"> List </a></li>
                         <li ><a class="text-white"  href="{{route('producttype.create')}}"> Add </a></li>
                     </ul>
                     
                 </div>
                 <div class="">
-                    <a class="text-white" href="{{route('bills.index')}}">
+                    <div class="text-white">
                     <i class="fas fa-file-alt mr-2"></i>
                         Bills
-                    </a>
-                    
+                    </div>
+                    <ul class="text-white">
+                        <li ><a class="text-white" href="{{route
+                        ('bills.index')}}"> List </a></li>
+                    </ul>
                 </div>
-                <div class="">
-                    <a class="text-white" href="{{route('billdetails.index')}}">
-                    <i class="fas fa-file-alt mr-2"></i>
-                        BillDetails
-                    </a>
-   
-                </div>
+                
                 
         </div>
         <div class="col-md-10 Admin_Size_content-right">

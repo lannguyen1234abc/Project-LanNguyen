@@ -24,7 +24,7 @@
                         <td class="d-flex flex-row justify-content-center">
                             
                             <form action="{{route('producttype.edit', $type->id)}}" method="GET">
-                                <button class='btn btn-success ml-2'> EDIT </button> 
+                                <button class='btn btn-success ml-2'> <i class="far fa-edit"></i> </button> 
                             </form>
                             
                                 

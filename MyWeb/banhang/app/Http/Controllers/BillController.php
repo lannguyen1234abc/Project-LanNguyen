@@ -8,13 +8,14 @@ use App\User;
 use App\Bill;
 use App\BillDetail;
 use App\Cart;
+use App\Product;
 
 use Session;
 
 class BillController extends Controller
 {
     public function index(){
-        $bills = Bill::paginate(5);
+        $bills = Bill::with('user')->paginate(5);
         //dd($bills);
         return view('admin.bills.index', ['bills'=>$bills]);
         
@@ -22,6 +23,13 @@ class BillController extends Controller
     public function edit($id){
         $bill = Bill::find($id);
         return view('admin.bills.edit', ['bill'=>$bill]);
+    }
+    public function show($id)
+    {
+        $bill = Bill::find($id);
+        //$bill_detail = Bill::find($id)->products;
+        //return view('admin.bills.show', compact('bill', 'bill_detail' ));
+        return view('admin.bills.show', ['bill'=>$bill]);
     }
     public function update(Request $request, $id)
     {

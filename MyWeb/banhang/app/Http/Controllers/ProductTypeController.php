@@ -93,15 +93,14 @@ class ProductTypeController extends Controller
      */
     public function destroy($id)
     {
-        /*ProductType::destroy($id);
-        return redirect()->route('producttype.index');*/
-
-        $product_type = ProductType::find($id);
-        $product_type->products()->delete();
+        /*$type = ProductType::destroy($id);
+        return redirect()->route('producttype.index', $id);*/
         
-        ProductType::destroy($id);
+        $product_type = ProductType::find($id);
+        $product_type->delete();
+        
         return redirect()->route('producttype.index');
-
+        
 
     }
 }

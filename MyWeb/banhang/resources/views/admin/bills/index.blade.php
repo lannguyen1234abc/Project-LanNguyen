@@ -7,7 +7,7 @@
         <thead>
             <tr>
                 <th> # </th>
-                <th> Customer_id </th>
+                <th> Customer </th>
                 <th> Date_order </th>
                 <th> Total </th>
                 <th> Note </th>
@@ -19,18 +19,22 @@
                 @foreach($bills as $bill)
                     <tr>
                         <td> {{$bill->id}} </td>
-                        <td> {{$bill->customer_id}} </td>
+                        <td> {{$bill->user->name}} </td>
                         <td> {{$bill->date_order}} </td>
                         <td> {{$bill->total}} </td>
                         <td> {{$bill->note}} </td>
                         <td> {{$bill->payment}} </td>
                         
+                        
                         <td >
                             <div class="d-flex flex-row justify-content-center">
-                
-                            <form action="{{route('bills.edit', $bill->id)}}" method="GET">
-                                <button class='btn btn-success ml-2'> EDIT </button> 
-                            </form>
+                                <form action="{{route('bills.show', $bill->id)}}" method="GET">
+                                    <button class='btn btn-danger ml-2'> <i class="far fa-eye"></i> </button>
+                                </form>
+                                <form action="{{route('bills.edit', $bill->id)}}" method="GET">
+                                    <button class='btn btn-success ml-2'> <i class="far fa-edit"></i> </button> 
+                                </form>
+
                         
                             </div> 
                         </td> 

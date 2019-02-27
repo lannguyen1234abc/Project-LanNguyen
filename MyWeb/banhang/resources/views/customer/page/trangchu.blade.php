@@ -2,23 +2,22 @@
 
 @section('content')
 <div class="Slide container mb-5">
-          <div class="row">
+        <div class="row">
                 <div class="col-md-3 ">
-                    <div class="card Carousel_Left_Size Carousel_Left_Title">
-                        <div class="card-header bg-info Carousel_Left_Title">
-                            <h3 class="text-white text-capitalize"> Loại sản phẩm </h3>
-                        </div>
-                        <ul class="list-group list-group-flush">
-
-                            @foreach($type_home as $t_h)
-                            <li class="list-group-item">
-                                <i class="fa fa-arrow-circle-right"></i>
-                                <a href="{{route('loaisanpham',$t_h->id)}}"> {{$t_h->name}} </a>
-                            </li>
+                        <div class="card">
+                            <div class="card-header bg-info text-white d-flex justify-content-center ">
+                                <h4> Tin mới nhất </h4>
+                            </div>
+                            @foreach($new as $n)
+                            <div class="mt-3 mb-3">
+                                    <div class="Product_Tin_Image mr-3 ml-3" alt="" style="background-image: url(banhang/image/products/{{$n->image}})">       
+                                    </div>
+                                    <a href="https://abby.vn/banh-ngot-phap-va-nhat-ban"> 
+                                        {{$n->content}}
+                                    </a>
+                            </div>
                             @endforeach
-
-                        </ul>
-                    </div>
+                        </div>
                 </div>
             
                 <div class="col-md-9">
@@ -47,10 +46,30 @@
                               <span class="carousel-control-next-icon" aria-hidden="true"></span>
                               <span class="sr-only">Next</span>
                             </a>
-                          </div>
-              </div>
-          </div>
-      </div>
+                    </div>
+                </div>
+        </div>
+</div>
+<div class="Adv container mb-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-deck">
+                <div class="card Adv_Card">
+                    <div class="Adv_Image_Image1 ">
+                    </div>
+                </div>
+                <div class="card Adv_Card">
+                    <div class="Adv_Image_Image2 ">
+                    </div>
+                </div>
+                <div class="card Adv_Card">
+                    <div class="Adv_Image_Image3 ">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="Product container mb-5">
         <div class="row mb-5 d-flex justify-content-center">
             <div class="card-header Product_Style text-center bg-info">
@@ -59,28 +78,12 @@
         </div>
         
         <div class="row mb-3">
-            <div class="col-md-3 ">
-                <div class="card">
-                    <div class="card-header bg-info text-white d-flex justify-content-center ">
-                        <h4> Tin mới nhất </h4>
-                    </div>
-                    @foreach($new as $n)
-                    <div class="mt-3 mb-3">
-                            <div class="Product_Tin_Image mr-3 ml-3" alt="" style="background-image: url(banhang/image/products/{{$n->image}})">       
-                            </div>
-                            <a href="https://abby.vn/banh-ngot-phap-va-nhat-ban"> 
-                                {{$n->content}}
-                            </a>
-                    </div>
-                    @endforeach
-                </div>
-            </div>
 
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="row">
                 @foreach($new_products as $index)
                 @if($index->new == 1)
-                <div class="col-md-4 mb-3">
+                <div class="col-md-3 mb-3">
                     <div class="card ">
                         <div class="Product_Image1 " alt="" style="background-image: url(banhang/image/products/{{$index->image}})">
                             @if($index->promotion_price != 0)

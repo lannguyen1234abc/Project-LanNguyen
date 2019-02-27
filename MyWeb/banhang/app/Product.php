@@ -11,8 +11,8 @@ class Product extends Model
     public function producttype(){
         return $this->belongsTo('App\ProductType','id');
     }
-    public function billdetails(){
-        return $this->belongsToMany('App\BillDetail', 'product_id');
+    public function bills(){
+        return $this->belongsToMany('App\Bill', 'BillDetails', 'bill_id', 'product_id')->withPivot('price', 'promotion_price', 'quantity');
     }
     public function carts(){
         return $this->belongsToMany('App\Cart', 'cart_detail','cart_id', 'product_id');

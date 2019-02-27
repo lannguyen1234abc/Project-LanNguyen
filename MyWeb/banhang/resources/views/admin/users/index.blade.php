@@ -26,17 +26,18 @@
                         <td >
                         <div class="d-flex flex-row justify-content-center">
                             <form action="{{route('users.show', $user->id)}}" method="GET">
-                                <button class='btn btn-danger ml-2'> SHOW </button>
+                                <button class='btn btn-danger ml-2'> <i class="far fa-eye"></i> </button>
                             </form>    
 
                             <form action="{{route('users.edit', $user->id)}}" method="GET">
-                                <button class='btn btn-success ml-2'> EDIT </button> 
+                                <button class='btn btn-success ml-2'> <i class="far fa-edit"></i> </button> 
                             </form>
                             
                             <form action="{{route('users.destroy', $user->id)}}" method="POST">
                                 {{csrf_field()}}
                                 <input type='hidden' value='DELETE' name='_method'>
-                                <button type='submit' class='btn btn-warning ml-2'> DELETE </button>
+                               
+                                <button type="submit" class='btn btn-success ml-2'> <i class="far fa-trash-alt"></i>  </button> 
                             </form>
                         </div>        
                         </td>

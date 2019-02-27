@@ -9,7 +9,6 @@ use App\Product;
 use App\User;
 use App\News;
 
-
 class PageController extends Controller
 {
     public function home(){
@@ -33,9 +32,9 @@ class PageController extends Controller
     }
     public function producttype($type){
         $types = ProductType::all(); //loại sản phẩm
-
+       
         $product_type = Product::where('producttype_id', $type)->paginate(6);
-        return view('customer.page.loaisanpham', compact('types','product_type'));
+        return view('customer.page.loaisanpham', compact('types','product_type','name'));
     }
     public function introduce(){
         return view('customer.page.gioithieu');

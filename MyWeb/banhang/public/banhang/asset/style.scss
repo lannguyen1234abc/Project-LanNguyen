@@ -33,6 +33,45 @@
     }
     
 }
+.Adv{
+    &_Card{
+        border-radius: 20px !important;
+    }
+    &_Content{
+        font-style: italic;
+        color: blue;
+        font-size: 30px;
+    }
+    &_Image{
+        &_Image1{
+            background-image: url("/banhang/image/products/pudding-kem.jpg");
+            height: 250px;
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 20px !important;
+        }
+        &_Image2{
+            background-image: url("/banhang/image/products/banh-ngot-phap.jpg");
+            height: 250px;
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 20px !important;
+        }
+        &_Image3{
+            background-image: url("/banhang/image/products/banh-ngot-trai-cay.jpg");
+            height: 250px;
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 20px !important;
+        }
+    }
+}
 .Product{
     &_Style{
         border-radius: 20px !important;
@@ -46,9 +85,11 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            
+            transition: 0.3s;       
     }
-    
+    &_Image1:hover{
+        transform: scale(0.5);
+    }
     &_Image2{
         height: 200px;
         width: 200px;
@@ -87,7 +128,7 @@
     &_Size{
         &_content-left{
             width: 100%;
-            height: 500px;
+            height: auto;
         }
         &_content-right{
             width: 100%;

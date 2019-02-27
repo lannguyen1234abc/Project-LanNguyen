@@ -24,14 +24,6 @@
         
         <form class=" d-flex flex-column mb-5 mt-5 w-100" action="{{route('postAdminlogin')}}" method="POST">
         {{ csrf_field() }}
-
-                @if(count($errors) > 0)
-                    <div class="alert alert-success">
-                        @foreach($errors->all() as $err)
-                            {{$err}}
-                        @endforeach
-                    </div>
-                @endif
                 
                 @if( session('thongbao'))
                     <div class="alert alert-danger">
@@ -43,11 +35,21 @@
                         <lable> <b> <i class="fas fa-envelope"></i> Username</b> </lable>
                         <input type="text" placeholder="Username" name="name">
                     </div>
+                    @if($errors->has('name'))
+                        <div class="alert alert-success">
+                            {{$errors->first('name')}}
+                        </div>
+                    @endif
                     
                     <div class="mb-3 d-flex flex-column">
                         <lable> <b> <i class="fas fa-lock-open"></i>Password</b> </lable>
                         <input type="password" placeholder="Password" name="password">
                     </div>
+                    @if($errors->has('password'))
+                        <div class="alert alert-success">
+                            {{$errors->first('password')}}
+                        </div>
+                    @endif
                     
                     <div class="mb-3">
                         <button type="submit" class="btn btn-danger"> Login

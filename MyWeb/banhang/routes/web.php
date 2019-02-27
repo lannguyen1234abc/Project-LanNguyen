@@ -82,6 +82,7 @@ Route::put('products/{id}', 'ProductController@update')->name('products.update')
 
 ///Bill
 Route::get('/bills', 'BillController@index')->name('bills.index');
+Route::get('/bills/{id}', 'BillController@show')->name('bills.show');
 Route::delete('/bills/{id}', 'BillController@destroy')->name('bills.destroy');
 Route::get('/bills/{id}/edit', 'BillController@edit')->name('bills.edit');
 Route::put('/bills/{id}', 'BillController@update')->name('bills.update');

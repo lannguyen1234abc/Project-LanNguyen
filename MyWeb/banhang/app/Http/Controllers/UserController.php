@@ -105,6 +105,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        $user = User::find($id);
+        $user->bills()->delete();
+
         User::destroy($id);
         return redirect()->route('users.index');
     }
@@ -133,9 +136,12 @@ class UserController extends Controller
                 're_password'=>'required|same:password'
             ],
             [
+                'name.required'=>'Vui lòng nhập tên của bạn',
                 'email.required'=>'Vui lòng nhập email',
                 'email.email'=>'Email không đúng định dạng',
                 'email.unique'=>'Email này đã có người sử dụng',
+                'phone_number.required'=>'Vui lòng nhập số điện thoại của bạn',
+                'address.required'=>'Vui lòng nhập địa chỉ của bạn',
                 'password.required'=>'Vui lòng nhập password',
                 'password.min'=>'Password ít nhất 5 kí tự',
                 'password.max'=>'Password tối đa 20 kí tự',
@@ -148,10 +154,10 @@ class UserController extends Controller
             $user->phone_number = $rq->phone_number;
             $user->address = $rq->address;
             $user->role = 'customer';
-            
             //$password = bcrypt($rq->password);
             $user->password = bcrypt($rq->password);
             $user->save();
+
             return redirect()->back()->with('thanhcong', 'Tạo tài khoản thành công');
     }
     public function postDangnhap(Request $request){
