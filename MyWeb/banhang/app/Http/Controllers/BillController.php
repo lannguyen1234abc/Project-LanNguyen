@@ -20,10 +20,7 @@ class BillController extends Controller
         return view('admin.bills.index', ['bills'=>$bills]);
         
     }
-    public function edit($id){
-        $bill = Bill::find($id);
-        return view('admin.bills.edit', ['bill'=>$bill]);
-    }
+
     public function show($id)
     {
         $bill = Bill::find($id);
@@ -31,26 +28,45 @@ class BillController extends Controller
         //return view('admin.bills.show', compact('bill', 'bill_detail' ));
         return view('admin.bills.show', ['bill'=>$bill]);
     }
+
+    public function edit($id){
+        $bill = Bill::find($id);
+        return view('admin.bills.edit', ['bill'=>$bill]);
+    }
+    
     public function update(Request $request, $id)
     {
         $bill = Bill::find($id);
         
-        $bill -> update([
+        /*$bill -> update([
             'customer_id' => $request ->customer_id,
             'date_order' => $request ->date_order,
             'total' => $request ->total,
             'note' => $request ->note,
-            'payment' => $request ->payment
-        ]);
+            'payment' => $request ->payment,
+            'status' => $request ->status
+        ]);*/
+      
+        $bill->date_order = $request ->date_order;
+        
+        $bill->total = $request ->total;
+        $bill->note = $request ->note;
+
+        
+        $bill->payment = $request ->payment;
+        $bill->status = $request ->status;
+        //$bill->customer_id = $request->customer_id;
+        $bill->save();
         return redirect()->route('bills.index');
     }
+    /*
     public function destroy($id)
     {
        
         Bill::destroy($id);
         return redirect()->route('bills.index');
     }
-
+    */
 
     public function getBill(){
         if(Session::has('cart')){
@@ -89,6 +105,7 @@ class BillController extends Controller
         $bill->total = $cart->totalPrice;
         $bill->note = $rq->note;
         $bill->payment = $rq->payment;
+        //$bill->status = $rq->status;
         $bill->save();
 
         foreach( $cart->items as $key => $value){

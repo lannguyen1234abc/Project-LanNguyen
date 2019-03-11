@@ -1,22 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-</head>
-<body>
+@extends('admin.home')
+@section('content-right')
     <div class="container mt-3 mb-5">
         <div class="row"> 
             <div class="col-md-6 offset-md-3">
-                <h5 class="text-info"> Thêm sản phẩm </h5> </div>
+                <h5 class="text-info"> Thêm sản phẩm </h5> 
             </div>
+        </div>
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <form action="{{route('products.store')}}" method="POST">
+                <p class="mb-3 mt-3 text-success"> 
+                @if( Session::has('thongbao')) {{Session::get('thongbao')}}
+                @endif
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form action="{{route('products.store')}}" method="POST" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <input type="hidden" name="_method" value="POST" />
                     <div class="mb-3 d-flex flex-column">
@@ -29,7 +29,7 @@
                     </div>
                     <div class="mb-3 d-flex flex-column">
                         <lable> Description </lable>
-                        <input type="text" id="description" placeholder="Description" name="description">
+                        <textarea id="editor1" name="description"></textarea>
                     </div>
                     <div class="mb-3 d-flex flex-column">
                         <lable> Price </lable>
@@ -41,7 +41,7 @@
                     </div>
                     <div class="mb-3 d-flex flex-column">
                         <lable> Image </lable>
-                        <input type="text" id="image" placeholder="Image" name="image">
+                        <input type="file" id="image" name="image" class="form-control">
                     </div>
                     <div class="mb-3 d-flex flex-column">
                         <lable> Unit </lable>
@@ -50,6 +50,15 @@
                     <div class="mb-3 d-flex flex-column">
                         <lable> New </lable>
                         <input type="text" id="new" placeholder="New" name="new">
+                    </div>
+                    <div class="mb-3 d-flex flex-column">
+                        <lable> <b> Status </b></lable>
+                        <lable class="radio-inline">
+                        <input type="radio" id="status" name="status" value="Còn" checked=""> Còn
+                        </lable>
+                        <lable class="radio-inline">
+                        <input type="radio" id="status" name="status" value="Hết" checked=""> Hết
+                        </lable>
                     </div>
                     <div>
                         <button type="submit"> CREATE
@@ -60,5 +69,4 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+@endsection

@@ -12,6 +12,7 @@
                 <th> Total </th>
                 <th> Note </th>
                 <th> Payment </th>
+                <th> Status </th>
                 <th> Action </th>
             </tr>
         </thead>
@@ -24,7 +25,7 @@
                         <td> {{$bill->total}} </td>
                         <td> {{$bill->note}} </td>
                         <td> {{$bill->payment}} </td>
-                        
+                        <td> {{$bill->status}} </td>
                         
                         <td >
                             <div class="d-flex flex-row justify-content-center">

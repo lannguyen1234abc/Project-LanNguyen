@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ProductType;
+use App\Product;
 
 class ProductTypeController extends Controller
 {
@@ -40,7 +41,7 @@ class ProductTypeController extends Controller
             'name' => $request ->name,
             'description' => $request ->description
         ]);
-        return redirect()->route('producttype.index');
+        return redirect()->back()->with('thongbao', 'Thêm mới thành công');
     }
 
     /**
@@ -82,7 +83,7 @@ class ProductTypeController extends Controller
             'name' => $request ->name,
             'description' => $request ->description
         ]);
-        return redirect()->route('producttype.show', $id);
+        return redirect()->back()->with('thongbao', 'Chỉnh sửa thành công');
     }
 
     /**
@@ -93,14 +94,12 @@ class ProductTypeController extends Controller
      */
     public function destroy($id)
     {
-        /*$type = ProductType::destroy($id);
-        return redirect()->route('producttype.index', $id);*/
-        
-        $product_type = ProductType::find($id);
-        $product_type->delete();
-        
+        /*$type = ProductType::find($id);
+        $type->products()->delete();*/
+        ProductType::destroy($id);
         return redirect()->route('producttype.index');
         
-
+        /*Producttype::destroy($id->id);
+        return redirect()->route('producttype.index');*/
     }
 }

@@ -51,6 +51,17 @@
                         ('bills.index')}}"> List </a></li>
                     </ul>
                 </div>
+                <div class="">
+                    <div class="text-white">
+                    <i class="fas fa-file-alt mr-2"></i>
+                        News
+                    </div>
+                    <ul class="text-white">
+                        <li ><a class="text-white" href="{{route
+                        ('news.index')}}"> List </a></li>
+                        <li ><a class="text-white"  href="{{route('news.create')}}"> Add </a></li>
+                    </ul>
+                </div>
                 
                 
         </div>

@@ -15,9 +15,7 @@ class CartDetailTableSeeder extends Seeder
         CartDetail::create([
             'cart_id'->cart_id,
             'product_id'->cart_id,
-            'quantity'->quantity,
-            'price'->price,
-            'promotion_price'->promotion_price
+            'quantity'->quantity
         ]);
     }
 }

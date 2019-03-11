@@ -18,7 +18,8 @@ class ProductsTableSeeder extends Seeder
             'promotion_price'->promotion_price,
             'image'->image,
             'unit'->unit,
-            'new'->new
+            'new'->new,
+            'status'->status
         ]);
     }
 }

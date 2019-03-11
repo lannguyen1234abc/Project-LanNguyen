@@ -1,8 +1,8 @@
 
-    <div class="Header container-fluid border-bottom">
-        <div class="row mt-3 mb-3 ">
-            <div class="col-md-6 d-flex justify-content-start align-items-center">
-                <div class="ml-5">
+    <div class="container bg-white mb-3 ">
+        <div class="row">
+            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                <div class="">
                     <b> <i class="fas fa-home"></i> </b>
                     <b class="pr-5"> 459 Tôn Đức Thắng, Liên Chiểu </b>
                     <b> <i class="fas fa-phone"></i> </b>
@@ -10,94 +10,86 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="d-flex justify-content-center">
+                <div class="d-flex justify-content-center align-items-center">
                     <form action="{{route('search')}}" method="GET" class="d-flex flex-row mr-3">
                         <div class="input-group">
                             <input class="form-control" type="text" placeholder="Search" name="search" aria-label="Search">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-info my-2 my-sm-0" type="submit"> <i class="fas fa-search"></i> </button>
+                                <button class="btn btn-outline-dark"><i class="fas fa-search"></i></button>
                             </div>
                         </div>
-
                     </form>
 
                     @if(Auth::check())
                     
-                    <button class="btn btn-outline-info mr-3"> 
-                        <a href="{{route('dangxuat')}}" class="link"> Đăng xuất </a> 
-                    </button>
+                    <div class="mr-3"> 
+                        <a href="{{route('dangxuat')}}" class="text-dark"> Đăng xuất </a> 
+                    </div>
                     
-                    <button class="btn mr-3"> 
-                        <i class="fas fa-user text-info"></i>  
+                    <div class="mr-3"> 
+                        <i class="fas fa-user text-dark"></i>  
                         <a href="" class="link"> {{Auth::user()->name}}  </a> 
-                    </button>
+                    </div>
                     
                     @else
-                    <button class="btn btn-outline-info mr-3"> 
-                        <a href="{{route('dangki')}}" class="link"> Đăng kí </a> 
-                    </button>
-                    <button class="btn btn-outline-info mr-3"> 
-                        <a href="{{route('dangnhap')}}" class="link"> Đăng nhập </a>
-                    </button>
+                    <div class="mr-3"> 
+                        <a href="{{route('dangki')}}" class="text-dark"> Đăng kí </a> 
+                    </div>
+                    <div class="mr-3"> 
+                        <a href="{{route('dangnhap')}}" class="text-dark"> Đăng nhập </a>
+                    </div>
                     @endif
 
-                    <button class="btn btn-white text-secondary" > 
-                        <a href="{{route('showCart')}}" class="link"> <i class="fas fa-shopping-cart"></i>  </a> <span class="pl-2"> Giỏ hàng </span>
+                    <div class=" text-dark mr-3" > 
+                        <a href="{{route('showCart')}}" class="link text-dark"> <i class="fas fa-shopping-cart"></i>  </a> 
                         <span> 
-                            (@if(Session::has('cart')) 
+                            @if(Session::has('cart')) 
                                 {{Session('cart')->totalQty}} 
                             @else
-                                Trống
-                            @endif)
+                                
+                            @endif
                         </span>
-                    </button> 
+                    </div> 
+                    
                 </div>
             </div>
         </div>
-    </div>
-    <div class="Logo container mb-3 mt-3">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="d-flex align-items-center text-danger">
-                          <i class="far fa-hand-peace display-4 mr-3"></i>
-                          <h4> <font face="Comic sans MS" size="8"> Lucky Cake </font> </h4>
-                    </div>
+</div>
+<div class="container-fluid bg-white border-bottom shadow-sm mb-3 sticky-top ">
+            <div class="row Menu_Size">
+                <div class="col-md-3 ">
+                    <div class="Logo_Image"></div>
+                </div>
+                <div class="col-md-9 d-flex justify-content-center align-items-center ">
+                    
+                        <ul class="Menu_Menu-item d-flex flex-row">
+                            <li class="mr-5">
+                                <a class="text-dark Menu_Link" href="{{route('trangchu')}}"> Trang chủ </a>
+                            </li>
+                            <li class="mr-5 Menu_Has-sub-menu">
+                                <a class="text-dark Menu_Link" href="{{route('sanpham')}}"> Sản phẩm </a>
+                                <ul class="Menu_Sub-menu ">
+                                    @foreach($loai_sp as $type)
+                                        <li class="Menu_Item-link">
+                                            <a class="Menu_Link text-dark" href="{{route('loaisanpham',$type->id)}}"> {{$type->name}} </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                            <li class="mr-5">
+                                <a class="text-dark Menu_Link" href="{{route('gioithieu')}}"> Giới thiệu </a>
+                            </li>
+                            <li class="mr-5">
+                                <a class="text-dark Menu_Link" href="{{route('lienhe')}}"> Liên hệ </a>
+                            </li>
+                            <li class="mr-5">
+                                <a class="text-dark Menu_Link" href=""> Tin tức </a>
+                            </li>
+                        </ul>
+                    
                 </div>
             </div>
-        </div>
-    <div class="Menu container-fluid bg-info mb-3 sticky-top  ">
-            <div class="row h-100">
-                <div class="col-md-12">
-                    <nav class="navbar navbar-expand-lg navbar-light ">
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav navbar-hover w-100 d-flex justify-content-around ">
-                                <li class="nav-item">
-                                    <a class="nav-link " href="{{route('trangchu')}}"> <h4 class="text-white text-capitalize"> Trang chủ </h4>
-                                    </a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link" href="{{route('sanpham')}}"> <h4 class="text-white text-capitalize"> Sản phẩm </h4> 
-                                    </a>
-                                    <!--
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="#"> Bánh ngọt </a>
-                                        <a class="dropdown-item" href="#"> Pizza </a>
-                                        <a class="dropdown-item" href="#"> Bánh kem </a>
-                                        <a class="dropdown-item" href="#"> Bánh mặn </a>
-                                    </div> -->
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{route('gioithieu')}}"> <h4 class="text-white text-capitalize"> Giới thiệu </h4> </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link " href="{{route('lienhe')}}"> <h4 class="text-white text-capitalize"> Liên hệ </h4> </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
+    </div> 
 
 
     

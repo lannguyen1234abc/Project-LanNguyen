@@ -3,6 +3,7 @@
 @section('content')
     <div class="container mt-5 mb-5">
         <div class="row">
+            <!--
             <div class="col-md-3">
                 <div class="card Carousel_Left_Size">
                     <div class="card-header bg-info">
@@ -20,7 +21,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-9">
+-->
+            <div class="col-md-12">
                 <div class="row mb-5 d=flex justify-content-center">
                         <div class="card-header Product_Style text-center bg-info">
                             Sản phẩm 
@@ -30,7 +32,7 @@
 
                 @foreach($products as $index)
                
-                <div class="col-md-4 mb-3">
+                <div class="col-md-3 mb-3">
                     <div class="card">
                         <div class="Product_Image1" alt="" style="background-image: url(banhang/image/products/{{$index->image}})">
                             @if($index->promotion_price != 0)

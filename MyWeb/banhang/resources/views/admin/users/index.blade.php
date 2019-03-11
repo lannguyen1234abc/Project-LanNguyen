@@ -10,7 +10,7 @@
                 <th> Name </th>
                 <th> Email </th>
                 <th> Phone_number </th>
-                <th> Role </th>
+                <th> Address </th>
                 <th> Action </th>
             </tr>
         </thead>
@@ -21,7 +21,7 @@
                         <td> {{$user->name}} </td>
                         <td> {{$user->email}} </td>
                         <td> {{$user->phone_number}} </td>
-                        <td> {{$user->role}} </td>
+                        <td> {{$user->address}} </td>
                         
                         <td >
                         <div class="d-flex flex-row justify-content-center">

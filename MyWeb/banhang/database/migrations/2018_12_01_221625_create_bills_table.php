@@ -15,10 +15,11 @@ class CreateBillsTable extends Migration
     {
         Schema::create('bills', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('date_order')->nullable();
+            $table->date('date_order');
             $table->double('total');
-            $table->string('note')->nullable();
-            $table->string('payment')->nullable();
+            $table->string('note');
+            $table->string('payment');
+            $table->string('status')->default('Chưa giao hàng')->change();
             $table->timestamps();
         });
     }

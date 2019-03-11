@@ -1,3 +1,4 @@
+
 .Button{
     &_Dangki{
         background-image: url("https://images.unsplash.com/photo-1536935779868-3ea6bd0de56e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=642&q=80");
@@ -8,10 +9,80 @@
         background-size: cover;
     }
 }
-.Menu{
-    &_Height{
-        height: 60px;
+
+.Logo{
+    &_Image{
+        background-image: url("http://www.selectharvests.com.au/media/Lucky_3D_Logo_FA_RGB_small.jpg");
+        height: 150px;
+        width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
+}
+.Menu{
+    &_Size{
+        padding-left: 140px;
+    }
+    &_Menu-item{
+        list-style-type: none;
+        font-size: 20px;
+        text-transform: uppercase;
+    }
+    &_Link{
+        text-decoration: none !important;
+    }
+
+    &_Has-sub-menu{
+        position: relative;
+    }
+    &_Sub-menu{
+        visibility: hidden;
+        position: absolute;
+        background-color: #eee;
+        padding: 10px 0;
+        list-style: none;
+        font-size: 15px;
+        text-transform: capitalize;
+        
+    }
+
+    &_Has-sub-menu:hover &_Sub-menu{
+        position: absolute;
+        opacity: 1;
+        visibility: visible;
+        top: 30px;
+        //transition: all 0.3s;
+        text-decoration: none;
+    }
+    &_Item-link{
+        padding: 10px 0;
+        padding-left: 10px;
+        padding-right: 10px;
+        position: relative;
+        color:black;
+        text-decoration: none!important;
+        display: block;
+    }
+    &_Item-link:after{
+        content: '';
+        width:0%;
+        height:2px;
+        position: absolute;
+        bottom:0;
+        left:0;
+        background-color:#898F8D;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s;
+    }
+    &_Item-link:hover:after{
+        width:100%;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    
 }
 .Carousel{
     &_Left{
@@ -88,7 +159,7 @@
             transition: 0.3s;       
     }
     &_Image1:hover{
-        transform: scale(0.5);
+        transform: scale(0.8);
     }
     &_Image2{
         height: 200px;

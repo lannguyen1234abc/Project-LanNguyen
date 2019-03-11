@@ -8,11 +8,13 @@
                 <th> # </th>
                 <th> Name </th>
                 <th> Type_id </th>
+                <th> Description </th>
                 <th> Price </th>
                 <th> Promotion_price </th>
                 <th> Image </th>
                 <th> Unit </th>
                 <th> New </th>
+                <th> Status </th>
                 <th> Action </th>
             </tr>
         </thead>
@@ -22,11 +24,13 @@
                         <td> {{$product->id}} </td>
                         <td> {{$product->name}} </td>
                         <td> {{$product->producttype_id}} </td>
+                        <td> {{$product->description}} </td>
                         <td> {{$product->price}} </td>
                         <td> {{$product->promotion_price}} </td>
                         <td> {{$product->image}} </td>
                         <td> {{$product->unit}} </td>
                         <td> {{$product->new}} </td>
+                        <td> {{$product->status}} </td>
                         <td class="d-flex flex-row justify-content-center">
                             
                             <form action="{{route('products.edit', $product->id)}}" method="GET">

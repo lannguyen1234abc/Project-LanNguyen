@@ -12,21 +12,39 @@
                 {{csrf_field()}}
                 <input type="hidden" name="_method" value="PUT" />
                     <div class="mb-3 d-flex flex-column">
-                        <lable> <b> Customer_id </b> </lable>
-                        <input type="text" id="customer_id" placeholder="Customer_id " name="customer_id " value="{{$bill->customer_id }}">
-                            
+                        <lable> <b> Customer </b> </lable>
+                        <input type="text" id="name" placeholder="Name " name="name " value="{{$bill->user->name }}" readonly>
+                    </div>
+
+                    <div class="mb-3 d-flex flex-column">       
                         <lable> <b> Date_order </b> </lable>
-                        <input type="text" id="date_order" placeholder="Date_order" name="date_order" value="{{$bill->date_order}}">
+                        <input type="text" id="date_order" placeholder="Date_order" name="date_order" value="{{$bill->date_order}}" readonly>
+                    </div>
 
+                    <div class="mb-3 d-flex flex-column">
                         <lable> <b> Total </b> </lable>
-                        <input type="text" id="total" placeholder="Total" name="total" value="{{$bill->total}}">
+                        <input type="text" id="total" placeholder="Total" name="total" value="{{$bill->total}}" readonly>
+                    </div>
 
+                    <div class="mb-3 d-flex flex-column">
                         <lable> <b> Note </b> </lable>
-                        <input type="text" id="note" placeholder="Note" name="note" value="{{$bill->note}}">
+                        <input type="text" id="note" placeholder="Note" name="note" value="{{$bill->note}}" readonly>
+                    </div>
 
+                    <div class="mb-3 d-flex flex-column">
                         <lable> <b> Payment </b> </lable>
-                        <input type="text" id="payment" placeholder="Payment" name="payment" value="{{$bill->payment}}">
+                        <input type="text" id="payment" placeholder="Payment" name="payment" value="{{$bill->payment}}" readonly>
+                    </div>
 
+                    <div class="mb-3 d-flex flex-column">
+                        <lable> <b> Status </b></lable>
+                        <lable class="radio-inline">
+                        <input type="radio" id="status" name="status" value="Chưa giao hàng" checked=""> Chưa giao hàng
+                        </lable>
+                        <lable class="radio-inline">
+                        <input type="radio" id="status" name="status" value="Giao hàng thành công" checked=""> Giao hàng thành công
+                        </lable>
+                        
                     </div>
                         
 

@@ -6,16 +6,18 @@
                 <div class="col-md-3 ">
                         <div class="card">
                             <div class="card-header bg-info text-white d-flex justify-content-center ">
-                                <h4> Tin mới nhất </h4>
+                                <h4 class="text-capitalize"> Tin mới nhất </h4>
                             </div>
                             @foreach($new as $n)
+                            @if($n->new == 1)
                             <div class="mt-3 mb-3">
-                                    <div class="Product_Tin_Image mr-3 ml-3" alt="" style="background-image: url(banhang/image/products/{{$n->image}})">       
+                                    <div class="Product_Tin_Image mr-3 ml-3" alt="" style="background-image: url(banhang/image/tintuc/{{$n->image}})">       
                                     </div>
-                                    <a href="https://abby.vn/banh-ngot-phap-va-nhat-ban"> 
+                                    <a href="{{$n->title}}" target="_blank"> 
                                         {{$n->content}}
                                     </a>
                             </div>
+                            @endif
                             @endforeach
                         </div>
                 </div>
@@ -83,7 +85,7 @@
                 <div class="row">
                 @foreach($new_products as $index)
                 @if($index->new == 1)
-                <div class="col-md-3 mb-3">
+                <div class="col-md-3 mb-3 ">
                     <div class="card ">
                         <div class="Product_Image1 " alt="" style="background-image: url(banhang/image/products/{{$index->image}})">
                             @if($index->promotion_price != 0)
@@ -110,7 +112,7 @@
                                     <a href="{{route('getAddtoCart', $index->id)}}"> <i class="fas fa-shopping-cart text-white"></i> </a> 
                                 </button>
                                 <button class="btn btn-outline-primary"> 
-                                    <a href="{{route('chitietsanpham', $index->id)}}" class="link"> Chi tiết >> </a> 
+                                    <a href="{{route('chitietsanpham', $index->id)}}" class="link text-dark"> Chi tiết >> </a> 
                                 </button>
                             </div>
                             

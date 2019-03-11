@@ -9,7 +9,6 @@
                 <th> Tên sản phẩm </th>
                 <th> Số lượng </th>
                 <th> Price </th>
-                
             </tr>
         </thead>
         <tbody>
@@ -20,7 +19,7 @@
                         <td> {{$pr->name}} </td>
                         <td> {{$pr->pivot->quantity}} </td>
                         <td> {{$pr->pivot->price}} </td>
-                         
+                        
                     </tr>
                 @endforeach
           

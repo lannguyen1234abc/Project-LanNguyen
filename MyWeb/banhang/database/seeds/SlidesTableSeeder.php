@@ -13,8 +13,7 @@ class SlidesTableSeeder extends Seeder
     public function run()
     {
         Slide::create([
-            'link'->link,
-            'image'->image
+            'link'->link
         ]);
     }
 }

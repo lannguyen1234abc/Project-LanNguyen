@@ -15,7 +15,8 @@ class BillsTableSeeder extends Seeder
             'date_order'->date_order,
             'total'->total,
             'note'->note,
-            'payment'->payment
+            'payment'->payment,
+            'status'->status
         ]);
     }
 }

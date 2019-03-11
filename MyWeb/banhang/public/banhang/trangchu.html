@@ -1,119 +1,167 @@
-<div class="Slide container mb-5">
-    <div class="row">
-        <div class="col-md-3 ">
-            <div class="card Carousel_Left_Size Carousel_Left_Title">
-                <div class="card-header bg-info Carousel_Left_Title">
-                    <h3 class="text-white text-capitalize"> Loại sản phẩm </h3>
-                </div>
-                <ul class="list-group list-group-flush">
+<!doctype html>
+<html lang="en">
 
-                    @foreach($type_home as $t_h)
-                    <li class="list-group-item">
-                        <i class="fa fa-arrow-circle-right"></i>
-                        <a href="{{route('loaisanpham',$t_h->id)}}"> {{$t_h->name}} </a>
-                    </li>
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="Slide container mb-5">
+        <div class="row">
+            <div class="col-md-3 ">
+                <div class="card">
+                    <div class="card-header bg-info text-white d-flex justify-content-center ">
+                        <h4> Tin mới nhất </h4>
+                    </div>
+                    @foreach($new as $n)
+                    @if($n->new == 1)
+                    <div class="mt-3 mb-3">
+                        <div class="Product_Tin_Image mr-3 ml-3" alt=""
+                            style="background-image: url(banhang/image/tintuc/{{$n->image}})">
+                        </div>
+                        <a href="{{$n->title}}">
+                            {{$n->content}}
+                        </a>
+                    </div>
+                    @endif
                     @endforeach
+                </div>
+            </div>
 
-                </ul>
+            <div class="col-md-9">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        @foreach( $slides as $sl )
+                        <li data-target="#carouselExampleIndicators" data-slide-to="{{ $loop->index }}"
+                            class="{{ $loop->first ? 'active' : '' }}"></li>
+                        @endforeach
+
+                    </ol>
+
+                    <div class="carousel-inner" role="listbox">
+                        @foreach( $slides as $sl )
+                        <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                            <div class="Carousel_Image1" alt=""
+                                style="background-image : url(banhang/image/products/{{$sl->link}})">
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
             </div>
         </div>
-
-        <div class="col-md-9">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    @foreach( $slides as $sl )
-                    <li data-target="#carouselExampleIndicators" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
-                    @endforeach
-
-                </ol>
-
-                <div class="carousel-inner" role="listbox">
-                    @foreach( $slides as $sl )
-                    <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                        <div class="Carousel_Image1" alt="" style="background-image : url(banhang/image/products/{{$sl->link}})">
+    </div>
+    <div class="Adv container mb-5">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card-deck">
+                    <div class="card Adv_Card">
+                        <div class="Adv_Image_Image1 ">
                         </div>
                     </div>
-                    @endforeach
-                </div>
-
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="Product container mb-5">
-    <div class="row mb-5 d-flex justify-content-center">
-        <div class="card-header Product_Style text-center bg-info">
-            Sản phẩm mới
-        </div>
-    </div>
-
-    <div class="row mb-3">
-        <div class="col-md-3 ">
-            <div class="card-header bg-info text-white d-flex justify-content-center ">
-                <h4> Tin mới nhất </h4>
-            </div>
-            <div class="">
-                <div class="Product_Tin_Image mr-3" alt="" style="background-image: url(banhang/image/products/Banh-ngot-trai-cay.jpg)">
-                </div>
-                <a href="https://abby.vn/banh-ngot-phap-va-nhat-ban">
-                    Bánh ngọt Pháp và Nhật Bản làm mê mẩn giới trẻ
-                </a>
-            </div>
-
-        </div>
-
-        <div class="col-md-9">
-            <div class="row">
-                @foreach($new_products as $index)
-                @if($index->new == 1)
-                <div class="col-md-4 mb-3">
-                    <div class="card ">
-                        <div class="Product_Image1" alt="" style="background-image: url(banhang/image/products/{{$index->image}})">
-                            @if($index->promotion_price != 0)
-                            <div class="bg-warning" style="width:50px; height:30px;">
-                                <h4 class="text-center text-white"> Sale <h4>
-                            </div>
-                            @endif
+                    <div class="card Adv_Card">
+                        <div class="Adv_Image_Image2 ">
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title"> {{$index->name}} </h5>
-                            <div class="d-flex flex-row">
+                    </div>
+                    <div class="card Adv_Card">
+                        <div class="Adv_Image_Image3 ">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="Product container mb-5">
+        <div class="row mb-5 d-flex justify-content-center">
+            <div class="card-header Product_Style text-center bg-info">
+                Sản phẩm mới
+            </div>
+        </div>
 
-                                @if($index->promotion_price == 0)
-                                <span class="card-text pr-3"> {{ number_format($index->price)}} đ</span>
-                                @else
-                                <span class="card-text pr-3"> <del>{{number_format($index->price)}} </del> </span>
-                                <span class="card-text"> {{number_format($index->promotion_price)}} đ
-                                </span>
+        <div class="row mb-3">
+
+            <div class="col-md-12">
+                <div class="row">
+                    @foreach($new_products as $index)
+                    @if($index->new == 1)
+                    <div class="col-md-3 mb-3 ">
+                        <div class="card ">
+                            <div class="Product_Image1 " alt=""
+                                style="background-image: url(banhang/image/products/{{$index->image}})">
+                                @if($index->promotion_price != 0)
+                                <div class="bg-warning" style="width:50px; height:30px;">
+                                    <h4 class="text-center text-white"> Sale <h4>
+                                </div>
                                 @endif
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title"> {{$index->name}} </h5>
+                                <div class="d-flex flex-row">
+
+                                    @if($index->promotion_price == 0)
+                                    <span class="card-text pr-3"> {{ number_format($index->price)}} đ</span>
+                                    @else
+                                    <span class="card-text pr-3"> <del>{{number_format($index->price)}} </del> </span>
+                                    <span class="card-text"> {{number_format($index->promotion_price)}} đ
+                                    </span>
+                                    @endif
+
+                                </div>
+                                <div class="d-flex flex-row mt-3">
+                                    <button class="btn btn-warning">
+                                        <a href="{{route('getAddtoCart', $index->id)}}"> <i
+                                                class="fas fa-shopping-cart text-white"></i> </a>
+                                    </button>
+                                    <button class="btn btn-outline-primary">
+                                        <a href="{{route('chitietsanpham', $index->id)}}" class="link text-dark"> Chi
+                                            tiết >> </a>
+                                    </button>
+                                </div>
 
                             </div>
-                            <div class="d-flex flex-row mt-3">
-                                <button class="btn btn-warning">
-                                    <a href="{{route('getAddtoCart', $index->id)}}"> <i class="fas fa-shopping-cart text-white"></i>
-                                    </a>
-                                </button>
-                                <button class="btn btn-outline-primary">
-                                    <a href="{{route('chitietsanpham', $index->id)}}" class="link"> Chi tiết >> </a>
-                                </button>
-                            </div>
-
                         </div>
                     </div>
+                    @endif
+                    @endforeach
                 </div>
-                @endif
-                @endforeach
             </div>
+
         </div>
 
     </div>
 
-</div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

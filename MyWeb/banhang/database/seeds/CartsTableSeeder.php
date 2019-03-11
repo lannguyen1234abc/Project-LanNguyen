@@ -13,7 +13,7 @@ class CartsTableSeeder extends Seeder
     public function run()
     {
         Cart::create([
-            
+            'customer_id'->customer_id
         ]);
     }
 }

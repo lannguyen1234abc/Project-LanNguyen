@@ -55,40 +55,43 @@ Route::post('/postAdminlogin', 'UserController@postAdminlogin')->name('postAdmin
 Route::get('/admin', 'PageController@getadmin')->name('admin');
 
 ///Loại sản phẩm
-Route::get('/producttype', 'ProductTypeController@index')->name('producttype.index');
-Route::get('/producttype/create', 'ProductTypeController@create')->name('producttype.create');
-Route::post('/producttype', 'ProductTypeController@store')->name('producttype.store');
-Route::get('/producttype/{id}', 'ProductTypeController@show')->name('producttype.show');
-Route::delete('/producttype/{id}', 'ProductTypeController@destroy')->name('producttype.destroy');
-Route::get('/producttype/{id}/edit', 'ProductTypeController@edit')->name('producttype.edit');
-Route::put('producttype/{id}', 'ProductTypeController@update')->name('producttype.update');
+Route::get('admin/producttype', 'ProductTypeController@index')->name('producttype.index');
+Route::get('admin/producttype/create', 'ProductTypeController@create')->name('producttype.create');
+Route::post('admin/producttype', 'ProductTypeController@store')->name('producttype.store');
+Route::get('admin/producttype/{id}', 'ProductTypeController@show')->name('producttype.show');
+Route::delete('admin/producttype/{id}', 'ProductTypeController@destroy')->name('producttype.destroy');
+Route::get('admin/producttype/{id}/edit', 'ProductTypeController@edit')->name('producttype.edit');
+Route::put('admin/producttype/{id}', 'ProductTypeController@update')->name('producttype.update');
 
 /// Users
-Route::get('/users', 'UserController@index')->name('users.index');
-Route::post('/users', 'UserController@store')->name('users.store');
-Route::get('/users/{id}', 'UserController@show')->name('users.show');
-Route::delete('/users/{id}', 'UserController@destroy')->name('users.destroy');
-Route::get('/users/{id}/edit', 'UserController@edit')->name('users.edit');
-Route::put('users/{id}', 'UserController@update')->name('users.update');
+Route::get('admin/users', 'UserController@index')->name('users.index');
+Route::post('admin/users', 'UserController@store')->name('users.store');
+Route::get('admin/users/{id}', 'UserController@show')->name('users.show');
+Route::delete('admin/users/{id}', 'UserController@destroy')->name('users.destroy');
+Route::get('admin/users/{id}/edit', 'UserController@edit')->name('users.edit');
+Route::put('adminusers/{id}', 'UserController@update')->name('users.update');
 
 ///Product
-Route::get('/products', 'ProductController@index')->name('products.index');
-Route::get('/products/create', 'ProductController@create')->name('products.create');
-Route::post('/products', 'ProductController@store')->name('products.store');
-Route::get('/products/{id}', 'ProductController@show')->name('products.show');
-Route::delete('/products/{id}', 'ProductController@destroy')->name('products.destroy');
-Route::get('/products/{id}/edit', 'ProductController@edit')->name('products.edit');
-Route::put('products/{id}', 'ProductController@update')->name('products.update');
+Route::get('admin/products/index', 'ProductController@index')->name('products.index');
+Route::get('admin/products/create', 'ProductController@create')->name('products.create');
+Route::post('admin/products', 'ProductController@store')->name('products.store');
+Route::get('admin/products/{id}/', 'ProductController@show')->name('products.show');
+Route::delete('admin/products/{id}', 'ProductController@destroy')->name('products.destroy');
+Route::get('admin/products/{id}/edit', 'ProductController@edit')->name('products.edit');
+Route::put('adminproducts/{id}', 'ProductController@update')->name('products.update');
 
 ///Bill
-Route::get('/bills', 'BillController@index')->name('bills.index');
-Route::get('/bills/{id}', 'BillController@show')->name('bills.show');
-Route::delete('/bills/{id}', 'BillController@destroy')->name('bills.destroy');
-Route::get('/bills/{id}/edit', 'BillController@edit')->name('bills.edit');
-Route::put('/bills/{id}', 'BillController@update')->name('bills.update');
+Route::get('admin/bills', 'BillController@index')->name('bills.index');
+Route::get('admin/bills/{id}', 'BillController@show')->name('bills.show');
+Route::delete('admin/bills/{id}', 'BillController@destroy')->name('bills.destroy');
+Route::get('admin/bills/{id}/edit', 'BillController@edit')->name('bills.edit');
+Route::put('admin/bills/{id}', 'BillController@update')->name('bills.update');
 
-///BillDetail
-Route::get('/billdetails', 'BillDetailController@index')->name('billdetails.index');
-/*Route::delete('/billdetails/{id}', 'BillDetailController@destroy')->name('billdetails.destroy');
-Route::get('/billdetails/{id}/edit', 'BillDetailController@edit')->name('billdetails.edit');
-Route::put('/billdetails/{id}', 'BillDetailController@update')->name('billdetails.update');*/
+///News
+Route::get('admin/news/index', 'NewsController@index')->name('news.index');
+Route::get('admin/news/create', 'NewsController@create')->name('news.create');
+Route::post('admin/news', 'NewsController@store')->name('news.store');
+Route::get('admin/news/{id}/', 'NewsController@show')->name('news.show');
+Route::delete('admin/news/{id}', 'NewsController@destroy')->name('news.destroy');
+Route::get('admin/news/{id}/edit', 'NewsController@edit')->name('news.edit');
+Route::put('admin/new/{id}', 'NewsController@update')->name('news.update');

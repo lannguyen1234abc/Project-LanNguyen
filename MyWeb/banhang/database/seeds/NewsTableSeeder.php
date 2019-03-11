@@ -11,15 +11,11 @@ class NewsTableSeeder extends Seeder
     public function run()
     {
             News::create([
-                'title' ->name,
-                'content' ->name,
-                'image' ->name
+                'title' ->title,
+                'content' ->content,
+                'image' ->image,
+                'new' ->new
             ]);
-        /*News::create([
-            'title'->title,
-            'content'->content,
-            'image'->image
-        ]);*/
-    
+        
     }
 }

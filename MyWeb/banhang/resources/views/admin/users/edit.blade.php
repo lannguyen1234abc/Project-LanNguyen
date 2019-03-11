@@ -24,13 +24,10 @@
                         <lable> <b> Phone_number </b> </lable>
                         <input type="text" id="phone_number" placeholder="Phone_number" name="phone_number" value="{{$user->phone_number}}">
                     </div>
+
                     <div class="mb-3 d-flex flex-column">
-                        <lable> <b> Password </b> </lable>
-                        <input type="password" id="password" placeholder="Password" name="password" value="{{$user->password}}">
-                    </div>
-                    <div class="mb-3 d-flex flex-column">
-                        <lable> <b> Remember_token </b> </lable>
-                        <input type="password" id="remember_token" placeholder="Remember_token" name="remember_token" value="{{$user->remember_token}}">
+                        <lable> <b> Address </b> </lable>
+                        <input type="text" id="address" placeholder="Address" name="address" value="{{$user->address}}">
                     </div>
 
                     <button type="submit"> SAVE

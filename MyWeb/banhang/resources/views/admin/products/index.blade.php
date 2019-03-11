@@ -2,6 +2,7 @@
 @section('content-right')
     
 <div class="container-fluid Admin_Size_content">
+    
 <h4 class="text-center"> Products </h4>
     <table class="table table-hover table-bordered text-center">
         <thead>
@@ -11,9 +12,7 @@
                 <th> Producttype_id </th>
                 <th> Price </th>
                 <th> Promotion_price </th>
-                <th> Image </th>
-                <th> Unit </th>
-                <th> New </th>
+                <th> Status </th>
                 <th> Action </th>
             </tr>
         </thead>
@@ -25,9 +24,7 @@
                         <td> {{$product->producttype_id}} </td>
                         <td> {{$product->price}} </td>
                         <td> {{$product->promotion_price}} </td>
-                        <td> {{$product->image}} </td>
-                        <td> {{$product->unit}} </td>
-                        <td> {{$product->new}} </td>
+                        <td> {{$product->status}} </td>
                         
                         
                         <td >
