@@ -32,13 +32,14 @@
                             <form action="{{route('users.edit', $user->id)}}" method="GET">
                                 <button class='btn btn-success ml-2'> <i class="far fa-edit"></i> </button> 
                             </form>
-                            
+                        <!--
                             <form action="{{route('users.destroy', $user->id)}}" method="POST">
                                 {{csrf_field()}}
                                 <input type='hidden' value='DELETE' name='_method'>
                                
                                 <button type="submit" class='btn btn-success ml-2'> <i class="far fa-trash-alt"></i>  </button> 
                             </form>
+                        -->
                         </div>        
                         </td>
                     </tr>

@@ -61,10 +61,9 @@
                         ('news.index')}}"> List </a></li>
                         <li ><a class="text-white"  href="{{route('news.create')}}"> Add </a></li>
                     </ul>
-                </div>
-                
-                
+                </div>        
         </div>
+
         <div class="col-md-10 Admin_Size_content-right">
             @yield('content-right')
         </div>

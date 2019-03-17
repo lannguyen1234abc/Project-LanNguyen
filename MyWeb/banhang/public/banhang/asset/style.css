@@ -7,17 +7,17 @@
   background-size: cover;
 }
 
-.Logo_Image {
-  background-image: url("http://www.selectharvests.com.au/media/Lucky_3D_Logo_FA_RGB_small.jpg");
-  height: 150px;
+/*.Logo_Image {
+  background-image: url("https://cdn.dribbble.com/users/5988/screenshots/2584070/lucky_script_dribbble.jpg");
+  height: 90px;
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
+}*/
 
 .Menu_Size {
-  padding-left: 140px;
+  padding-left: 130px;
 }
 
 .Menu_Menu-item {
@@ -112,7 +112,7 @@
 
 .Adv_Image_Image1 {
   background-image: url("/banhang/image/products/pudding-kem.jpg");
-  height: 250px;
+  height: 200px;
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -121,8 +121,8 @@
 }
 
 .Adv_Image_Image2 {
-  background-image: url("/banhang/image/products/banh-ngot-phap.jpg");
-  height: 250px;
+  background-image: url("/banhang/image/products/pizza-hai-san.jpg");
+  height: 200px;
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -131,8 +131,8 @@
 }
 
 .Adv_Image_Image3 {
-  background-image: url("/banhang/image/products/banh-ngot-trai-cay.jpg");
-  height: 250px;
+  background-image: url("/banhang/image/products/banh-kem-2.jpg");
+  height: 200px;
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -186,6 +186,14 @@
   width: calc(100% - 70px);
   float: right;
   margin-right: 5px;
+}
+
+.Inventory{
+  display: inline-block;
+  line-height: 24px;
+  padding: 0 10px;
+  color: #FFF;
+  background: #80BB35;
 }
 
 .Admin_Size_content-left {

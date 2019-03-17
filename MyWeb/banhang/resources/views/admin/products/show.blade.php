@@ -37,13 +37,13 @@
                                 <button class='btn btn-success ml-2'> <i class="far fa-edit"></i> </button>  
                             </form>
                             
-
+                        <!--
                             <form action="{{route('products.destroy', $product->id)}}" method="POST">
                                 {{csrf_field()}}
                                 <input type='hidden' value='DELETE' name='_method'>
                                 <button type="submit" class='btn btn-success ml-2'> <i class="far fa-trash-alt"></i>  </button>
                             </form>
-                                
+                        -->      
                         </td>
                     </tr>
                

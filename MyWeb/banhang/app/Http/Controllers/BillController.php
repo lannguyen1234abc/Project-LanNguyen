@@ -9,13 +9,13 @@ use App\Bill;
 use App\BillDetail;
 use App\Cart;
 use App\Product;
-
+use Illuminate\Support\Facades\Auth;
 use Session;
 
 class BillController extends Controller
 {
     public function index(){
-        $bills = Bill::with('user')->paginate(5);
+        $bills = Bill::with('user')->paginate(10);
         //dd($bills);
         return view('admin.bills.index', ['bills'=>$bills]);
         
@@ -24,9 +24,8 @@ class BillController extends Controller
     public function show($id)
     {
         $bill = Bill::find($id);
-        //$bill_detail = Bill::find($id)->products;
-        //return view('admin.bills.show', compact('bill', 'bill_detail' ));
-        return view('admin.bills.show', ['bill'=>$bill]);
+
+        return view('admin.bills.show', compact('bill'));
     }
 
     public function edit($id){
@@ -37,36 +36,13 @@ class BillController extends Controller
     public function update(Request $request, $id)
     {
         $bill = Bill::find($id);
-        
-        /*$bill -> update([
-            'customer_id' => $request ->customer_id,
-            'date_order' => $request ->date_order,
-            'total' => $request ->total,
-            'note' => $request ->note,
-            'payment' => $request ->payment,
-            'status' => $request ->status
-        ]);*/
       
-        $bill->date_order = $request ->date_order;
-        
-        $bill->total = $request ->total;
-        $bill->note = $request ->note;
-
-        
-        $bill->payment = $request ->payment;
+       
         $bill->status = $request ->status;
         //$bill->customer_id = $request->customer_id;
         $bill->save();
         return redirect()->route('bills.index');
     }
-    /*
-    public function destroy($id)
-    {
-       
-        Bill::destroy($id);
-        return redirect()->route('bills.index');
-    }
-    */
 
     public function getBill(){
         if(Session::has('cart')){
@@ -89,23 +65,25 @@ class BillController extends Controller
     public function postBill(Request $rq){
         $cart = Session::get('cart');
 
-        $customer = new User;
-        $customer->name = $rq->name;
-        $customer->email = $rq->email;
-        $customer->phone_number = $rq->phone_number;
-        $customer->address = $rq->address;
-        $customer->note = $rq->note;
-        $customer->save();
+        if(Auth::check()){
+            $id_user=Auth::id();
+            $user = User::find($id_user);
 
+            $user->name = $rq->name;
+            $user->email = $rq->email;
+            $user->address = $rq->address;
+            $user->phone_number = $rq->phone_number;
+            $user->note = $rq->note;
+            $user->save();
+        }
         
-
         $bill = new Bill;
-        $bill->customer_id = $customer->id;
+        $bill->customer_id = Auth::id();
         $bill->date_order = date('y-m-d');
         $bill->total = $cart->totalPrice;
         $bill->note = $rq->note;
         $bill->payment = $rq->payment;
-        //$bill->status = $rq->status;
+        $bill->status = $rq->status;
         $bill->save();
 
         foreach( $cart->items as $key => $value){

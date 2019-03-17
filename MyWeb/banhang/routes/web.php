@@ -25,6 +25,7 @@ Route::get('/sanpham', 'PageController@product')->name('sanpham');
 Route::get('/loaisanpham/{type}', 'PageController@producttype')->name('loaisanpham');
 Route::get('/lienhe', 'PageController@contact')->name('lienhe');
 Route::get('/gioithieu', 'PageController@introduce')->name('gioithieu');
+Route::get('/tintuc', 'PageController@news')->name('tintuc');
 
 Route::get('/search', 'PageController@search')->name('search');
 Route::get('/chitietsanpham/{id}', 'PageController@chitiet')->name('chitietsanpham');
@@ -32,7 +33,8 @@ Route::get('/chitietsanpham/{id}', 'PageController@chitiet')->name('chitietsanph
 //Giỏ hàng
 Route::get('/add-to-giohang/{id}', 'CartController@getAddtoCart')->name('getAddtoCart');
 Route::get('/giohang', 'CartController@show')->name('showCart');
-Route::get('/destroyproduct/{id}', 'CartController@destroy')->name('destroyproduct');
+Route::get('/del-product/{id}', 'CartController@delete')->name('deleteProduct');
+Route::get('/destroyproduct/{id}', 'CartController@destroy')->name('destroyProduct');
 
 //Đơn hàng
 Route::get('/dathang', 'BillController@getBill')->name('getBill');
@@ -52,7 +54,7 @@ Route::get('/dangxuat', 'UserController@dangxuat')->name('dangxuat');
 ///Admin
 Route::get('/login/admin', 'UserController@adminLogin')->name('adminLogin');
 Route::post('/postAdminlogin', 'UserController@postAdminlogin')->name('postAdminlogin');
-Route::get('/admin', 'PageController@getadmin')->name('admin');
+Route::get('/admin', 'UserController@getadmin')->name('admin');
 
 ///Loại sản phẩm
 Route::get('admin/producttype', 'ProductTypeController@index')->name('producttype.index');
@@ -69,7 +71,7 @@ Route::post('admin/users', 'UserController@store')->name('users.store');
 Route::get('admin/users/{id}', 'UserController@show')->name('users.show');
 Route::delete('admin/users/{id}', 'UserController@destroy')->name('users.destroy');
 Route::get('admin/users/{id}/edit', 'UserController@edit')->name('users.edit');
-Route::put('adminusers/{id}', 'UserController@update')->name('users.update');
+Route::put('admin/users/{id}', 'UserController@update')->name('users.update');
 
 ///Product
 Route::get('admin/products/index', 'ProductController@index')->name('products.index');

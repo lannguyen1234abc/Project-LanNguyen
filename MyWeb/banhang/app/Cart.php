@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Cart
+class Cart extends Model 
 {
 	
 
@@ -66,4 +66,8 @@ class Cart
 		$this->totalPrice -= $this->items[$id]['price'];
 		unset($this->items[$id]);
 	}
+
+	public function user(){
+        return $this->belongsTo('App\User');
+    }
 }

@@ -38,10 +38,13 @@
 
                     <div class="mb-3 d-flex flex-column">
                         <lable> <b> Status </b></lable>
-                        <lable class="radio-inline">
+                        <lable class="radio-inline text-danger">
                         <input type="radio" id="status" name="status" value="Chưa giao hàng" checked=""> Chưa giao hàng
                         </lable>
-                        <lable class="radio-inline">
+                        <lable class="radio-inline text-danger">
+                        <input type="radio" id="status" name="status" value="Đang giao hàng" checked=""> Đang giao hàng
+                        </lable>
+                        <lable class="radio-inline text-danger">
                         <input type="radio" id="status" name="status" value="Giao hàng thành công" checked=""> Giao hàng thành công
                         </lable>
                         

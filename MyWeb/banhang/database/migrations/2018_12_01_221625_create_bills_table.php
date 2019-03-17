@@ -19,7 +19,7 @@ class CreateBillsTable extends Migration
             $table->double('total');
             $table->string('note');
             $table->string('payment');
-            $table->string('status')->default('Chưa giao hàng')->change();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

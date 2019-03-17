@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="container mb-5">
-        <div class="row">
-            <div class="col-md-12 ">
-                <h1 class="text-info text-center text-capitalize"> Giới thiệu </h1>
-            </div>
+    <div class="row">
+        <div class="col-md-12 ">
+            <h1 class="text-info text-center text-capitalize"> Tin tức </h1>
         </div>
+    </div>
 </div>
 <div class="container mb-3">
           <div class="row">
@@ -30,8 +30,6 @@
                 </div>
             </div>
                 
-          </div>
-              
-  </div>
-       
+          </div>           
+</div>
 @endsection

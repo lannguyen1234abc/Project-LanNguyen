@@ -87,7 +87,15 @@
                             </td>
                             <td>
                                 <div class="d-flex justify-content-center">
-                                    {{$product['quantity']}}
+                                    <button> 
+                                    <a href="{{route('deleteProduct', $product['item']['id'])}}" class="link"> - </a> 
+                                    </button>
+
+                                    <button> {{$product['quantity']}} </button>
+
+                                    <button> 
+                                    <a href="{{route('getAddtoCart', $product['item']['id'])}}" class="link"> + </a> 
+                                    </button>
                                 </div>
                                 
                             </td>
@@ -99,7 +107,7 @@
                             </td>
                             <td>
                                 <div class="d-flex justify-content-center">
-                                    <a href="{{route('destroyproduct', $product['item']['id'])}}"> <i class="fas fa-trash-alt"></i> </a>
+                                    <a href="{{route('destroyProduct', $product['item']['id'])}}"> <i class="fas fa-trash-alt"></i> </a>
                                 </div>
                                 
                             </td>

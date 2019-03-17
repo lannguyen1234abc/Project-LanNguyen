@@ -28,28 +28,32 @@
         </div>
         <div class="row mb-5">
             <div class="col-md-6">
+            @if(Auth::check()) 
                
                 <div class="Bill_form-block">
                     <label for="name"> Họ tên*: </label>
-                    <input type="text" id="name" name="name" placeholder="Họ tên" required="" class="Bill_input">
+                    <input type="text" id="name" name="name" placeholder="Họ tên" required="" class="Bill_input" value="{{Auth::user()->name}}">
                 </div>
                 <div class="Bill_form-block">
                     <label for="email"> Email: </label>
-                    <input type="email" id="email"  name="email" placeholder="Email" required="" class="Bill_input">
+                    <input type="email" id="email"  name="email" required="" class="Bill_input" value="{{Auth::user()->email}}" readonly="">
+
                 </div>
                 <div class="Bill_form-block">
                     <label for="address"> Address*: </label>
-                    <input type="text" id="address" name="address" placeholder="Address" required="" class="Bill_input">
+                    <input type="text" id="address" name="address" placeholder="Address" required="" class="Bill_input" value="{{Auth::user()->address}}">
                 </div>
                 <div class="Bill_form-block">
                     <label for="phone_number"> Phone_number*: </label>
-                    <input type="text" id="phone_number" name="phone_number" placeholder="Phone number" required="" class="Bill_input">
+                    <input type="text" id="phone_number" name="phone_number" placeholder="Phone number" required="" class="Bill_input" value="{{Auth::user()->phone_number}}">
                 </div>
                 <div class="Bill_form-block">
                     <label for="note"> Note: </label>
-                    <textarea id="note" name="note" class="Bill_input"></textarea>
+                    <textarea id="note" name="note" class="Bill_input" value="{{Auth::user()->note}}"></textarea>
                 </div>
+            @endif
             </div>
+
             <div class="col-md-6">
                 <div class="card ">
                     <div class="card-header"> <h4> Đơn hàng của bạn </h4> </div>

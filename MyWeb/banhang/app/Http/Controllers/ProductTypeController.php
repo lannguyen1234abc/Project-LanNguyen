@@ -15,7 +15,7 @@ class ProductTypeController extends Controller
      */
     public function index()
     {
-        $types = ProductType::paginate(5);
+        $types = ProductType::all();
         return view('admin.product-type.index', ['types'=> $types]);
     }
 
@@ -24,6 +24,7 @@ class ProductTypeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
         return view('admin.product-type.create');
@@ -41,6 +42,8 @@ class ProductTypeController extends Controller
             'name' => $request ->name,
             'description' => $request ->description
         ]);
+
+
         return redirect()->back()->with('thongbao', 'Thêm mới thành công');
     }
 

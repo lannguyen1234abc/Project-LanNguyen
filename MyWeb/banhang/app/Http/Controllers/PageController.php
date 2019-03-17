@@ -30,17 +30,32 @@ class PageController extends Controller
         
         return view('customer.page.sanpham', compact('type_product', 'products'));
     }
+    
     public function producttype($type){
         $types = ProductType::all(); //loại sản phẩm
        
-        $product_type = Product::where('producttype_id', $type)->paginate(6);
-        return view('customer.page.loaisanpham', compact('types','product_type','name'));
+        $product_type = Product::where('producttype_id', $type)->paginate(9);
+
+        $name_type = ProductType::where('id', $type)->first();
+        return view('customer.page.loaisanpham', compact('types','product_type','name_type'));
     }
+
+    public function chitiet(Request $re){
+        $product = Product::where('id', $re->id)->first();
+        $products = Product::paginate(5);
+        return view('customer.page.chitietsanpham', compact('product', 'products'));
+    }
+   
     public function introduce(){
         return view('customer.page.gioithieu');
     }
+    
     public function contact(){
         return view('customer.page.lienhe');
+    }
+    
+    public function news(){
+        return view('customer.page.tintuc');
     }
     
     public function search(Request $re){
@@ -48,17 +63,5 @@ class PageController extends Controller
                             ->orwhere('price', $re->search)->get();
         return view('customer.page.search', compact('product'));
     }
-
-    public function chitiet(Request $re){
-        $product = Product::where('id', $re->id)->first();
-        
-        return view('customer.page.chitietsanpham', compact('product'));
-    }
-    
-
-    public function getadmin(){
-        return view('admin.home');
-    }
-
     
 }

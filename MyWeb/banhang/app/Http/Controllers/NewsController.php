@@ -97,6 +97,20 @@ class NewsController extends Controller
         
         $tintuc->title = $request->title;
         $tintuc->content = $request ->content;
+
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $duoi = $file->getClientOriginalExtension();
+            if($duoi != 'jpg' && $duoi != 'png' && $duoi != 'jpeg'){
+                return redirect('admin/news/create')->with('Lỗi','Chỉ được chọn file có đuôi jpg, png, jpeg');
+            }
+            $name = $file->getClientOriginalName();
+            $image = time().'_'.$name;
+            $file->move("banhang/image/tintuc", $image);
+            unlink("banhang/image/tintuc/".$tintuc->image);
+            $tintuc->image = $image;
+        }
+        
         $tintuc->new = $request ->new;
         
         $tintuc->save();

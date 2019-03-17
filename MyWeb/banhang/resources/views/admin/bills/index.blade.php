@@ -1,8 +1,8 @@
 @extends('admin.home')
 @section('content-right')
-    
+
 <div class="container-fluid Admin_Size_content">
-<h4 class="text-center"> Bills </h4>
+    <h4 class="text-center"> Bills </h4>
     <table class="table table-hover table-bordered text-center">
         <thead>
             <tr>
@@ -17,39 +17,41 @@
             </tr>
         </thead>
         <tbody>
-                @foreach($bills as $bill)
-                    <tr>
-                        <td> {{$bill->id}} </td>
-                        <td> {{$bill->user->name}} </td>
-                        <td> {{$bill->date_order}} </td>
-                        <td> {{$bill->total}} </td>
-                        <td> {{$bill->note}} </td>
-                        <td> {{$bill->payment}} </td>
-                        <td> {{$bill->status}} </td>
-                        
-                        <td >
-                            <div class="d-flex flex-row justify-content-center">
-                                <form action="{{route('bills.show', $bill->id)}}" method="GET">
-                                    <button class='btn btn-danger ml-2'> <i class="far fa-eye"></i> </button>
-                                </form>
+            @foreach($bills as $bill)
+            <tr>
+                <td> {{$bill->id}} </td>
+                <td> {{$bill->user->name}} </td>
+                <td> {{$bill->date_order}} </td>
+                <td> {{$bill->total}} </td>
+                <td> {{$bill->note}} </td>
+                <td> {{$bill->payment}} </td>
+                <td class="text-danger"> {{$bill->status}} </td>
+                
+                <td >
+                    <div class="d-flex flex-row justify-content-center">
+                        <form action="{{route('bills.show', $bill->id)}}" method="GET">
+                            <button class='btn btn-danger ml-2'> <i class="far fa-eye"></i> </button>
+                        </form>
+
+                            <!--
                                 <form action="{{route('bills.edit', $bill->id)}}" method="GET">
                                     <button class='btn btn-success ml-2'> <i class="far fa-edit"></i> </button> 
                                 </form>
-
-                        
-                            </div> 
-                        </td> 
-                    </tr>
+                            -->
+                            
+                        </div> 
+                    </td> 
+                </tr>
                 @endforeach
-          
-        </tbody>
-    </table>
-    <div class="row mt-4">
-                    <div class="col-md-12 d-flex justify-content-center ">
-                        {{$bills->links("pagination::bootstrap-4")}}
-                    </div>
-                </div>
-</div>
+                
+            </tbody>
+        </table>
+        <div class="row mt-4">
+            <div class="col-md-12 d-flex justify-content-center ">
+                {{$bills->links("pagination::bootstrap-4")}}
+            </div>
+        </div>
+    </div>
 
 
-@endsection
+    @endsection

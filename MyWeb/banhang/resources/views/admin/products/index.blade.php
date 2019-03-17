@@ -4,6 +4,14 @@
 <div class="container-fluid Admin_Size_content">
     
 <h4 class="text-center"> Products </h4>
+<div class="row">
+            <div class="col-md-6 offset-md-3">
+                <p class="mb-3 mt-3 text-success"> 
+                @if( Session::has('thongbao')) {{Session::get('thongbao')}}
+                @endif
+                </p>
+            </div>
+</div>
     <table class="table table-hover table-bordered text-center">
         <thead>
             <tr>
@@ -37,12 +45,13 @@
                                 <button class='btn btn-success ml-2'> <i class="far fa-edit"></i> </button> 
                             </form>
                             
-
+                        <!--
                             <form action="{{route('products.destroy', $product->id)}}" method="POST">
                                 {{csrf_field()}}
                                 <input type='hidden' value='DELETE' name='_method'>
                                 <button type="submit" class='btn btn-success ml-2'> <i class="far fa-trash-alt"></i>  </button> 
                             </form>
+                        -->
                             </div> 
                         </td> 
                     </tr>

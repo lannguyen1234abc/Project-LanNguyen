@@ -22,8 +22,9 @@
                       </div>
                 </div>
                 <div class="row text-white border-top">
-                  <div class="col-md-6 mt-3 mb-3 pl-5 align-items-center">
-                    <div> Copyright <i class="far fa-copyright"></i> 2018 - Website 
+                  <div class="col-md-4 offset-md-4 mt-3 mb-3 pl-5 align-items-center">
+                    <div class="text-center"> 
+                      Copyright <i class="far fa-copyright"></i> 2018 - Website 
                     </div>
                   </div>
                 </div>

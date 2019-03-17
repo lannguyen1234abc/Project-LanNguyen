@@ -24,12 +24,19 @@
                         <input type="text" id="name" placeholder="Name" name="name">
                     </div>
                     <div class="mb-3 d-flex flex-column">
-                        <lable> Producttype_id </lable>
-                        <input type="text" id="producttype_id" placeholder="Producttype_id" name="producttype_id">
+                        <lable> Producttype </lable>
+                        <select class="form-control" name="producttype_id">
+                            @foreach($theloai as $tl)
+                                <option value="{{$tl->id}}">
+                                    {{$tl->name}}
+                                </option>
+                            @endforeach
+                        </select>
+                        
                     </div>
                     <div class="mb-3 d-flex flex-column">
                         <lable> Description </lable>
-                        <textarea id="editor1" name="description"></textarea>
+                        <textarea id="description" name="description"></textarea>
                     </div>
                     <div class="mb-3 d-flex flex-column">
                         <lable> Price </lable>

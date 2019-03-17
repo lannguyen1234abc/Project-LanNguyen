@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-
-
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -26,10 +24,11 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    /*
     public function create()
     {
         return view('admin.users.create');
-    }
+    } */
 
     /**
      * Store a newly created resource in storage.
@@ -176,14 +175,17 @@ class UserController extends Controller
             $password = $request->password;
             //dd(bcrypt($password));
             
-            if(Auth::attempt(['email' => $email , 'password' => $password])) {
-    
+            if(Auth::attempt(['email' => $email , 'password' => $password, 'role' => "customer"])) {
                 return redirect()->route('trangchu');
             }
             else{
                 return redirect()->back()->with('thongbao', 'Đăng nhập không thành công');
             }
     }
+    public function getadmin(){
+        return view('admin.home');
+    }
+
 
     public function adminLogin(){
         return view('loginadmin');

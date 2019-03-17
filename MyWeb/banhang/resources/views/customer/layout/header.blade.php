@@ -1,5 +1,5 @@
 
-    <div class="container bg-white mb-3 ">
+    <div class="container-fluid bg-light">
         <div class="row">
             <div class="col-md-6 d-flex justify-content-center align-items-center">
                 <div class="">
@@ -57,11 +57,13 @@
 </div>
 <div class="container-fluid bg-white border-bottom shadow-sm mb-3 sticky-top ">
             <div class="row Menu_Size">
-                <div class="col-md-3 ">
-                    <div class="Logo_Image"></div>
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center text-danger">
+                          <i class="far fa-hand-peace display-3 mr-3"></i>
+                          <h1> <font face="Comic sans MS"> Lucky Cake </font> </h1>
+                    </div>
                 </div>
-                <div class="col-md-9 d-flex justify-content-center align-items-center ">
-                    
+                <div class="col-md-8 d-flex justify-content-center align-items-center ">
                         <ul class="Menu_Menu-item d-flex flex-row">
                             <li class="mr-5">
                                 <a class="text-dark Menu_Link" href="{{route('trangchu')}}"> Trang chủ </a>
@@ -71,7 +73,9 @@
                                 <ul class="Menu_Sub-menu ">
                                     @foreach($loai_sp as $type)
                                         <li class="Menu_Item-link">
-                                            <a class="Menu_Link text-dark" href="{{route('loaisanpham',$type->id)}}"> {{$type->name}} </a>
+                                            <a class="Menu_Link text-dark" href={{route('loaisanpham',$type->id)}}"> 
+                                                {{$type->name}} 
+                                            </a>
                                         </li>
                                     @endforeach
                                 </ul>
@@ -83,7 +87,7 @@
                                 <a class="text-dark Menu_Link" href="{{route('lienhe')}}"> Liên hệ </a>
                             </li>
                             <li class="mr-5">
-                                <a class="text-dark Menu_Link" href=""> Tin tức </a>
+                                <a class="text-dark Menu_Link" href="{{route('tintuc')}}"> Tin tức </a>
                             </li>
                         </ul>
                     

@@ -26,7 +26,7 @@
                         
                     <div class="mb-3 d-flex flex-column">
                         <lable> Content </lable>
-                        <input type="text" id="content" placeholder="Content" name="content">
+                        <textarea id="content" placeholder="Content" name="content">></textarea> 
                     </div>
 
                     <div class="mb-3 d-flex flex-column">

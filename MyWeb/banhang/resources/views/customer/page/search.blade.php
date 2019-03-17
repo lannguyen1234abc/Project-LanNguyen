@@ -27,9 +27,16 @@
 
                         </div>
                         <div class="d-flex flex-row mt-3">
-                            <button class="btn btn-warning"> 
-                                <a href="{{route('getAddtoCart', $index->id)}}"> <i class="fas fa-shopping-cart text-white"></i> </a> 
-                            </button>
+                            @if(Auth::check())
+                                    <button class="btn btn-warning"> 
+                                        <a href="{{route('getAddtoCart', $index->id)}}"> <i class="fas fa-shopping-cart text-white"></i> </a> 
+                                    </button>
+                                @else
+                                    <button class="btn btn-warning"> 
+                                        <a href="{{route('dangnhap')}}"> <i class="fas fa-shopping-cart text-white"></i> </a> 
+                                    </button>
+                                    
+                                @endif
                             <button class="btn btn-outline-primary"> 
                                 <a href="{{route('chitietsanpham',$index->id)}}" class="link"> Chi tiết >> </a> 
                             </button>

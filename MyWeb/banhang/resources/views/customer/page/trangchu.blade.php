@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="Slide container mb-5">
-        <div class="row">
-                <div class="col-md-3 ">
+    <div class="row">
+        <div class="col-md-3 ">
                         <div class="card">
                             <div class="card-header bg-info text-white d-flex justify-content-center ">
                                 <h4 class="text-capitalize"> Tin mới nhất </h4>
@@ -11,7 +11,7 @@
                             @foreach($new as $n)
                             @if($n->new == 1)
                             <div class="mt-3 mb-3">
-                                    <div class="Product_Tin_Image mr-3 ml-3" alt="" style="background-image: url(banhang/image/tintuc/{{$n->image}})">       
+                                    <div class="Product_Tin_Image mr-3 ml-3" alt="" style="background-image: url(banhang/image/tintuc/{{$n->image}})">  
                                     </div>
                                     <a href="{{$n->title}}" target="_blank"> 
                                         {{$n->content}}
@@ -20,9 +20,9 @@
                             @endif
                             @endforeach
                         </div>
-                </div>
+        </div>
             
-                <div class="col-md-9">
+        <div class="col-md-9">
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
                                 @foreach( $slides as $sl )
@@ -49,8 +49,8 @@
                               <span class="sr-only">Next</span>
                             </a>
                     </div>
-                </div>
         </div>
+    </div>
 </div>
 <div class="Adv container mb-5">
     <div class="row">
@@ -59,13 +59,34 @@
                 <div class="card Adv_Card">
                     <div class="Adv_Image_Image1 ">
                     </div>
+                    <div class="card-body">
+                        <div class="card-title text-center"> 
+                            <a href="{{route('loaisanpham','1')}}"> 
+                                <h5 class="text-uppercase"> Bánh ngọt </h5> 
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <div class="card Adv_Card">
                     <div class="Adv_Image_Image2 ">
                     </div>
+                    <div class="card-body">
+                        <div class="card-title text-center"> 
+                            <a href="{{route('loaisanpham','2')}}">
+                                <h5 class="text-uppercase"> Pizza </h5>
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <div class="card Adv_Card">
                     <div class="Adv_Image_Image3 ">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title text-center"> 
+                            <a href="{{route('loaisanpham','3')}}">
+                                <h5 class="text-uppercase"> Bánh kem </h5>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -80,7 +101,6 @@
         </div>
         
         <div class="row mb-3">
-
             <div class="col-md-12">
                 <div class="row">
                 @foreach($new_products as $index)
@@ -108,9 +128,16 @@
 
                             </div>
                             <div class="d-flex flex-row mt-3">
-                                <button class="btn btn-warning"> 
-                                    <a href="{{route('getAddtoCart', $index->id)}}"> <i class="fas fa-shopping-cart text-white"></i> </a> 
-                                </button>
+                                @if(Auth::check())
+                                    <button class="btn btn-warning"> 
+                                        <a href="{{route('getAddtoCart', $index->id)}}"> <i class="fas fa-shopping-cart text-white"></i> </a> 
+                                    </button>
+                                @else
+                                    <button class="btn btn-warning"> 
+                                        <a href="{{route('dangnhap')}}"> <i class="fas fa-shopping-cart text-white"></i> </a> 
+                                    </button>
+                                    
+                                @endif
                                 <button class="btn btn-outline-primary"> 
                                     <a href="{{route('chitietsanpham', $index->id)}}" class="link text-dark"> Chi tiết >> </a> 
                                 </button>
@@ -122,9 +149,7 @@
                 @endif
                 @endforeach
                 </div>
-            </div>
-            
-        </div>
-        
+            </div>  
+        </div>  
 </div>
 @endsection
