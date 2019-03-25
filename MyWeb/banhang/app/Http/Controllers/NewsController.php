@@ -68,7 +68,8 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        //
+        $tintuc = News::find($id);
+        return view('admin.news.show', compact('tintuc'));
     }
 
     /**
@@ -126,6 +127,6 @@ class NewsController extends Controller
     public function destroy(News $id)
     {
         News::destroy($id->id);
-        return redirect()->route('news.index');
+        return redirect()->back();
     }
 }

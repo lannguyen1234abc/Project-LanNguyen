@@ -12,34 +12,18 @@ use App\Bill;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $products = Product::paginate(6);
         return view('admin.products.index', ['products'=> $products]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $theloai = ProductType::all();
         return view('admin.products.create', ['theloai'=> $theloai]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $product = new Product;
@@ -69,37 +53,18 @@ class ProductController extends Controller
         return redirect()->back()->with('thongbao', 'Thêm sản phẩm thành công');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $product = Product::find($id);
         return view('admin.products.show', ['product'=> $product]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $product = Product::find($id);
         return view('admin.products.edit', ['product' => $product]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $product = Product::find($id);
@@ -131,12 +96,7 @@ class ProductController extends Controller
         return redirect()->back()->with('message','Chỉnh sửa thành công');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+/*
     public function destroy(Product $id)
     {
         $product = Product::find($id);
@@ -149,10 +109,17 @@ class ProductController extends Controller
         Product::destroy($id->id);
         return redirect()->route('products.index');
 
-        /*$product = Product::find($id);
-        Bill::destroy($id->id);*/
+        $product = Product::find($id);
+        Bill::destroy($id->id);
         //return redirect()->route('products.index');
 
+    } 
+*/
+
+    public function search(Request $re){
+        $s_products = Product::where('name', 'like', '%'.$re->search.'%')
+                            ->orwhere('price', $re->search)->paginate(5);
+        return view('admin.products.search', compact('s_products'));
     }
 
 }

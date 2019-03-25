@@ -1,15 +1,4 @@
-<?php
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+ <?php
 /*Route::get('/dulieu', function(){
     return view("data.giaodien");
 });*/
@@ -19,81 +8,94 @@
 });*/
 
 
-/// Customer
-Route::get('/luckycake', 'PageController@home')->name('trangchu');
-Route::get('/sanpham', 'PageController@product')->name('sanpham');
-Route::get('/loaisanpham/{type}', 'PageController@producttype')->name('loaisanpham');
-Route::get('/lienhe', 'PageController@contact')->name('lienhe');
-Route::get('/gioithieu', 'PageController@introduce')->name('gioithieu');
-Route::get('/tintuc', 'PageController@news')->name('tintuc');
+//Customer
+Route::group(['prefix'=>'luckycake'], function(){
+	Route::group(['prefix'=>'customer'], function(){
+		Route::get('trangchu', 'PageController@home');
+		Route::get('sanpham', 'PageController@product');
+		Route::get('loaisanpham/{type}', 'PageController@producttype');
+		Route::get('lienhe', 'PageController@contact');
+		Route::get('gioithieu', 'PageController@introduce');
+		Route::get('tintuc', 'PageController@news');
+		Route::get('chitiettintuc/{id}', 'PageController@cttintuc');
+		Route::get('search', 'PageController@search');
+		Route::get('chitietsanpham/{id}', 'PageController@chitiet');
+		Route::post('comment/{id}', 'CommentController@postComment');
 
-Route::get('/search', 'PageController@search')->name('search');
-Route::get('/chitietsanpham/{id}', 'PageController@chitiet')->name('chitietsanpham');
+	});
+	Route::group(['prefix'=>'giohang'], function(){
+		Route::get('add-to-giohang/{id}', 'CartController@getAddtoCart');
+		Route::get('show', 'CartController@show');
+		Route::get('del-product/{id}', 'CartController@delete');
+		Route::get('destroyproduct/{id}', 'CartController@destroy');
+	});
+	Route::group(['prefix'=>'donhang'], function(){
+		Route::get('dathang', 'BillController@getBill');
+		Route::post('ctdonhang', 'BillController@postBill');
+	});
+});
 
-//Giỏ hàng
-Route::get('/add-to-giohang/{id}', 'CartController@getAddtoCart')->name('getAddtoCart');
-Route::get('/giohang', 'CartController@show')->name('showCart');
-Route::get('/del-product/{id}', 'CartController@delete')->name('deleteProduct');
-Route::get('/destroyproduct/{id}', 'CartController@destroy')->name('destroyProduct');
+Route::get('dangki', 'UserController@dangki');
+Route::post('postDangki', 'UserController@postDangki');
+Route::get('dangnhap', 'UserController@dangnhap');
+Route::post('postDangnhap', 'UserController@postDangnhap');
+Route::get('dangxuat', 'UserController@dangxuat');
 
-//Đơn hàng
-Route::get('/dathang', 'BillController@getBill')->name('getBill');
-Route::post('/donhang', 'BillController@postBill')->name('postBill');
-
-///Đăng kí - đăng nhập
-Route::get('/dangki', 'UserController@dangki')->name('dangki');
-Route::post('/postDangki', 'UserController@postDangki')->name('postDangki');
-Route::get('/dangnhap', 'UserController@dangnhap')->name('dangnhap');
-Route::post('/postDangnhap', 'UserController@postDangnhap')->name('postDangnhap');
-Route::get('/dangxuat', 'UserController@dangxuat')->name('dangxuat');
+//Route::get('login', 'PageController@admin_Login');
+//Route::post('postLogin', 'UserController@postDangnhap');
 
 
+Route::group(['prefix'=>'admin', 'middleware'=>'CheckAdmin'], function(){
+	
+	Route::get('home', 'PageController@home_admin');
 
-//////////////////////////////////////////////////////////////////////////
+	Route::group(['prefix'=>'users'], function(){
+		Route::get('index', 'UserController@index');
+		Route::post('store', 'UserController@store');
+		Route::get('show/{id}', 'UserController@show');
+		Route::delete('destroy/{id}', 'UserController@destroy');
+		Route::get('edit/{id}', 'UserController@edit');
+		Route::put('update/{id}', 'UserController@update');
+		Route::get('search-user', 'UserController@search');
+	});
 
-///Admin
-Route::get('/login/admin', 'UserController@adminLogin')->name('adminLogin');
-Route::post('/postAdminlogin', 'UserController@postAdminlogin')->name('postAdminlogin');
-Route::get('/admin', 'UserController@getadmin')->name('admin');
+	Route::group(['prefix'=>'producttype'], function(){
+		Route::get('index', 'ProductTypeController@index');
+		Route::get('create', 'ProductTypeController@create');
+		Route::post('store', 'ProductTypeController@store');
+		Route::get('show/{id}', 'ProductTypeController@show');
+		Route::delete('destroy/{id}', 'ProductTypeController@destroy');
+		Route::get('edit/{id}', 'ProductTypeController@edit');
+		Route::put('update/{id}', 'ProductTypeController@update');
+	});
 
-///Loại sản phẩm
-Route::get('admin/producttype', 'ProductTypeController@index')->name('producttype.index');
-Route::get('admin/producttype/create', 'ProductTypeController@create')->name('producttype.create');
-Route::post('admin/producttype', 'ProductTypeController@store')->name('producttype.store');
-Route::get('admin/producttype/{id}', 'ProductTypeController@show')->name('producttype.show');
-Route::delete('admin/producttype/{id}', 'ProductTypeController@destroy')->name('producttype.destroy');
-Route::get('admin/producttype/{id}/edit', 'ProductTypeController@edit')->name('producttype.edit');
-Route::put('admin/producttype/{id}', 'ProductTypeController@update')->name('producttype.update');
+	Route::group(['prefix'=>'products'], function(){
+		Route::get('index', 'ProductController@index');
+		Route::get('create', 'ProductController@create');
+		Route::post('store', 'ProductController@store');
+		Route::get('show/{id}', 'ProductController@show');
+		Route::delete('destroy/{id}', 'ProductController@destroy');
+		Route::get('edit/{id}', 'ProductController@edit');
+		Route::put('update/{id}', 'ProductController@update');
+		Route::get('search-product', 'ProductController@search');
+	});
 
-/// Users
-Route::get('admin/users', 'UserController@index')->name('users.index');
-Route::post('admin/users', 'UserController@store')->name('users.store');
-Route::get('admin/users/{id}', 'UserController@show')->name('users.show');
-Route::delete('admin/users/{id}', 'UserController@destroy')->name('users.destroy');
-Route::get('admin/users/{id}/edit', 'UserController@edit')->name('users.edit');
-Route::put('admin/users/{id}', 'UserController@update')->name('users.update');
+	Route::group(['prefix'=>'bills'], function(){
+		Route::get('index', 'BillController@index');
+		Route::get('show/{id}', 'BillController@show');
+		Route::delete('destroy/{id}', 'BillController@destroy');
+		Route::get('edit/{id}', 'BillController@edit');
+		Route::put('update/{id}', 'BillController@update');
+		Route::get('search-bill', 'BillController@search');
+	});
 
-///Product
-Route::get('admin/products/index', 'ProductController@index')->name('products.index');
-Route::get('admin/products/create', 'ProductController@create')->name('products.create');
-Route::post('admin/products', 'ProductController@store')->name('products.store');
-Route::get('admin/products/{id}/', 'ProductController@show')->name('products.show');
-Route::delete('admin/products/{id}', 'ProductController@destroy')->name('products.destroy');
-Route::get('admin/products/{id}/edit', 'ProductController@edit')->name('products.edit');
-Route::put('adminproducts/{id}', 'ProductController@update')->name('products.update');
-
-///Bill
-Route::get('admin/bills', 'BillController@index')->name('bills.index');
-Route::get('admin/bills/{id}', 'BillController@show')->name('bills.show');
-Route::delete('admin/bills/{id}', 'BillController@destroy')->name('bills.destroy');
-Route::get('admin/bills/{id}/edit', 'BillController@edit')->name('bills.edit');
-Route::put('admin/bills/{id}', 'BillController@update')->name('bills.update');
-
-///News
-Route::get('admin/news/index', 'NewsController@index')->name('news.index');
-Route::get('admin/news/create', 'NewsController@create')->name('news.create');
-Route::post('admin/news', 'NewsController@store')->name('news.store');
-Route::get('admin/news/{id}/', 'NewsController@show')->name('news.show');
-Route::delete('admin/news/{id}', 'NewsController@destroy')->name('news.destroy');
-Route::get('admin/news/{id}/edit', 'NewsController@edit')->name('news.edit');
-Route::put('admin/new/{id}', 'NewsController@update')->name('news.update');
+	Route::group(['prefix'=>'news'], function(){
+		Route::get('index', 'NewsController@index');
+		Route::get('create', 'NewsController@create');
+		Route::post('store', 'NewsController@store');
+		Route::get('show/{id}/', 'NewsController@show');
+		Route::delete('destroy/{id}', 'NewsController@destroy');
+		Route::get('edit/{id}', 'NewsController@edit');
+		Route::put('update/{id}', 'NewsController@update');
+	});
+});

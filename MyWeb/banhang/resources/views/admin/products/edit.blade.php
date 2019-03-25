@@ -17,7 +17,7 @@
         </div>
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <form action="{{route('products.update', $product->id)}}" method="POST" enctype="multipart/form-data">
+                <form action="admin/products/update/{{$product->id}}" method="POST" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <input type="hidden" name="_method" value="PUT" />
 

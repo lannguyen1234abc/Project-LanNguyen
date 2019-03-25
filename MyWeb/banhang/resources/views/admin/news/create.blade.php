@@ -16,7 +16,7 @@
         </div>
         <di v class="row">
             <div class="col-md-6 offset-md-3">
-                <form action="{{route('news.store')}}" method="POST" enctype="multipart/form-data">
+                <form action="admin/news/store" method="POST" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <input type="hidden" name="_method" value="POST" />
                     <div class="mb-3 d-flex flex-column">
@@ -26,7 +26,7 @@
                         
                     <div class="mb-3 d-flex flex-column">
                         <lable> Content </lable>
-                        <textarea id="content" placeholder="Content" name="content">></textarea> 
+                        <textarea id="content" placeholder="Content" name="content" class="ckeditor"></textarea> 
                     </div>
 
                     <div class="mb-3 d-flex flex-column">

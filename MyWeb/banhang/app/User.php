@@ -8,9 +8,8 @@ class User extends Authenticatable
     use Notifiable;
    
     protected $fillable = [
-        'name', 'email', 'phone_number','address', 'password', 'role', 'note', 'remember_token',
+        'name', 'email', 'phone_number','address', 'password', 'role', 'remember_token',
     ];
-
     
     protected $hidden = [
         'password', 'remember_token',
@@ -19,8 +18,9 @@ class User extends Authenticatable
     public function bills(){
         return $this->hasMany('App\Bill', 'customer_id', 'id');
     }
-    public function cart(){
-        return $this->hasOne('App\Cart');
+
+    public function comments(){
+        return $this->hasMany('App\Comment', 'user_id', 'id');
     }
     
 }

@@ -8,16 +8,17 @@ use App\Slide;
 use App\Product;
 use App\User;
 use App\News;
+use App\Comment;
 
 class PageController extends Controller
 {
     public function home(){
         $slides = Slide::all();
-        $new = News::all();
+        $news = News::all();
         $type_home = ProductType::all(); //loại sản phẩm
         $new_products = Product::all();
         
-        return view('customer.page.trangchu',compact('slides', 'new','type_home', 'new_products'));
+        return view('customer.page.trangchu',compact('slides', 'news','type_home', 'new_products'));
 
         //return view('page.trangchu',['producttypes'=>$producttypes], ['slides'=>$slides]); 
         
@@ -26,7 +27,7 @@ class PageController extends Controller
     
     public function product(){
         $type_product = ProductType::all();
-        $products = Product::paginate(9);
+        $products = Product::paginate(12);
         
         return view('customer.page.sanpham', compact('type_product', 'products'));
     }
@@ -42,8 +43,11 @@ class PageController extends Controller
 
     public function chitiet(Request $re){
         $product = Product::where('id', $re->id)->first();
-        $products = Product::paginate(5);
-        return view('customer.page.chitietsanpham', compact('product', 'products'));
+        $comment = Comment::where('product_id', $re->id)->get();
+        //dd($comment);
+        //$products = Product::paginate(5);
+
+        return view('customer.page.chitietsanpham', compact('product', 'comment'));
     }
    
     public function introduce(){
@@ -55,7 +59,15 @@ class PageController extends Controller
     }
     
     public function news(){
-        return view('customer.page.tintuc');
+        $tintuc = News::all();
+        $types = ProductType::all();
+        return view('customer.page.tintuc', compact('tintuc', 'types'));
+    }
+
+    public function cttintuc($id){
+        $tt = News::find($id);
+
+        return view('customer.page.cttintuc', compact('tt'));
     }
     
     public function search(Request $re){
@@ -63,5 +75,14 @@ class PageController extends Controller
                             ->orwhere('price', $re->search)->get();
         return view('customer.page.search', compact('product'));
     }
+
+    public function home_admin(){
+        return view('admin.home');
+    }
+
+/*
+    public function admin_Login(){
+        return view('dangnhap');
+    }*/
     
 }

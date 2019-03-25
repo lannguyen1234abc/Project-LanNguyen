@@ -27,23 +27,19 @@
                         <td> {{$product->description}} </td>
                         <td> {{$product->price}} </td>
                         <td> {{$product->promotion_price}} </td>
-                        <td> {{$product->image}} </td>
+                        <td> {{$product->image}} 
+                            <div class="Product_Image3 " alt="" style="background-image: url(banhang/image/products/{{$product->image}})">
+                            </div> <br>
+                        </td>
                         <td> {{$product->unit}} </td>
                         <td> {{$product->new}} </td>
                         <td> {{$product->status}} </td>
                         <td class="d-flex flex-row justify-content-center">
                             
-                            <form action="{{route('products.edit', $product->id)}}" method="GET">
+                            <form action="admin/products/edit/{{$product->id}}" method="GET">
                                 <button class='btn btn-success ml-2'> <i class="far fa-edit"></i> </button>  
                             </form>
-                            
-                        <!--
-                            <form action="{{route('products.destroy', $product->id)}}" method="POST">
-                                {{csrf_field()}}
-                                <input type='hidden' value='DELETE' name='_method'>
-                                <button type="submit" class='btn btn-success ml-2'> <i class="far fa-trash-alt"></i>  </button>
-                            </form>
-                        -->      
+                               
                         </td>
                     </tr>
                

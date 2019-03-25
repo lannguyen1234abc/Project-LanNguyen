@@ -17,7 +17,6 @@ class UsersTableSeeder extends Seeder
             'address'->address,
             'role'->role,
             'password'->password,
-            'note'->note,
             'remember_token'->remember_token
         ]);
     }

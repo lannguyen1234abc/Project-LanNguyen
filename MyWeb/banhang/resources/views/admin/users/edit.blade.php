@@ -7,7 +7,7 @@
             </div>
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <form action="{{route('users.update', $user->id)}}" method="POST">
+                <form action="admin/users/update/{{$user->id}}" method="POST">
                 {{csrf_field()}}
                 <input type="hidden" name="_method" value="PUT" />
                     <div class="mb-3 d-flex flex-column">

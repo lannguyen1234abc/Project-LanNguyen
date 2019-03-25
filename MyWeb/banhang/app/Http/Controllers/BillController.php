@@ -41,7 +41,7 @@ class BillController extends Controller
         $bill->status = $request ->status;
         //$bill->customer_id = $request->customer_id;
         $bill->save();
-        return redirect()->route('bills.index');
+        return redirect('admin/bills/index');
     }
 
     public function getBill(){
@@ -73,7 +73,6 @@ class BillController extends Controller
             $user->email = $rq->email;
             $user->address = $rq->address;
             $user->phone_number = $rq->phone_number;
-            $user->note = $rq->note;
             $user->save();
         }
         
@@ -92,11 +91,18 @@ class BillController extends Controller
             $bill_detail->product_id = $key;
             $bill_detail->quantity = $value['quantity'];
             $bill_detail->price = ($value['price']/$value['quantity']);
-            /*$bill_detail->promotion_price = ($value['promotion_price']/$value['quantity']);*/
+            
             $bill_detail->save();
         }
 
         Session::forget('cart');
         return redirect()->back()->with('thongbao', 'Mua hàng thành công. Vui lòng kiểm tra email của bạn!');
+    }
+
+    public function search(Request $re){
+        $s_bills = Bill::where('date_order', $re->search)->paginate(5);
+        $tk_total = Bill::where('date_order', $re->search)->sum('total');
+
+        return view('admin.bills.search', compact('s_bills', 'tk_total'));
     }
 }

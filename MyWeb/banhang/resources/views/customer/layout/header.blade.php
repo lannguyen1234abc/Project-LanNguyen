@@ -11,7 +11,7 @@
             </div>
             <div class="col-md-6">
                 <div class="d-flex justify-content-center align-items-center">
-                    <form action="{{route('search')}}" method="GET" class="d-flex flex-row mr-3">
+                    <form action="luckycake/customer/search" method="GET" class="d-flex flex-row mr-3">
                         <div class="input-group">
                             <input class="form-control" type="text" placeholder="Search" name="search" aria-label="Search">
                             <div class="input-group-append">
@@ -23,7 +23,7 @@
                     @if(Auth::check())
                     
                     <div class="mr-3"> 
-                        <a href="{{route('dangxuat')}}" class="text-dark"> Đăng xuất </a> 
+                        <a href="dangxuat" class="text-dark"> Đăng xuất </a> 
                     </div>
                     
                     <div class="mr-3"> 
@@ -33,20 +33,21 @@
                     
                     @else
                     <div class="mr-3"> 
-                        <a href="{{route('dangki')}}" class="text-dark"> Đăng kí </a> 
+                        <a href="dangki" class="text-dark"> Đăng kí </a> 
                     </div>
                     <div class="mr-3"> 
-                        <a href="{{route('dangnhap')}}" class="text-dark"> Đăng nhập </a>
+                        <a href="dangnhap" class="text-dark"> Đăng nhập </a>
                     </div>
                     @endif
 
                     <div class=" text-dark mr-3" > 
-                        <a href="{{route('showCart')}}" class="link text-dark"> <i class="fas fa-shopping-cart"></i>  </a> 
+                        <a href="luckycake/giohang/show" class="link text-dark"> <i class="fas fa-shopping-cart"></i> 
+                        </a> 
                         <span> 
                             @if(Session::has('cart')) 
                                 {{Session('cart')->totalQty}} 
                             @else
-                                
+                                    
                             @endif
                         </span>
                     </div> 
@@ -66,14 +67,14 @@
                 <div class="col-md-8 d-flex justify-content-center align-items-center ">
                         <ul class="Menu_Menu-item d-flex flex-row">
                             <li class="mr-5">
-                                <a class="text-dark Menu_Link" href="{{route('trangchu')}}"> Trang chủ </a>
+                                <a class="text-dark Menu_Link" href="luckycake/customer/trangchu"> Trang chủ </a>
                             </li>
                             <li class="mr-5 Menu_Has-sub-menu">
-                                <a class="text-dark Menu_Link" href="{{route('sanpham')}}"> Sản phẩm </a>
+                                <a class="text-dark Menu_Link" href="luckycake/customer/sanpham"> Sản phẩm </a>
                                 <ul class="Menu_Sub-menu ">
                                     @foreach($loai_sp as $type)
                                         <li class="Menu_Item-link">
-                                            <a class="Menu_Link text-dark" href={{route('loaisanpham',$type->id)}}"> 
+                                            <a class="Menu_Link text-dark" href="luckycake/customer/loaisanpham/{{$type->id}}"> 
                                                 {{$type->name}} 
                                             </a>
                                         </li>
@@ -81,13 +82,13 @@
                                 </ul>
                             </li>
                             <li class="mr-5">
-                                <a class="text-dark Menu_Link" href="{{route('gioithieu')}}"> Giới thiệu </a>
+                                <a class="text-dark Menu_Link" href="luckycake/customer/gioithieu"> Giới thiệu </a>
                             </li>
                             <li class="mr-5">
-                                <a class="text-dark Menu_Link" href="{{route('lienhe')}}"> Liên hệ </a>
+                                <a class="text-dark Menu_Link" href="luckycake/customer/lienhe"> Liên hệ </a>
                             </li>
                             <li class="mr-5">
-                                <a class="text-dark Menu_Link" href="{{route('tintuc')}}"> Tin tức </a>
+                                <a class="text-dark Menu_Link" href="luckycake/customer/tintuc"> Tin tức </a>
                             </li>
                         </ul>
                     

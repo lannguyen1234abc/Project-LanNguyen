@@ -13,7 +13,7 @@
                         Users
                     </div>
                     <ul class="text-white">
-                        <li ><a class="text-white" href="{{route('users.index')}}"> List </a></li>
+                        <li ><a class="text-white" href="admin/users/index"> List </a></li>
                     </ul>
                     
                 </div>
@@ -24,8 +24,8 @@
                         Products
                     </div>
                     <ul class="text-white">
-                        <li ><a class="text-white"  href="{{route('products.index')}}"> List </a></li>
-                        <li ><a class="text-white"  href="{{route('products.create')}}"> Add </a></li>
+                        <li ><a class="text-white"  href="admin/products/index"> List </a></li>
+                        <li ><a class="text-white"  href="admin/products/create"> Add </a></li>
                     </ul>
                     
 
@@ -36,8 +36,8 @@
                         ProductTypes
                     </div>
                     <ul class="text-white">
-                        <li ><a class="text-white"  href="{{route('producttype.index')}}"> List </a></li>
-                        <li ><a class="text-white"  href="{{route('producttype.create')}}"> Add </a></li>
+                        <li ><a class="text-white"  href="admin/producttype/index"> List </a></li>
+                        <li ><a class="text-white"  href="admin/producttype/create"> Add </a></li>
                     </ul>
                     
                 </div>
@@ -47,8 +47,7 @@
                         Bills
                     </div>
                     <ul class="text-white">
-                        <li ><a class="text-white" href="{{route
-                        ('bills.index')}}"> List </a></li>
+                        <li ><a class="text-white" href="admin/bills/index"> List </a></li>
                     </ul>
                 </div>
                 <div class="">
@@ -57,9 +56,8 @@
                         News
                     </div>
                     <ul class="text-white">
-                        <li ><a class="text-white" href="{{route
-                        ('news.index')}}"> List </a></li>
-                        <li ><a class="text-white"  href="{{route('news.create')}}"> Add </a></li>
+                        <li ><a class="text-white" href="admin/news/index"> List </a></li>
+                        <li ><a class="text-white"  href="admin/news/create"> Add </a></li>
                     </ul>
                 </div>        
         </div>

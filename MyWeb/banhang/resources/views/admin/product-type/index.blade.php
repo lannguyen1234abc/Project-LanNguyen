@@ -25,15 +25,15 @@
                         
                         <td >
                         <div class="d-flex flex-row justify-content-center">
-                            <form action="{{route('producttype.show', $type->id)}}" method="GET">
+                            <form action="admin/producttype/show/{{$type->id}}" method="GET">
                                 <button class='btn btn-danger ml-2'> <i class="far fa-eye"></i> </button>
                             </form>
                             
-                            <form action="{{route('producttype.edit', $type->id)}}" method="GET">
+                            <form action="admin/producttype/edit/{{$type->id}}" method="GET">
                                 <button class='btn btn-success ml-2'> <i class="far fa-edit"></i> </button> 
                             </form>
 
-                            <form action="{{route('producttype.destroy', $type->id)}}" method="POST">
+                            <form action="admin/producttype/destroy/{{$type->id}}" method="POST">
                             {{csrf_field()}}
                                 <input type='hidden' value='DELETE' name='_method'>
 

@@ -16,7 +16,7 @@
         </div>
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <form action="{{route('producttype.update', $type->id)}}" method="POST">
+                <form action="admin/producttype/update/{{$type->id}}" method="POST">
                 {{csrf_field()}}
                 <input type="hidden" name="_method" value="PUT" />
                     <div class="mb-3 d-flex flex-column">
@@ -26,7 +26,7 @@
 
                     <div class="mb-3 d-flex flex-column">
                         <lable> Description </lable>
-                        <textarea id="editor1" name="description" disabled></textarea>
+                        <textarea id="editor1" name="description" value="{{$type->description}}"></textarea>
                     </div> 
 
                     <button type="submit"> SAVE

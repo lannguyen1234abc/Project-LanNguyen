@@ -5,37 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Session;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $users = User::paginate(5);
         return view('admin.users.index', ['users'=> $users]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    /*
-    public function create()
-    {
-        return view('admin.users.create');
-    } */
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         User::create([
@@ -50,7 +29,7 @@ class UserController extends Controller
             
 
         ]);
-        return redirect()->route('users.index');
+        return redirect()->back();
     }
 
     public function show($id)
@@ -59,25 +38,12 @@ class UserController extends Controller
         return view('admin.users.show', ['user'=> $user]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $user = User::find($id);
         return view('admin.users.edit', ['user' => $user]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $user = User::find($id);
@@ -92,24 +58,17 @@ class UserController extends Controller
             'note' => $request ->note,
             'role' => $request ->role
         ]);
-        return redirect()->route('users.show', $id);
+        return redirect()->back();
     }
     
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    /*public function destroy($id)
     {
         $user = User::find($id);
         $user->bills()->delete();
 
         User::destroy($id);
         return redirect()->route('users.index');
-    }
+    }*/
 
     public function dangki(){
         return view('dangki');
@@ -121,7 +80,8 @@ class UserController extends Controller
 
     public function dangxuat(){
         Auth::logout();
-        return redirect()->route('trangchu');
+        Session::forget('cart');
+        return redirect('luckycake/customer/trangchu');
     }
 
     public function postDangki(Request $rq){
@@ -144,6 +104,7 @@ class UserController extends Controller
                 'password.required'=>'Vui lòng nhập password',
                 'password.min'=>'Password ít nhất 5 kí tự',
                 'password.max'=>'Password tối đa 20 kí tự',
+                're_password.required'=>'Vui lòng xác nhận lại password',
                 're_password.same'=>'Password không giống nhau'
             ]
             );
@@ -153,7 +114,6 @@ class UserController extends Controller
             $user->phone_number = $rq->phone_number;
             $user->address = $rq->address;
             $user->role = 'customer';
-            //$password = bcrypt($rq->password);
             $user->password = bcrypt($rq->password);
             $user->save();
 
@@ -163,34 +123,30 @@ class UserController extends Controller
         $this->validate($request,
             [
                 'email'=> 'required|email',
-                'password'=> 'required|min:5|max:20'
+                'password'=> 'required|min:5|max:20',
             ],
             [
                 'email.required'=> 'Vui lòng nhập email',
                 'email.email'=> 'Email không đúng định dạng',
-                'password.required'=> 'Vui lòng nhập mật khẩu'
+                'password.required'=> 'Vui lòng nhập mật khẩu',
+                'password.min'=>'Password ít nhất 5 kí tự',
+                'password.max'=>'Password tối đa 20 kí tự'
             ]           
             );
             $email = $request->email;
             $password = $request->password;
-            //dd(bcrypt($password));
             
             if(Auth::attempt(['email' => $email , 'password' => $password, 'role' => "customer"])) {
-                return redirect()->route('trangchu');
+                return redirect('luckycake/customer/trangchu');
+            }
+            elseif (Auth::attempt(['email' => $email , 'password' => $password, 'role'=>"admin"])) {
+                return redirect('admin/home');
             }
             else{
                 return redirect()->back()->with('thongbao', 'Đăng nhập không thành công');
             }
     }
-    public function getadmin(){
-        return view('admin.home');
-    }
-
-
-    public function adminLogin(){
-        return view('loginadmin');
-    }
-
+/*
     public function postAdminlogin(Request $r){
         $this->validate($r,
             [
@@ -199,21 +155,25 @@ class UserController extends Controller
             ],
             [
                 'name.required'=> 'Vui lòng nhập tên đăng nhập',
-                'password.required'=> 'Vui lòng nhập mật khẩu'
+                'password.required'=> 'Vui lòng nhập mật khẩu',
+                'password.min'=>'Password ít nhất 5 kí tự',
+                'password.max'=>'Password tối đa 20 kí tự'
             ]           
             );
             $name = $r->name;
             $password = $r->password;
             
-            
-            //dd(bcrypt($password));
-            
                 if(Auth::attempt(['name' => $name , 'password' => $password, 'role'=>"admin"])) {
-                    return redirect()->route('admin');
+                    return redirect('admin/home');
                 }
                 else{
                     return redirect()->back()->with('thongbao', 'Đăng nhập không thành công');
                 }
-            
+    }
+*/
+    public function search(Request $re){
+        $s_users = User::where('name', 'like', '%'.$re->search.'%')
+                            ->orwhere('email', $re->search)->paginate(5);
+        return view('admin.users.search', compact('s_users'));
     }
 }

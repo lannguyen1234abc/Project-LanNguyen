@@ -8,7 +8,6 @@
             <tr>
                 <th> # </th>
                 <th> Title </th>
-                <th> Content </th>
                 <th> Image </th>
                 <th> New </th>
                 <th> Action </th>
@@ -19,18 +18,22 @@
                     <tr>
                         <td> {{$t->id}} </td>
                         <td> {{$t->title}} </td>
-                        <td> {{$t->content}} </td>
-                        <td> {{$t->image}} </td>
+                        <td> {{$t->image}} 
+                            <div class="Product_Image3 " style="background-image: url(banhang/image/tintuc/{{$t->image}}">
+                            </div> <br>
+                        </td>
                         <td> {{$t->new}} </td>
                         
                         <td >
                         <div class="d-flex flex-row justify-content-center">
-                            
-                            <form action="{{route('news.edit', $t->id)}}" method="GET">
+                            <form action="admin/news/show/{{$t->id}}" method="GET">
+                                <button class='btn btn-danger ml-2'> <i class="far fa-eye"></i> </button>
+                            </form>
+                            <form action="admin/news/edit/{{$t->id}}" method="GET">
                                 <button class='btn btn-success ml-2'> <i class="far fa-edit"></i> </button> 
                             </form>
                             
-                            <form action="{{route('news.destroy', $t->id)}}" method="POST">
+                            <form action="admin/news/destroy/{{$t->id}}" method="POST">
                                 {{csrf_field()}}
                                 <input type='hidden' value='DELETE' name='_method'>
                                 <button type="submit" class='btn btn-success ml-2'>     <i class="far fa-trash-alt"></i>  

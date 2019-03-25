@@ -35,10 +35,6 @@
                         <td> {{$bill->user->address}} </td>
                     </tr>
                     <tr>
-                        <td> Note </td>
-                        <td> {{$bill->user->note}} </td>
-                    </tr>
-                    <tr>
                         <td> Ngày đặt hàng  </td>
                         <td> {{$bill->date_order}} </td>
                     </tr>
@@ -62,7 +58,7 @@
                 <td> {{$pr->id}} </td>
                 <td> {{$pr->name}} </td>
                 <td> {{$pr->pivot->quantity}} </td>
-                <td> {{$pr->pivot->price}} </td> 
+                <td> {{number_format($pr->pivot->price)}} </td> 
             </tr>
             @endforeach
             <tr>
@@ -70,7 +66,7 @@
                     <div class="d-flex justify-content-start"> Tổng tiền: </div> 
                 </th>
                 <td> 
-                    <div class="text-danger"> {{$bill->total}} </div>
+                    <div class="text-danger"> {{number_format($bill->total)}} </div>
                 </td>
             </tr>
         </tbody>
@@ -79,7 +75,7 @@
 <div class="container mb-3">
     <div class="row">
         <div class="col-md-12 d-flex justify-content-center">
-            <form action="{{route('bills.update', $bill->id)}}" method="POST">
+            <form action="admin/bills/update/{{$bill->id}}" method="POST">
                 {{csrf_field()}}
                 <input type="hidden" name="_method" value="PUT" />
                 <div class="mb-3 d-flex flex-row">

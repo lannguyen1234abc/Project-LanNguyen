@@ -1,12 +1,27 @@
-@extends('customer.layout.master')
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-@section('content')
-  <div class="container mb-5">
+  <base href="{{asset('')}}"> 
+
+  <link rel="stylesheet" href="{{asset('banhang/asset/style.css')}}">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container Image_Dangki mb-5">
         <div class="row">
             <div class="col-md-6 offset-md-3 d-flex justify-content-center align-items-center flex-column Border-form">
                 <h1 class="text-uppercase mt-3 text-success"><font face="Comic sans MS" size="10"> register </font></h1>
                 
-                <form class=" d-flex flex-column mb-5 mt-3 w-100" action="{{route('postDangki')}}" method="POST">
+                <form class=" d-flex flex-column mb-5 mt-3 w-100" action="postDangki" method="POST">
                 {{csrf_field()}}
                 <input type="hidden" name="_method" value="POST" />
                 
@@ -83,4 +98,10 @@
             </div>
         </div>
     </div>
-@endsection
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</body>
+</html>

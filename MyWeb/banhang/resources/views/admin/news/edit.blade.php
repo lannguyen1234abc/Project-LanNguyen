@@ -15,7 +15,7 @@
         </div>
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <form action="{{route('news.update', $tintuc->id)}}" method="POST" enctype="multipart/form-data">
+                <form action="admin/news/update/{{$tintuc->id}}" method="POST" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <input type="hidden" name="_method" value="PUT" />
                     <div class="mb-3 d-flex flex-column">
@@ -25,7 +25,7 @@
                     
                     <div class="mb-3 d-flex flex-column">
                         <lable> <b> Content </b> </lable>
-                        <textarea name="content"> {{$tintuc->content}} </textarea>
+                        <textarea name="content" class="ckeditor"> {{$tintuc->content}} </textarea>
                     </div>
 
                     <div class="mb-3 d-flex flex-column">

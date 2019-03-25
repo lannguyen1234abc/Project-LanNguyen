@@ -6,38 +6,50 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Cart;
 use Session;
+use Illuminate\Support\Facades\Auth;
+
 
 class CartController extends Controller
 {
     public function show(){
-        if(Session::has('cart')){
+        if(Auth::check()){
+            if(Session::has('cart')){
             $oldCart = Session::has('cart') ? Session::get('cart') : null;
             $cart = new Cart($oldCart);
             $cart = Session::get('cart');
+            }
+            else{
+                return view('customer.page.cart');
+            }
+            $product_cart = $cart->items;
+            $totalQty = $cart->totalQty;
+            $totalPrice = $cart->totalPrice;
+
+            //dd($cart);
+
+            return view('customer.page.cart', compact('cart','product_cart', 'totalQty', 'totalPrice'));
         }
         else{
-            return view('customer.page.cart');
+            return redirect('dangnhap')->with('tbao', 'Bạn phải đăng nhập để xem giỏ hàng' );
         }
-        $product_cart = $cart->items;
-        $totalQty = $cart->totalQty;
-        $totalPrice = $cart->totalPrice;
-
-        //dd($cart);
-
-        return view('customer.page.cart', compact('cart','product_cart', 'totalQty', 'totalPrice'));
     }
 
     public function getAddtoCart(Request $req, $id){
-        $product = Product::find($id);
-        $oldCart = Session::has('cart') ? Session::get('cart') : null;
-        $cart = new Cart($oldCart);
-        $cart->add($product, $product->id);
+        if(Auth::check()){
+            $product = Product::find($id);
+            $oldCart = Session::has('cart') ? Session::get('cart') : null;
+            $cart = new Cart($oldCart);
+            $cart->add($product, $product->id);
 
-        
-        $req->session()->put('cart', $cart );
+            
+            $req->session()->put('cart', $cart );
 
-        //dd($cart);
-        return redirect()->back();
+            //dd($cart);
+            return redirect()->back();
+        }
+        else{
+            return redirect('dangnhap')->with('Cart_Tbao', 'Bạn phải đăng nhập để thêm sản phẩm vào giỏ hàng' );
+        }
     }
 
     public function delete($id){

@@ -1,12 +1,12 @@
 @extends('customer.layout.master')
 @section('content')
 <div class="container">
-    <form action="{{route('postBill')}}" method="post">
+    <form action="luckycake/donhang/ctdonhang" method="post">
         <input type="hidden" name="_token" value="{{csrf_token()}}">
         <div class="row">
             <div class="col-md-12">
                 <div class="d-flex flex-row ">
-                    <a href="{{route('trangchu')}}" class="text-dark">
+                    <a href="luckycake/customer/trangchu" class="text-dark">
                         <p class="pr-2"><i class="fas fa-home"></i> </p>
                     </a>
 

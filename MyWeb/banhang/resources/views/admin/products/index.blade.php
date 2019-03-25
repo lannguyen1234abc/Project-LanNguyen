@@ -4,6 +4,20 @@
 <div class="container-fluid Admin_Size_content">
     
 <h4 class="text-center"> Products </h4>
+<div class="row mb-3">
+        <div class="col-md-12 d-flex flex-row">
+            <div class="d-flex align-items-center mr-3"> Tìm kiếm: </div> 
+            <form action="admin/products/search-product" method="GET" class="d-flex flex-row mr-3">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search" name="search" aria-label="Search">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-dark"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+    </div>
 <div class="row">
             <div class="col-md-6 offset-md-3">
                 <p class="mb-3 mt-3 text-success"> 
@@ -17,7 +31,7 @@
             <tr>
                 <th> # </th>
                 <th> Name </th>
-                <th> Producttype_id </th>
+                <th> Producttype </th>
                 <th> Price </th>
                 <th> Promotion_price </th>
                 <th> Status </th>
@@ -29,7 +43,7 @@
                     <tr>
                         <td> {{$product->id}} </td>
                         <td> {{$product->name}} </td>
-                        <td> {{$product->producttype_id}} </td>
+                        <td> {{$product->producttype->name}} </td>
                         <td> {{$product->price}} </td>
                         <td> {{$product->promotion_price}} </td>
                         <td> {{$product->status}} </td>
@@ -37,21 +51,14 @@
                         
                         <td >
                             <div class="d-flex flex-row justify-content-center">
-                            <form action="{{route('products.show', $product->id)}}" method="GET">
+                            <form action="admin/products/show/{{$product->id}}" method="GET">
                                 <button class='btn btn-danger ml-2'> <i class="far fa-eye"></i> </button>
                             </form>
                             
-                            <form action="{{route('products.edit', $product->id)}}" method="GET">
+                            <form action="admin/products/edit/{{$product->id}}" method="GET">
                                 <button class='btn btn-success ml-2'> <i class="far fa-edit"></i> </button> 
                             </form>
-                            
-                        <!--
-                            <form action="{{route('products.destroy', $product->id)}}" method="POST">
-                                {{csrf_field()}}
-                                <input type='hidden' value='DELETE' name='_method'>
-                                <button type="submit" class='btn btn-success ml-2'> <i class="far fa-trash-alt"></i>  </button> 
-                            </form>
-                        -->
+                        
                             </div> 
                         </td> 
                     </tr>

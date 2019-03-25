@@ -66,8 +66,4 @@ class Cart extends Model
 		$this->totalPrice -= $this->items[$id]['price'];
 		unset($this->items[$id]);
 	}
-
-	public function user(){
-        return $this->belongsTo('App\User');
-    }
 }

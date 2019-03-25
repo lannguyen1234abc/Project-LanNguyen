@@ -3,23 +3,7 @@
 @section('content')
 <div class="container mt-5 mb-5">
     <div class="row">
-        <div class="col-md-3">
-            <div class="card Carousel_Left_Size">
-                <div class="card-header bg-info">
-                    <h3 class="text-white text-capitalize"> Loại sản phẩm </h3>
-                </div>
-                <ul class="list-group list-group-flush">
-                    @foreach($type_product as $t_p)
-                    <li class="list-group-item">
-                        <i class="fa fa-arrow-circle-right"></i>
-                        <a href="{{route('loaisanpham',$t_p->id)}}"> {{$t_p->name}} </a>
-                    </li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-
-        <div class="col-md-9">
+        <div class="col-md-12">
             <div class="row mb-5 d=flex justify-content-center">
                 <div class="card-header Product_Style text-center bg-info">
                     Sản phẩm 
@@ -27,7 +11,7 @@
             </div>
             <div class="row">
                 @foreach($products as $index)
-                <div class="col-md-4 mb-3">
+                <div class="col-md-3 mb-3">
                     <div class="card">
                         <div class="Product_Image1" alt="" style="background-image: url(banhang/image/products/{{$index->image}})">
                             @if($index->promotion_price != 0)
@@ -50,18 +34,12 @@
 
                                 </div>
                                 <div class="d-flex flex-row mt-3">
-                                    @if(Auth::check())
                                     <button class="btn btn-warning"> 
-                                        <a href="{{route('getAddtoCart', $index->id)}}"> <i class="fas fa-shopping-cart text-white"></i> </a> 
-                                    </button>
-                                    @else
-                                    <button class="btn btn-warning"> 
-                                        <a href="{{route('dangnhap')}}"> <i class="fas fa-shopping-cart text-white"></i> </a> 
+                                        <a href="luckycake/giohang/add-to-giohang/{{$index->id}}"> <i class="fas fa-shopping-cart text-white"></i> </a> 
                                     </button>
                                     
-                                    @endif
                                     <button class="btn btn-outline-primary"> 
-                                        <a href="{{route('chitietsanpham', $index->id)}}" class="link"> Chi tiết >> </a> 
+                                        <a href="luckycake/customer/chitietsanpham/{{$index->id}}" class="link"> Chi tiết >> </a> 
                                     </button>
                                 </div>
                             </div>

@@ -16,7 +16,7 @@
         </div>
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <form action="{{route('producttype.store')}}" method="POST">
+                <form action="admin/producttype/store" method="POST">
                 {{csrf_field()}}
                 <input type="hidden" name="_method" value="POST" />
                     <div class="mb-3 d-flex flex-column">

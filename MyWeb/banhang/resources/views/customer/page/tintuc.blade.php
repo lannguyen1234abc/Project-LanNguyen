@@ -2,34 +2,53 @@
 
 @section('content')
 <div class="container mb-5">
-    <div class="row">
-        <div class="col-md-12 ">
-            <h1 class="text-info text-center text-capitalize"> Tin tức </h1>
-        </div>
+  <div class="row">
+    <div class="col-md-12 ">
+      <h1 class="text-info text-center text-capitalize"> Tin tức </h1>
     </div>
-</div>
-<div class="container mb-3">
-          <div class="row">
-            <div class="col-md-12">
-              <p> Được nhiều người biết đến với các sản phẩm bánh kem tinh tế và ngon miệng, tiệm bánh kem Lucky là một trong những tiệm bánh kế thừa tinh hoa của những dòng bánh cao cấp trên thị trường. Với từng sản phẩm bánh kem được trang trí đầy ngọt ngào, tinh tế với nhiều mẫu bánh kem đẹp, mức giá phải chăng tùy theo kích thước và yêu cầu của khách hàng. </p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+            <div class="card Carousel_Left_Size">
+                <div class="card-header bg-info">
+                    <h3 class="text-white text-capitalize"> Loại sản phẩm </h3>
+                </div>
+                <ul class="list-group list-group-flush">
+
+                    @foreach($types as $t)
+                    <li class="list-group-item">
+                        <i class="fa fa-arrow-circle-right"></i>
+                        <a href="luckycake/customer/loaisanpham/{{$t->id}}"> {{$t->name}} </a>
+                    </li>
+                    @endforeach
+                </ul>
             </div>
-            <div class="col-md-4 offset-md-4">
-              <div class="card Adv_Card">
-                  <div class="Adv_Image_Image1 ">
-                  </div>
+        </div>
+    
+    <div class="col-md-9">
+      @foreach($tintuc as $tt)
+        <div class="card mb-3">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <div class="Product_Image1" style="background-image: url(banhang/image/tintuc/{{$tt->image}})">
               </div>
             </div>
-            <div class="col-md-12">
-              <p>Đến với tiệm bánh Lucky bạn có thể được tận hưởng dịch vụ chăm sóc khách hàng của chúng tôi một cách toàn diện nhất. Chúng tôi sẽ nhận làm và giao bánh đến tận nhà theo khung giờ yêu cầu của bạn, nhận tổ chức và set up tiệc sinh nhật, cung cấp dịch vụ quà tặng và các phụ kiện cần thiết đảm bảo bạn có một bữa tiệc hoành tráng cực kỳ ấn tượng.</p>
-              <p>Cửa hàng bánh kem Lucky đa dạng sản phẩm với các loại bánh kem cao cấp như: bánh kem bắp, bánh kem tiramisu, bánh kem bông lan trứng muối, bánh kem fondant, bánh kem sinh nhật nhiều tầng… đặc biệt, chúng tôi còn cung cấp bánh kem cho các buổi tiệc thôi nôi, cưới hỏi, hội nghị sang trọng…</p>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title"> 
+                  <a href="luckycake/customer/chitiettintuc/{{$tt->id}}"> {{$tt->title}}</a>
+                </h5> 
+                <p class="card-text "> {{$tt->title}}... </p>
+                <p class="card-text"><small class="text-muted"> {{$tt->created_at}} </small></p>
+              </div>
             </div>
-            <div class="col-md-4 offset-md-4">
-              <div class="card Adv_Card">
-                    <div class="Adv_Image_Image3 ">
-                    </div>
-                </div>
-            </div>
-                
-          </div>           
+          </div>
+        </div>
+      
+      @endforeach
+    </div>
+  </div>
 </div>
+
 @endsection

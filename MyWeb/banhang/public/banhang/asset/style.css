@@ -1,6 +1,15 @@
-.Button_Dangki {
-  background-image: url("https://images.unsplash.com/photo-1536935779868-3ea6bd0de56e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=642&q=80");
-  height: 620px;
+.Image_Dangki {
+  background-image: url("/banhang/image/logo/background.jpg");
+  height: 570px;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Image_Dangnhap {
+  background-image: url("/banhang/image/logo/background.jpg");
+  height: 570px;
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -111,7 +120,7 @@
 }
 
 .Adv_Image_Image1 {
-  background-image: url("/banhang/image/products/pudding-kem.jpg");
+  background-image: url("/banhang/image/products/loai-1.jpg");
   height: 200px;
   width: 100%;
   background-position: center;
@@ -121,7 +130,7 @@
 }
 
 .Adv_Image_Image2 {
-  background-image: url("/banhang/image/products/pizza-hai-san.jpg");
+  background-image: url("/banhang/image/products/loai-2.jpg");
   height: 200px;
   width: 100%;
   background-position: center;
@@ -131,7 +140,7 @@
 }
 
 .Adv_Image_Image3 {
-  background-image: url("/banhang/image/products/banh-kem-2.jpg");
+  background-image: url("/banhang/image/products/loai-3.jpg");
   height: 200px;
   width: 100%;
   background-position: center;
@@ -158,13 +167,21 @@
 }
 
 .Product_Image1:hover {
-  -webkit-transform: scale(0.8);
-          transform: scale(0.8);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .Product_Image2 {
   height: 200px;
   width: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Product_Image3{
+  height: 100px;
+  width: 150px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -186,6 +203,16 @@
   width: calc(100% - 70px);
   float: right;
   margin-right: 5px;
+}
+
+.Cart_Image {
+  width: 40px;
+  height: 40px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+  float: left;
 }
 
 .Inventory{

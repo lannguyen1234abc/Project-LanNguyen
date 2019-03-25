@@ -23,7 +23,7 @@
                         <td> {{$type->updated_at}} </td>
                         <td class="d-flex flex-row justify-content-center">
                             
-                            <form action="{{route('producttype.edit', $type->id)}}" method="GET">
+                            <form action="admin/producttype/edit/{{$type->id}}" method="GET">
                                 <button class='btn btn-success ml-2'> <i class="far fa-edit"></i> </button> 
                             </form>
                             

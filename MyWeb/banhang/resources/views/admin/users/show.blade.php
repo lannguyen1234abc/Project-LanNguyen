@@ -27,7 +27,7 @@
                         <td> {{$user->role}} </td>
                         <td class="d-flex flex-row justify-content-center">
                             
-                            <form action="{{route('users.edit', $user->id)}}" method="GET">
+                            <form action="admin/users/edit/{{$user->id}}" method="GET">
                                 <button class='btn btn-success ml-2'> <i class="far fa-edit"></i> </button> 
                             </form>
                             

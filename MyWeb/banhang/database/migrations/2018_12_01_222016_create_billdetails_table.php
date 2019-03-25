@@ -18,12 +18,12 @@ class CreateBilldetailsTable extends Migration
             $table->unsignedInteger('bill_id');
             $table->foreign('bill_id')->references('id')->on('bills');
 
-            $table->unsignedInteger('product_id')->unsigned();
+            $table->unsignedInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
             
             $table->integer('quantity');
             $table->string('price');
-            $table->string('promotion_price')->nullable();
+            
            
             $table->timestamps();
         });

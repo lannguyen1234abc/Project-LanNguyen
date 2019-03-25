@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="d-flex flex-row ">
-                    <a href="{{route('trangchu')}}" class="text-dark"> <p class="pr-2"><i class="fas fa-home"></i> </p> </a> 
+                    <a href="luckycake/customer/trangchu" class="text-dark"> <p class="pr-2"><i class="fas fa-home"></i> </p> </a> 
 
                     <p class="pr-2"> <i class="fas fa-chevron-right"></i> </p> 
 
@@ -88,13 +88,13 @@
                             <td>
                                 <div class="d-flex justify-content-center">
                                     <button> 
-                                    <a href="{{route('deleteProduct', $product['item']['id'])}}" class="link"> - </a> 
+                                    <a href="luckycake/giohang/del-product/{{$product['item']['id']}}" class="link"> - </a> 
                                     </button>
 
                                     <button> {{$product['quantity']}} </button>
 
                                     <button> 
-                                    <a href="{{route('getAddtoCart', $product['item']['id'])}}" class="link"> + </a> 
+                                    <a href="luckycake/giohang/add-to-giohang/{{$product['item']['id']}}" class="link"> + </a> 
                                     </button>
                                 </div>
                                 
@@ -107,7 +107,7 @@
                             </td>
                             <td>
                                 <div class="d-flex justify-content-center">
-                                    <a href="{{route('destroyProduct', $product['item']['id'])}}"> <i class="fas fa-trash-alt"></i> </a>
+                                    <a href="luckycake/giohang/destroyproduct/{{$product['item']['id']}}"> <i class="fas fa-trash-alt"></i> </a>
                                 </div>
                                 
                             </td>
@@ -141,7 +141,7 @@
         <div class="row mt-3 mb-5">
             <div class="col-md-12 d-flex justify-content-center">
                 <button  class="btn btn-outline-primary text-capitalize">
-                    <a href="{{route('getBill')}}" class="link"> Mua hàng </a>
+                    <a href="luckycake/donhang/dathang" class="link"> Mua hàng </a>
                 </button> 
             </div>
         </div>
