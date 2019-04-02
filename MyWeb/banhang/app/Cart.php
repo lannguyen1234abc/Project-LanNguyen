@@ -56,7 +56,7 @@ class Cart extends Model
 		
 		$this->totalQty--;
 		
-		if($this->items[$id]['quantity']<=0){
+		if($this->items[$id]['quantity']<1){
 			unset($this->items[$id]);
 		}
 	}

@@ -1,68 +1,68 @@
 @extends('customer.layout.master')
-  
+
 @section('content')
-      <div class="container mt-3">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="d-flex flex-row ">
-                    <a href="luckycake/customer/trangchu" class="text-dark"> <p class="pr-2"><i class="fas fa-home"></i> </p> </a> 
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-flex flex-row ">
+                <a href="luckycake/customer/trangchu" class="text-dark"> <p class="pr-2"><i class="fas fa-home"></i> </p> </a> 
 
-                    <p class="pr-2"> <i class="fas fa-chevron-right"></i> </p> 
+                <p class="pr-2"> <i class="fas fa-chevron-right"></i> </p> 
 
-                     <p class="pr-2"> Giỏ hàng </p> 
+                <p class="pr-2"> Giỏ hàng </p> 
 
-                </div>
             </div>
         </div>
-        <div class="row border-bottom">
-            <div class="col-md-12">
-                <h2 class="text-center"> Giỏ hàng </h2>
-                <table class="table mt-3 ">
-                    <thead class="thead-light">
-                        <tr>
-                            <th class="image"> 
-                                <div class="d-flex justify-content-center align-items-center">Image 
-                                </div>
-                            </th>
+    </div>
+    <div class="row border-bottom">
+        <div class="col-md-12">
+            <h2 class="text-center"> Giỏ hàng </h2>
+            <table class="table mt-3 ">
+                <thead class="thead-light">
+                    <tr>
+                        <th class="image"> 
+                            <div class="d-flex justify-content-center align-items-center">Image 
+                            </div>
+                        </th>
 
-                            <th class="product"> 
-                                <div class="d-flex justify-content-center align-items-center">Product  
-                                </div>
-                            </th>
-                            <th class="price"> 
-                                <div class="d-flex justify-content-center align-items-center">Price  
-                                </div>
-                            </th>
-                            <th class="pro-price"> 
-                                <div class="d-flex justify-content-center align-items-center">Promotion Price  
-                                </div>
-                            </th>
-                            <th class="quantity"> 
-                                <div class="d-flex justify-content-center align-items-center">
-                                    Quantity   
-                                </div>
-                            </th>
-                            <th class="total"> 
-                                <div class="d-flex justify-content-center align-items-center">Total    
-                                </div>
-                            </th>
-                            <th class="remove"> 
-                                <div class="d-flex justify-content-center align-items-center">Remove     
-                                </div>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                        <th class="product"> 
+                            <div class="d-flex justify-content-center align-items-center">Product  
+                            </div>
+                        </th>
+                        <th class="price"> 
+                            <div class="d-flex justify-content-center align-items-center">Price  
+                            </div>
+                        </th>
+                        <th class="pro-price"> 
+                            <div class="d-flex justify-content-center align-items-center">Promotion Price  
+                            </div>
+                        </th>
+                        <th class="quantity"> 
+                            <div class="d-flex justify-content-center align-items-center">
+                                Quantity   
+                            </div>
+                        </th>
+                        <th class="total"> 
+                            <div class="d-flex justify-content-center align-items-center">Total    
+                            </div>
+                        </th>
+                        <th class="remove"> 
+                            <div class="d-flex justify-content-center align-items-center">Remove     
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
                     @if(Session::has('cart'))
                     @foreach($product_cart as $product)
-                        <tr >
-                            <td class="d-flex justify-content-center align-items-center"> 
-                                <div class="Product_Image2 " alt="" style="background-image: url(banhang/image/products/{{$product['item']['image']}})">
+                    <tr >
+                        <td class="d-flex justify-content-center align-items-center"> 
+                            <div class="Product_Image2 " alt="" style="background-image: url(banhang/image/products/{{$product['item']['image']}})">
                                 @if($product['item']['promotion_price'] != 0)
                                 <div class="bg-warning" style="width:50px; height:30px;">
-                                <h4 class="text-center text-white"> Sale <h4>
-                                </div>
-                                @endif 
+                                    <h4 class="text-center text-white"> Sale <h4>
+                                    </div>
+                                    @endif 
                                 </div>
                             </td>
                             <td > 
@@ -87,15 +87,18 @@
                             </td>
                             <td>
                                 <div class="d-flex justify-content-center">
+                                    @if($product['quantity'] == 1)
+                                    <button> - </button>
+                                    @else
                                     <button> 
-                                    <a href="luckycake/giohang/del-product/{{$product['item']['id']}}" class="link"> - </a> 
+                                        <a href="luckycake/giohang/del-product/{{$product['item']['id']}}" class="link"> - </a> 
                                     </button>
-
+                                    @endif
                                     <button> {{$product['quantity']}} </button>
 
                                     <button> 
-                                    <a href="luckycake/giohang/add-to-giohang/{{$product['item']['id']}}" class="link"> + </a> 
-                                    </button>
+                                        <a href="luckycake/giohang/add-to-giohang/{{$product['item']['id']}}" class="link"> + </a> 
+                                    </button>      
                                 </div>
                                 
                             </td>
@@ -112,8 +115,8 @@
                                 
                             </td>
                         </tr>
-                    @endforeach
-                    @endif
+                        @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
@@ -128,7 +131,7 @@
                         <li class="list-group-item"> 
                             <b class="pr-3">SubTotal:</b> 
                             @if(Session::has('cart'))
-                                ${{number_format(Session('cart')->totalPrice)}}
+                            ${{number_format(Session('cart')->totalPrice)}}
                             @endif
                         </li>
                         <li class="list-group-item"> 
@@ -145,5 +148,5 @@
                 </button> 
             </div>
         </div>
-      </div>
-@endsection
+    </div>
+    @endsection

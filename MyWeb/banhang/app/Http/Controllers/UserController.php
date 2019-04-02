@@ -21,15 +21,17 @@ class UserController extends Controller
             'name' => $request ->name,
             'email' => $request ->email,
             'phone_number' => $request ->phone_number,
-            'password' => $request ->password,
+            'password' => bcrypt($request ->password),
             'address' => $request ->address,
             'remember_token' => $request ->remember_token,
-            'note' => $request ->note,
             'role' => $request ->role
-            
 
         ]);
-        return redirect()->back();
+        return redirect()->back()->with('thongbao', 'Thêm người dùng thành công');;
+    }
+
+    public function create(){
+        return view('admin.users.create');
     }
 
     public function show($id)
@@ -55,7 +57,6 @@ class UserController extends Controller
             'address' => $request ->address,
             'password' => bcrypt($request ->password),
             'remember_token' => $request ->remember_token,
-            'note' => $request ->note,
             'role' => $request ->role
         ]);
         return redirect()->back();

@@ -9,6 +9,7 @@
   </div>
 
   <div class="row">
+    <!--
     <div class="col-md-3">
             <div class="card Carousel_Left_Size">
                 <div class="card-header bg-info">
@@ -24,17 +25,34 @@
                     @endforeach
                 </ul>
             </div>
+            <div class="card mt-3">
+                <div class="card-header bg-info text-white d-flex justify-content-center ">
+                    <h4 class="text-capitalize"> Tin mới nhất </h4>
+                </div>
+
+                @foreach($tintuc as $n)
+                @if($n->new == 1)
+                <div class="mt-3 mb-3">
+                    <div class="Product_Tin_Image mr-3 ml-3" alt="" style="background-image: url(banhang/image/tintuc/{{$n->image}})">  
+                    </div>
+                    <a href="luckycake/customer/tintuc"> 
+                        {{$n->title}}
+                    </a>
+                </div>
+                @endif
+                @endforeach 
+            </div>
         </div>
-    
-    <div class="col-md-9">
+    -->
       @foreach($tintuc as $tt)
+      <div class="col-md-3">
         <div class="card mb-3">
           <div class="row no-gutters">
-            <div class="col-md-4">
+            
               <div class="Product_Image1" style="background-image: url(banhang/image/tintuc/{{$tt->image}})">
               </div>
-            </div>
-            <div class="col-md-8">
+            
+            
               <div class="card-body">
                 <h5 class="card-title"> 
                   <a href="luckycake/customer/chitiettintuc/{{$tt->id}}"> {{$tt->title}}</a>
@@ -42,12 +60,11 @@
                 <p class="card-text "> {{$tt->title}}... </p>
                 <p class="card-text"><small class="text-muted"> {{$tt->created_at}} </small></p>
               </div>
-            </div>
+            
           </div>
         </div>
-      
-      @endforeach
     </div>
+    @endforeach
   </div>
 </div>
 

@@ -15,7 +15,7 @@
         </div>
     </div>
     
-    <table class="table table-hover table-bordered text-center">
+    <table class="table table-hover table-bordered text-center table-sm">
         <thead>
             <tr>
                 <th> # </th>

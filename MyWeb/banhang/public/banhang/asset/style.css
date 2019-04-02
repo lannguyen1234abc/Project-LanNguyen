@@ -92,7 +92,7 @@
 }
 
 .Carousel_Left_Size {
-  height: 400px;
+  height: 300px;
   width: 100%;
 }
 
@@ -225,7 +225,7 @@
 
 .Admin_Size_content-left {
   width: 100%;
-  height: auto;
+  height: 500px;
 }
 
 .Admin_Size_content-right {

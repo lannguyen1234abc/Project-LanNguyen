@@ -4,19 +4,19 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Updatenewstable extends Migration
+class CreateTintucsTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-   public function up()
+    public function up()
     {
-        Schema::table('news', function (Blueprint $table) {
+        Schema::create('tintucs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title')->nullable();
-            $table->text('content', 10000)->nullable()->change();
+            $table->text('content', 10000)->nullable();
             $table->string('image')->nullable();
             $table->integer('new')->nullable();
             $table->timestamps();
@@ -30,13 +30,6 @@ class Updatenewstable extends Migration
      */
     public function down()
     {
-        Schema::table('news', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('title');
-            $table->string('content')->nullable()->change();
-            $table->string('image');
-            $table->integer('new');
-            $table->timestamps();
-        });
+        Schema::dropIfExists('tintucs');
     }
 }

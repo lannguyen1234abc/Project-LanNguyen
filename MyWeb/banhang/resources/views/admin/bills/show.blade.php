@@ -10,7 +10,7 @@
 <div class="container mt-3 mb-3">
     <div class="row">
         <div class="col-md-6 ">
-            <table class="table table-hover table-sm table-bordered text-center">
+            <table class="table table-hover table-sm table-bordered text-center table-sm">
                 <thead>
                     <tr>
                         <th> Thông tin khách hàng </th>

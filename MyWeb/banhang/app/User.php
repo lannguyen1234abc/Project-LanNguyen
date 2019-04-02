@@ -23,4 +23,7 @@ class User extends Authenticatable
         return $this->hasMany('App\Comment', 'user_id', 'id');
     }
     
+    public function contacts(){
+        return $this->hasMany('App\Contact', 'user_id', 'id');
+    }
 }

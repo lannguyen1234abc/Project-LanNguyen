@@ -21,6 +21,7 @@ Route::group(['prefix'=>'luckycake'], function(){
 		Route::get('search', 'PageController@search');
 		Route::get('chitietsanpham/{id}', 'PageController@chitiet');
 		Route::post('comment/{id}', 'CommentController@postComment');
+		Route::post('contact', 'ContactController@store');
 
 	});
 	Route::group(['prefix'=>'giohang'], function(){
@@ -34,6 +35,8 @@ Route::group(['prefix'=>'luckycake'], function(){
 		Route::post('ctdonhang', 'BillController@postBill');
 	});
 });
+
+
 
 Route::get('dangki', 'UserController@dangki');
 Route::post('postDangki', 'UserController@postDangki');
@@ -51,9 +54,10 @@ Route::group(['prefix'=>'admin', 'middleware'=>'CheckAdmin'], function(){
 
 	Route::group(['prefix'=>'users'], function(){
 		Route::get('index', 'UserController@index');
+		Route::get('create', 'UserController@create');
 		Route::post('store', 'UserController@store');
 		Route::get('show/{id}', 'UserController@show');
-		Route::delete('destroy/{id}', 'UserController@destroy');
+		//Route::delete('destroy/{id}', 'UserController@destroy');
 		Route::get('edit/{id}', 'UserController@edit');
 		Route::put('update/{id}', 'UserController@update');
 		Route::get('search-user', 'UserController@search');
@@ -74,7 +78,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'CheckAdmin'], function(){
 		Route::get('create', 'ProductController@create');
 		Route::post('store', 'ProductController@store');
 		Route::get('show/{id}', 'ProductController@show');
-		Route::delete('destroy/{id}', 'ProductController@destroy');
+		//Route::delete('destroy/{id}', 'ProductController@destroy');
 		Route::get('edit/{id}', 'ProductController@edit');
 		Route::put('update/{id}', 'ProductController@update');
 		Route::get('search-product', 'ProductController@search');
@@ -83,8 +87,8 @@ Route::group(['prefix'=>'admin', 'middleware'=>'CheckAdmin'], function(){
 	Route::group(['prefix'=>'bills'], function(){
 		Route::get('index', 'BillController@index');
 		Route::get('show/{id}', 'BillController@show');
-		Route::delete('destroy/{id}', 'BillController@destroy');
-		Route::get('edit/{id}', 'BillController@edit');
+		//Route::delete('destroy/{id}', 'BillController@destroy');
+		//Route::get('edit/{id}', 'BillController@edit');
 		Route::put('update/{id}', 'BillController@update');
 		Route::get('search-bill', 'BillController@search');
 	});
@@ -97,5 +101,15 @@ Route::group(['prefix'=>'admin', 'middleware'=>'CheckAdmin'], function(){
 		Route::delete('destroy/{id}', 'NewsController@destroy');
 		Route::get('edit/{id}', 'NewsController@edit');
 		Route::put('update/{id}', 'NewsController@update');
+	});
+
+	Route::group(['prefix'=>'contacts'], function(){
+		Route::get('index', 'ContactController@index');
+		Route::get('create', 'ContactController@create');
+		Route::post('store', 'ContactController@store');
+		//Route::get('show/{id}/', 'ContactController@show');
+		Route::delete('destroy/{id}', 'ContactController@destroy');
+		//Route::get('edit/{id}', 'ContactController@edit');
+		//Route::put('update/{id}', 'ContactController@update');
 	});
 });

@@ -10,7 +10,9 @@ use App\BillDetail;
 use App\Cart;
 use App\Product;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 use Session;
+use Mail;
 
 class BillController extends Controller
 {
@@ -94,6 +96,16 @@ class BillController extends Controller
             
             $bill_detail->save();
         }
+        $product_cart = $cart->items;
+
+        $data = ['name'=> $rq->name, 'address'=> $rq->address, 'phone_number'=> $rq->phone_number,
+                    'sanpham'=> $product_cart, 'totalPrice'=> $cart->totalPrice,
+                ];
+
+        Mail::send('mail', $data, function($msg){
+            $msg->from('lanbee220497@gmail.com', 'LUCKYCAKE');
+            $msg->to(Input::get('email'), 'lan')->subject('LUCKYCAKE');
+        });
 
         Session::forget('cart');
         return redirect()->back()->with('thongbao', 'Mua hàng thành công. Vui lòng kiểm tra email của bạn!');
@@ -105,4 +117,6 @@ class BillController extends Controller
 
         return view('admin.bills.search', compact('s_bills', 'tk_total'));
     }
+
+   
 }

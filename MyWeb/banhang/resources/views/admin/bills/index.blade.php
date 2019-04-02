@@ -17,7 +17,7 @@
         </div>
         
     </div>
-    <table class="table table-hover table-bordered text-center">
+    <table class="table table-hover table-bordered text-center table-sm">
         <thead>
             <tr>
                 <th> # </th>
@@ -28,6 +28,7 @@
                 <th> Payment </th>
                 <th> Status </th>
                 <th> Action </th>
+                <th> </th>
             </tr>
         </thead>
         <tbody>
@@ -47,19 +48,25 @@
                             <button class='btn btn-danger ml-2'> <i class="far fa-eye"></i> </button>
                         </form>
 
-                        </div> 
-                    </td> 
-                </tr>
-                @endforeach
-                
-            </tbody>
-        </table>
-        <div class="row mt-4">
-            <div class="col-md-12 d-flex justify-content-center ">
-                {{$bills->links("pagination::bootstrap-4")}}
-            </div>
+                    </div> 
+                </td> 
+                <td>  
+                    <form action="luckycake/donhang/post_Donhang" method="POST">
+                        <input type="hidden" name="_token" value="{{csrf_token()}}">
+                        <button class='btn btn-danger'> Gửi </button>
+                    </form>
+                </td>
+            </tr>
+            @endforeach
+
+        </tbody>
+    </table>
+    <div class="row mt-4">
+        <div class="col-md-12 d-flex justify-content-center ">
+            {{$bills->links("pagination::bootstrap-4")}}
         </div>
     </div>
+</div>
 
 
-    @endsection
+@endsection

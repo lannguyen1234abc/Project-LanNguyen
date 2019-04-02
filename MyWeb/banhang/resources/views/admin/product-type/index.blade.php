@@ -3,7 +3,7 @@
 
 <div class="container-fluid Admin_Size_content">
     <h4 class="text-center"> Product Type </h4>
-    <table class="table table-hover table-bordered text-center">
+    <table class="table table-hover table-bordered text-center table-sm">
         <thead>
             <tr>
                 <th> # </th>
