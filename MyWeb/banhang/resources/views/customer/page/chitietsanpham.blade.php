@@ -5,11 +5,11 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="d-flex flex-row ">
-                    <a href="luckycake/customer/trangchu" class="text-dark"> <p class="pr-2"><i class="fas fa-home"></i> </p> </a> 
+                    <a href="luckycake/trangchu" class="text-dark"> <p class="pr-2"><i class="fas fa-home"></i> </p> </a> 
 
                     <p class="pr-2"> <i class="fas fa-chevron-right"></i> </p> 
 
-                    <a href="luckycake/customer/sanpham" class="text-dark"> <p class="pr-2"> Sản phẩm </p> </a>
+                    <a href="luckycake/sanpham" class="text-dark"> <p class="pr-2"> Sản phẩm </p> </a>
 
                     <p class="pr-2"> <i class="fas fa-chevron-right"></i> </p>
 
@@ -23,7 +23,7 @@
         <div class="row mb-3">
             <div class="col-md-9">
                 <div class="row mb-5">
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-6">
                         <div class="Product_Image1" alt="" style="background-image: url(banhang/image/products/{{$product->image}})">
                             @if($product->promotion_price != 0)
                             <div class="bg-warning" style="width:50px; height:30px;">
@@ -32,7 +32,7 @@
                             @endif
                         </div>  
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-6">
                         <div class="mb-3"> <h4> {{$product->name}}</h4></div>
                         <div class="mb-3"> <b> ID: </b> {{$product->id}} </div>
                         <div class="d-flex flex-row">
@@ -58,7 +58,7 @@
                                 Thêm vào giỏ:  
                             </b>
                             
-                                <a href="luckycake/giohang/add-to-giohang/{{$product->id}}"> <i class="fas fa-shopping-cart"></i> </a> 
+                                <a href="customer/giohang/add-to-giohang/{{$product->id}}"> <i class="fas fa-shopping-cart"></i> </a> 
                             
                         </div> 
                     </div>
@@ -74,7 +74,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3"></div>
         </div>
 
         <!-- Viết bình luận -->
@@ -88,7 +87,7 @@
                         @endif
                     </div>
                     <h4> Viết bình luận ...<span> <i class="fas fa-pencil-alt"></i> </span></h4>
-                    <form action="luckycake/customer/comment/{{$product->id}}" method="post" role="form">
+                    <form action="luckycake/comment/{{$product->id}}" method="post" role="form">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <div class="form-group">
                             <textarea class="form-control" name="comment" rows="2"></textarea>

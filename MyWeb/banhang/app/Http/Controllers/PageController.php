@@ -16,7 +16,7 @@ class PageController extends Controller
         $slides = Slide::all();
         $news = News::all();
         $type_home = ProductType::all(); //loại sản phẩm
-        $new_products = Product::all();
+        $new_products = Product::paginate(9);
         
         return view('customer.page.trangchu',compact('slides', 'news','type_home', 'new_products'));
 

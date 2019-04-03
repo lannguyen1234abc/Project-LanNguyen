@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="d-flex flex-row ">
-                <a href="luckycake/customer/trangchu" class="text-dark"> <p class="pr-2"><i class="fas fa-home"></i> </p> </a> 
+                <a href="luckycake/trangchu" class="text-dark"> <p class="pr-2"><i class="fas fa-home"></i> </p> </a> 
 
                 <p class="pr-2"> <i class="fas fa-chevron-right"></i> </p> 
 
@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="row border-bottom">
-        <div class="col-md-12">
+        <div class="col-md-12 d-none d-md-block">
             <h2 class="text-center"> Giỏ hàng </h2>
             <table class="table mt-3 ">
                 <thead class="thead-light">
@@ -91,13 +91,13 @@
                                     <button> - </button>
                                     @else
                                     <button> 
-                                        <a href="luckycake/giohang/del-product/{{$product['item']['id']}}" class="link"> - </a> 
+                                        <a href="customer/giohang/del-product/{{$product['item']['id']}}" class="link"> - </a> 
                                     </button>
                                     @endif
                                     <button> {{$product['quantity']}} </button>
 
                                     <button> 
-                                        <a href="luckycake/giohang/add-to-giohang/{{$product['item']['id']}}" class="link"> + </a> 
+                                        <a href="customer/giohang/add-to-giohang/{{$product['item']['id']}}" class="link"> + </a> 
                                     </button>      
                                 </div>
                                 
@@ -110,7 +110,7 @@
                             </td>
                             <td>
                                 <div class="d-flex justify-content-center">
-                                    <a href="luckycake/giohang/destroyproduct/{{$product['item']['id']}}"> <i class="fas fa-trash-alt"></i> </a>
+                                    <a href="customer/giohang/destroyproduct/{{$product['item']['id']}}"> <i class="fas fa-trash-alt"></i> </a>
                                 </div>
                                 
                             </td>
@@ -122,7 +122,7 @@
             </div>
         </div>
         <div class="row mt-3">
-            <div class="col-md-4 offset-md-8">
+            <div class="col-md-4 offset-md-8 col-12">
                 <div class="card">
                     <div class="card-header text-center ">
                         <h4>Thanh toán</h4>
@@ -144,7 +144,7 @@
         <div class="row mt-3 mb-5">
             <div class="col-md-12 d-flex justify-content-center">
                 <button  class="btn btn-outline-primary text-capitalize">
-                    <a href="luckycake/donhang/dathang" class="link"> Mua hàng </a>
+                    <a href="customer/donhang/dathang" class="link"> Mua hàng </a>
                 </button> 
             </div>
         </div>

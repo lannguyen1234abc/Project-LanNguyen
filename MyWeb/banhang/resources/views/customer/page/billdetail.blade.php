@@ -1,12 +1,12 @@
 @extends('customer.layout.master')
 @section('content')
 <div class="container">
-    <form action="luckycake/donhang/ctdonhang" method="post">
+    <form action="customer/donhang/ctdonhang" method="post">
         <input type="hidden" name="_token" value="{{csrf_token()}}">
         <div class="row">
             <div class="col-md-12">
                 <div class="d-flex flex-row ">
-                    <a href="luckycake/customer/trangchu" class="text-dark">
+                    <a href="luckycake/trangchu" class="text-dark">
                         <p class="pr-2"><i class="fas fa-home"></i> </p>
                     </a>
 
@@ -27,7 +27,7 @@
             <h4 class="mb-5 "> Đặt hàng </h4>
         </div>
         <div class="row mb-5">
-            <div class="col-md-6">
+            <div class="col-md-6 col-12">
             @if(Auth::check()) 
                
                 <div class="Bill_form-block">
@@ -54,7 +54,7 @@
             @endif
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6 col-12">
                 <div class="card ">
                     <div class="card-header"> <h4> Đơn hàng của bạn </h4> </div>
                     <ul class="list-group list-group-flush">

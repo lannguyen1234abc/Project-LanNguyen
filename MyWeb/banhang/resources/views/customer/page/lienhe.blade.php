@@ -10,7 +10,7 @@
 </div>
 <div class="container">
     <div class="row"> 
-        <div class="col-md-6">
+        <div class="col-md-6 col-12">
             <p class="mb-3 text-success"> 
                 <b> @if( Session::has('ms')) {{Session::get('ms')}}
                     @endif
@@ -19,15 +19,15 @@
         </div>
     </div>
     <div class="row"> 
-        <div class="col-md-6 ">
+        <div class="col-md-6 col-12">
             <p class="mb-3"> 
                 <i> (Vui lòng đăng nhập tài khoản để gửi thông tin liên hệ ) </i>
             </p> 
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6 mb-5">
-            <form action="luckycake/customer/contact" method="POST">
+        <div class="col-md-6 col-12 mb-5">
+            <form action="luckycake/contact" method="POST">
                 {{csrf_field()}}
                 <input type="hidden" name="_method" value="POST" />
             <div class="d-flex flex-column"> 
@@ -56,7 +56,7 @@
             </form>
         </div>
 
-        <div class="col-md-6 mb-5">
+        <div class="col-md-6 col-12 mb-5">
             <div class="d-flex flex-column ml-5">
                 <div>
                     <i class="fas fa-map-marker-alt mr-3"></i> <b> Địa chỉ:</b>

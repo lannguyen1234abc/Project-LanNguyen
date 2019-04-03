@@ -5,11 +5,11 @@
     <div class="row">
         <div class="col-md-12 ">
             <div class="d-flex flex-row"> 
-                <a href="luckycake/customer/trangchu" class="text-dark">
+                <a href="luckycake/trangchu" class="text-dark">
                     <p class="pr-2"><i class="fas fa-home"></i> </p>
                 </a>
                 <p class="pr-2"> <i class="fas fa-chevron-right"></i> </p>
-                <a href="luckycake/customer/sanpham" class="text-dark">
+                <a href="luckycake/sanpham" class="text-dark">
                     <p class="pr-2"> Sản phẩm </p>
                 </a>
                 <p class="pr-2"> <i class="fas fa-chevron-right"></i> </p>
@@ -20,14 +20,14 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-9 offset-3 ">
+        <div class="col-md-9 offset-md-3 col-12">
             <h5>  Tìm thấy {{count($product_type)}} sản phẩm  </h5>
         </div>
     </div>
 </div>
 <div class="container mt-3 mb-5">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3 col-12">
             <div class="card Carousel_Left_Size">
                 <div class="card-header bg-info">
                     <h3 class="text-white text-capitalize"> Loại sản phẩm </h3>
@@ -37,16 +37,16 @@
                     @foreach($types as $t)
                     <li class="list-group-item">
                         <i class="fa fa-arrow-circle-right"></i>
-                        <a href="luckycake/customer/loaisanpham/{{$t->id}}"> {{$t->name}} </a>
+                        <a href="luckycake/loaisanpham/{{$t->id}}"> {{$t->name}} </a>
                     </li>
                     @endforeach
                 </ul>
             </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9 col-12">
             <div class="row">
                 @foreach($product_type as $sp_type)
-                <div class="col-md-4 mb-3">
+                <div class="col-md-4 col-6 mb-3">
                     <div class="card">
                         <div class="Product_Image1" alt="" style="background-image: url(banhang/image/products/{{$sp_type->image}})">
                             @if($sp_type->promotion_price != 0)
@@ -70,11 +70,11 @@
                                 </div>
                                 <div class="d-flex flex-row mt-3">
                                     <button class="btn btn-warning"> 
-                                        <a href="luckycake/giohang/add-to-giohang/{{$sp_type->id}}"> <i class="fas fa-shopping-cart text-white"></i> </a> 
+                                        <a href="customer/giohang/add-to-giohang/{{$sp_type->id}}"> <i class="fas fa-shopping-cart text-white"></i> </a> 
                                     </button>
                                     
                                     <button class="btn btn-outline-primary"> 
-                                        <a href="luckycake/customer/chitietsanpham/{{$sp_type->id}}" class="link"> Chi tiết >> </a> 
+                                        <a href="luckycake/chitietsanpham/{{$sp_type->id}}" class="link"> Chi tiết >> </a> 
                                     </button>
                                 </div>
                             </div>

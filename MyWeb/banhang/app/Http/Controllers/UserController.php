@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::paginate(5);
+        $users = User::paginate(6);
         return view('admin.users.index', ['users'=> $users]);
     }
 
@@ -82,7 +82,7 @@ class UserController extends Controller
     public function dangxuat(){
         Auth::logout();
         Session::forget('cart');
-        return redirect('luckycake/customer/trangchu');
+        return redirect('luckycake/trangchu');
     }
 
     public function postDangki(Request $rq){
@@ -138,7 +138,7 @@ class UserController extends Controller
             $password = $request->password;
             
             if(Auth::attempt(['email' => $email , 'password' => $password, 'role' => "customer"])) {
-                return redirect('luckycake/customer/trangchu');
+                return redirect('luckycake/trangchu');
             }
             elseif (Auth::attempt(['email' => $email , 'password' => $password, 'role'=>"admin"])) {
                 return redirect('admin/home');

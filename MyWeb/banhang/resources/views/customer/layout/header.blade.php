@@ -1,17 +1,16 @@
-
-    <div class="container-fluid bg-light">
+<div class="container-fluid bg-light">
         <div class="row">
-            <div class="col-md-6 d-flex justify-content-center align-items-center">
-                <div class="">
+            <div class="col-md-6 d-none d-md-block">
+                <div class="d-flex justify-content-center align-items-center mt-2">
                     <b> <i class="fas fa-home"></i> </b>
                     <b class="pr-5"> 459 Tôn Đức Thắng, Liên Chiểu </b>
                     <b> <i class="fas fa-phone"></i> </b>
                     <b> 01234567 </b>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 col-12 ">
                 <div class="d-flex justify-content-center align-items-center">
-                    <form action="luckycake/customer/search" method="GET" class="d-flex flex-row mr-3">
+                    <form action="luckycake/search" method="GET" class="d-flex flex-row mr-3">
                         <div class="input-group">
                             <input class="form-control" type="text" placeholder="Search" name="search" aria-label="Search">
                             <div class="input-group-append">
@@ -41,7 +40,7 @@
                     @endif
 
                     <div class=" text-dark mr-3" > 
-                        <a href="luckycake/giohang/show" class="link text-dark"> <i class="fas fa-shopping-cart"></i> 
+                        <a href="customer/giohang/show" class="link text-dark"> <i class="fas fa-shopping-cart"></i> 
                         </a> 
                         <span> 
                             @if(Session::has('cart')) 
@@ -57,45 +56,50 @@
         </div>
 </div>
 <div class="container-fluid bg-white border-bottom shadow-sm mb-3 sticky-top ">
-            <div class="row Menu_Size">
-                <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-3 offset-1 col-5 d-md-block Menu_Size">
                     <div class="d-flex align-items-center text-danger">
-                          <i class="far fa-hand-peace display-3 mr-3"></i>
-                          <h1> <font face="Comic sans MS"> Lucky Cake </font> </h1>
+                        <h1> <font face="Comic sans MS"> Lucky Cake </font> </h1>
                     </div>
                 </div>
-                <div class="col-md-8 d-flex justify-content-center align-items-center ">
-                        <ul class="Menu_Menu-item d-flex flex-row">
-                            <li class="mr-5">
-                                <a class="text-dark Menu_Link" href="luckycake/customer/trangchu"> Trang chủ </a>
-                            </li>
-                            <li class="mr-5 Menu_Has-sub-menu">
-                                <a class="text-dark Menu_Link" href="luckycake/customer/sanpham"> Sản phẩm </a>
-                                <ul class="Menu_Sub-menu ">
-                                    @foreach($loai_sp as $type)
-                                        <li class="Menu_Item-link">
-                                            <a class="Menu_Link text-dark" href="luckycake/customer/loaisanpham/{{$type->id}}"> 
-                                                {{$type->name}} 
-                                            </a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </li>
-                            <li class="mr-5">
-                                <a class="text-dark Menu_Link" href="luckycake/customer/gioithieu"> Giới thiệu </a>
-                            </li>
-                            <li class="mr-5">
-                                <a class="text-dark Menu_Link" href="luckycake/customer/lienhe"> Liên hệ </a>
-                            </li>
-                            <li class="mr-5">
-                                <a class="text-dark Menu_Link" href="luckycake/customer/tintuc"> Tin tức </a>
-                            </li>
-                        </ul>
-                    
+                <div class="col-6 d-block d-md-none d-flex justify-content-end">
+                    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-list-alt"></i>
+                    </button>
+                </div>
+                <div class="col-md-8 d-flex justify-content-center align-items-center">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="navbar-collapse collapse" id="navbarSupportedContent" style="">
+                            <ul class="navbar-nav Menu_Menu-item ">
+                                <li class="mr-5">
+                                    <a class="text-dark Menu_Link" href="luckycake/trangchu"> Trang chủ </a>
+                                </li>
+                                <li class="mr-5 Menu_Has-sub-menu">
+                                    <a class="text-dark Menu_Link" href="luckycake/sanpham"> Sản phẩm </a>
+                                    <ul class="Menu_Sub-menu ">
+                                        @foreach($loai_sp as $type)
+                                            <li class="Menu_Item-link">
+                                                <a class="Menu_Link text-dark" href="luckycake/loaisanpham/{{$type->id}}"> 
+                                                    {{$type->name}} 
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </li>
+                                <li class="mr-5">
+                                    <a class="text-dark Menu_Link" href="luckycake/gioithieu"> Giới thiệu </a>
+                                </li>
+                                <li class="mr-5">
+                                    <a class="text-dark Menu_Link" href="luckycake/lienhe"> Liên hệ </a>
+                                </li>
+                                <li class="mr-5">
+                                    <a class="text-dark Menu_Link" href="luckycake/tintuc"> Tin tức </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
                 </div>
             </div>
     </div> 
 
-
-    
 

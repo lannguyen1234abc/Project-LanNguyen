@@ -28,7 +28,6 @@
                 <th> Payment </th>
                 <th> Status </th>
                 <th> Action </th>
-                <th> </th>
             </tr>
         </thead>
         <tbody>
@@ -50,12 +49,7 @@
 
                     </div> 
                 </td> 
-                <td>  
-                    <form action="luckycake/donhang/post_Donhang" method="POST">
-                        <input type="hidden" name="_token" value="{{csrf_token()}}">
-                        <button class='btn btn-danger'> Gửi </button>
-                    </form>
-                </td>
+
             </tr>
             @endforeach
 

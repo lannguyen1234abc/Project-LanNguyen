@@ -9,7 +9,7 @@
   </div>
     <div class="row mb-5">
         @foreach($product as $index)
-        <div class="col-md-3 mb-3">
+        <div class="col-md-3 col-6 mb-3">
             <div class="card w-100">
                 <div class="Product_Image1" alt="" style="background-image: url(banhang/image/products/{{$index->image}})">
                 </div>
@@ -28,11 +28,11 @@
                     </div>
                     <div class="d-flex flex-row mt-3">
                         <button class="btn btn-warning"> 
-                            <a href="luckycake/giohang/add-to-giohang/{{$index->id}}"> <i class="fas fa-shopping-cart text-white"></i> </a> 
+                            <a href="customer/giohang/add-to-giohang/{{$index->id}}"> <i class="fas fa-shopping-cart text-white"></i> </a> 
                         </button>
                     
                         <button class="btn btn-outline-primary"> 
-                            <a href="luckycake/customer/chitietsanpham/{{$index->id}}" class="link"> Chi tiết >> </a> 
+                            <a href="luckycake/chitietsanpham/{{$index->id}}" class="link"> Chi tiết >> </a> 
                         </button>
                     </div>
                 </div>

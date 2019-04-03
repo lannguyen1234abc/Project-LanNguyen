@@ -7,10 +7,7 @@
     return view("customer.page.cart");
 });*/
 
-
-//Customer
 Route::group(['prefix'=>'luckycake'], function(){
-	Route::group(['prefix'=>'customer'], function(){
 		Route::get('trangchu', 'PageController@home');
 		Route::get('sanpham', 'PageController@product');
 		Route::get('loaisanpham/{type}', 'PageController@producttype');
@@ -24,6 +21,8 @@ Route::group(['prefix'=>'luckycake'], function(){
 		Route::post('contact', 'ContactController@store');
 
 	});
+//Customer
+Route::group(['prefix'=>'customer'], function(){
 	Route::group(['prefix'=>'giohang'], function(){
 		Route::get('add-to-giohang/{id}', 'CartController@getAddtoCart');
 		Route::get('show', 'CartController@show');
