@@ -1,3 +1,6 @@
+.Text{
+  font-family: cursive;
+}
 .Image_Dangki {
   background-image: url("/banhang/image/logo/background.jpg");
   height: 570px;
@@ -148,7 +151,6 @@
 
 .Product_Style {
   border-radius: 20px !important;
-  text-transform: uppercase;
   color: white;
   font-size: 20px;
 }
@@ -323,4 +325,15 @@ li.nav-item:hover {
   float: left;
   margin-left: 30px;
 }
-/*# sourceMappingURL=style.css.map */
+ .Mess{
+  height: 50px;
+  width: 50px;
+ }
+
+ .Mess_Position{
+  position: fixed;  
+  width: 155px;
+  height: 60px;
+  bottom: 0;
+  right: 0;
+ }

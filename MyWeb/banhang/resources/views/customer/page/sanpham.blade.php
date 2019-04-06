@@ -7,7 +7,7 @@
             <div class="d-flex justify-content-around">
                 @foreach($type_product as $tp)
                 <a href="luckycake/loaisanpham/{{$tp->id}}"> 
-                    <button class="btn btn-outline-white text-capitalize"> {{$tp->name}} </button> 
+                    <button class="btn btn-outline-white text-capitalize Text"> {{$tp->name}} </button> 
                 </a>
                 @endforeach
             </div>

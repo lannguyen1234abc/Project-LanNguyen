@@ -61,6 +61,14 @@
                                 <a href="customer/giohang/add-to-giohang/{{$product->id}}"> <i class="fas fa-shopping-cart"></i> </a> 
                             
                         </div> 
+
+                        <div class="mt-3 d-flex flex-row">
+                            <b class="mr-3"> 
+                                Số sản phẩm đã bán:  
+                            </b>
+                            <span> {{$pr->count()}} </span> 
+                            
+                        </div> 
                     </div>
                 </div>
                 <div class="row mb-3">

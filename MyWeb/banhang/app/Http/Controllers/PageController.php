@@ -9,6 +9,7 @@ use App\Product;
 use App\User;
 use App\News;
 use App\Comment;
+use App\BillDetail;
 
 class PageController extends Controller
 {
@@ -44,10 +45,13 @@ class PageController extends Controller
     public function chitiet(Request $re){
         $product = Product::where('id', $re->id)->first();
         $comment = Comment::where('product_id', $re->id)->get();
+
+        $pr = BillDetail::where('product_id', $re->id);
+        //dd($pr);
         //dd($comment);
         //$products = Product::paginate(5);
 
-        return view('customer.page.chitietsanpham', compact('product', 'comment'));
+        return view('customer.page.chitietsanpham', compact('product', 'comment', 'pr'));
     }
    
     public function introduce(){

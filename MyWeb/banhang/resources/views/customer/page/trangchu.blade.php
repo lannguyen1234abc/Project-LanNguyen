@@ -50,16 +50,18 @@
                   <span class="sr-only">Next</span>
               </a>
           </div>
+
       </div>
   </div>
 </div>
+
 <div class="Adv container mb-5">
     <div class="row">
         <div class="d-none d-md-block col-md-4">
             <div class="d-flex flex-column align-items-center">
                 <img class="Size_Adv" src="/banhang/image/products/loai-1.jpg">
                 <a href="luckycake/loaisanpham/{{1}}"> 
-                    <h5 class="text-uppercase mt-3"> Bánh ngọt </h5> 
+                    <h5 class="text-capitalize Text mt-3"> Bánh ngọt </h5> 
                 </a>
             </div>
         </div>
@@ -67,7 +69,7 @@
             <div class="d-flex flex-column align-items-center">
                 <img class="Size_Adv" src="/banhang/image/products/loai-2.jpg">
                 <a href="luckycake/loaisanpham/{{2}}"> 
-                    <h5 class="text-uppercase mt-3"> Bánh kem </h5> 
+                    <h5 class="text-capitalize Text mt-3"> Bánh kem </h5> 
                 </a>
             </div>
         </div>
@@ -75,7 +77,7 @@
             <div class="d-flex flex-column align-items-center">
                 <img class="Size_Adv" src="/banhang/image/products/loai-3.jpg">
                 <a href="luckycake/loaisanpham/{{3}}"> 
-                    <h5 class="text-uppercase mt-3"> Hamburger </h5> 
+                    <h5 class="text-capitalize Text mt-3"> Hamburger </h5> 
                 </a>
             </div>
         </div>    
@@ -83,7 +85,7 @@
 </div>
 <div class="Product container mb-5">
     <div class="row mb-5 d-flex justify-content-center">
-        <div class="card-header Product_Style text-center bg-info">
+        <div class="card-header Product_Style text-capitalize bg-info">
             Sản phẩm mới 
         </div> 
     </div>
@@ -184,4 +186,12 @@
         </div>
     </div>
 </div>
+
+<div id="chatbox" style="position:fixed; right:100px; bottom:10px; z-index: 111111111111" class="fb-page" data-tabs="messages" data-href="https://www.facebook.com/LuckyCake-594042314395967/?modal=admin_todo_tour" data-width="250" data-height="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false">
+    </div>
+<div class="Mess_Position shadow-lg d-flex justify-content-end align-items-center mt-3 mb-3" >
+    <b class="ml-2 Text text-info"> Messenger </b>
+    <img class="Mess ml-3" id="button" src="/banhang/image/logo/ms.svg">  
+</div>
+
 @endsection

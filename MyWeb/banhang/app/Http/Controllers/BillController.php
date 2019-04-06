@@ -17,7 +17,7 @@ use Mail;
 class BillController extends Controller
 {
     public function index(){
-        $bills = Bill::with('user')->paginate(6);
+        $bills = Bill::with('user')->orderBy('id', 'desc')->paginate(6);
         //dd($bills);
         return view('admin.bills.index', ['bills'=>$bills]);
         

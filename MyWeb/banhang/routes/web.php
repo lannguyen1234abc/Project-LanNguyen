@@ -111,4 +111,14 @@ Route::group(['prefix'=>'admin', 'middleware'=>'CheckAdmin'], function(){
 		//Route::get('edit/{id}', 'ContactController@edit');
 		//Route::put('update/{id}', 'ContactController@update');
 	});
+
+	Route::group(['prefix'=>'slides'], function(){
+		Route::get('index', 'SlideController@index');
+		Route::get('create', 'SlideController@create');
+		Route::post('store', 'SlideController@store');
+		Route::get('show/{id}/', 'SlideController@show');
+		Route::delete('destroy/{id}', 'SlidesController@destroy');
+		Route::get('edit/{id}', 'SlideController@edit');
+		Route::put('update/{id}', 'SlideController@update');
+	});
 });

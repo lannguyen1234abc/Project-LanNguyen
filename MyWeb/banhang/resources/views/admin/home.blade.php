@@ -82,6 +82,19 @@
                             <li ><a class="text-white" href="admin/contacts/index"> List </a></li>
                         </ul>
                     </div>
+                </div>      
+
+                <div class="mb-3">
+                    <a href="#demo6" class="text-white Menu_Link" data-toggle="collapse"> 
+                        <i class="fas fa-file-alt mr-2"></i>
+                        Slides
+                    </a>
+                    <div id="demo6" class="collapse">
+                        <ul class="text-white">
+                            <li ><a class="text-white" href="admin/slides/index"> List </a></li>
+                            <li ><a class="text-white"  href="admin/slides/create"> Add </a></li>
+                        </ul>
+                    </div>
                 </div>        
         </div>
 

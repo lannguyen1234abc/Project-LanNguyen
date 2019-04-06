@@ -1,4 +1,4 @@
-		<div class="Footer container-fluid bg-dark border-top">
+		<div class="Footer container-fluid bg-secondary border-top">
 			<div class="row mt-3 text-white">
 				<div class="col-md-5 offset-md-1 col-6 d-flex flex-column ">
 					<h4> Liên hệ: </h4>
@@ -22,7 +22,7 @@
 				</div>
 			</div>
 			<div class="row text-white border-top">
-				<div class="col-md-4 offset-md-4 mt-3 mb-3 pl-5 align-items-center">
+				<div class="col-md-4 offset-md-4 pl-5 align-items-center">
 					<div class="text-center"> 
 						Copyright <i class="far fa-copyright"></i> 2018 - Website 
 					</div>
@@ -30,3 +30,6 @@
 			</div>
 		</div>
 		
+<!-- Your customer chat code -->
+
+
