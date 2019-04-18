@@ -15,7 +15,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $tintuc = News::paginate(10);
+        $tintuc = News::paginate(3);
         return view('admin.news.index', compact('tintuc'));
     }
 

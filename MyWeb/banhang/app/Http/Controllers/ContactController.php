@@ -45,13 +45,17 @@ class ContactController extends Controller
             $user->name = $request->name;
             $user->email = $request->email;
             $user->save();
+
+            $contact = new Contact;
+            $contact->message = $request->message;
+            $contact->user_id = Auth::id();
+            $contact->save();
+            return redirect()->back()->with('ms', 'Bạn đã gửi liên hệ thành công');
+        }
+        else {
+            return redirect()->back()->with('ms1', 'Bạn phải đăng nhập để gửi liên hệ');
         }
         
-        $contact = new Contact;
-        $contact->message = $request->message;
-        $contact->user_id = Auth::id();
-        $contact->save();
-        return redirect()->back()->with('ms', 'Bạn đã gửi liên hệ thành công');
     }
 
     /**

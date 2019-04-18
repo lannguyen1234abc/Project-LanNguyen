@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 use Session;
 
 class UserController extends Controller
@@ -173,8 +174,10 @@ class UserController extends Controller
     }
 */
     public function search(Request $re){
-        $s_users = User::where('name', 'like', '%'.$re->search.'%')
-                            ->orwhere('email', $re->search)->paginate(5);
+        $s = Input::get('search');
+        $s_users = User::where('name', 'like', '%'.$s.'%')
+                            ->orwhere('email', $s)->paginate(6);
+        $s_users->appends(['search' => $s]);
         return view('admin.users.search', compact('s_users'));
     }
 }

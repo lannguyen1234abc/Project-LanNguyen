@@ -13,6 +13,11 @@
             </div>
         </div>
     </div>
+     @if(Auth::check())
+                                <input type="hidden" id="idu" name="test" value="{{ Auth::user()->id}}">
+                                @else
+                                <input type="hidden" id="idu" name="test" value="0">
+                                @endif
     <div class="row">
         @foreach($products as $index)
         <div class="col-md-3 col-6 mb-3">
@@ -36,9 +41,15 @@
                             @endif
                     </div>
                     <div class="d-flex flex-row mt-3">
+                        @if($index->status == 'Còn')
                             <button class="btn btn-warning"> 
-                                <a href="customer/giohang/add-to-giohang/{{$index->id}}"> <i class="fas fa-shopping-cart text-white"></i> </a> 
+                                <a class="cart" abc="{{$index->id}}"> <i class="fas fa-shopping-cart text-white"></i> </a> 
                             </button>
+                        @else
+                            <button class="btn btn-warning" onclick="myFunction()"> 
+                                <i class="fas fa-shopping-cart text-white"></i>  
+                            </button>
+                        @endif
 
                             <button class="btn btn-outline-primary"> 
                                 <a href="luckycake/chitietsanpham/{{$index->id}}" class="link"> Chi tiết >> </a> 

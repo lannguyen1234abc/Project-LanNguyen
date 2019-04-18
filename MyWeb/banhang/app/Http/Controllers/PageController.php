@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use App\ProductType;
 use App\Slide;
 use App\Product;
@@ -75,9 +76,13 @@ class PageController extends Controller
     }
     
     public function search(Request $re){
-        $product = Product::where('name', 'like', '%'.$re->search.'%')
-                            ->orwhere('price', $re->search)->get();
-        return view('customer.page.search', compact('product'));
+        $s = Input::get('search');
+        $total_product = Product::where('name', 'like', '%'.$s.'%')
+                            ->orwhere('price', $s)->get();
+        $product = Product::where('name', 'like', '%'.$s.'%')
+                            ->orwhere('price', $s)->paginate(12);
+        $product->appends(['search' => $s]);
+        return view('customer.page.search', compact('total_product','product'));
     }
 
     public function home_admin(){

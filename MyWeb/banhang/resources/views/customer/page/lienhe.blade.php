@@ -20,8 +20,10 @@
     </div>
     <div class="row"> 
         <div class="col-md-6 col-12">
-            <p class="mb-3"> 
-                <i> (Vui lòng đăng nhập tài khoản để gửi thông tin liên hệ ) </i>
+            <p class="mb-3 text-success"> 
+                <b> @if( Session::has('ms1')) {{Session::get('ms1')}}
+                    @endif
+                </b>
             </p> 
         </div>
     </div>
@@ -68,7 +70,7 @@
                 </div> 
                 <div>
                     <i class="fas fa-envelope mr-3"></i><b>Email:</b>
-                    <span> abc@gamil.com </span>
+                    <span> abc@gmail.com </span>
                 </div>
             </div>
         </div>

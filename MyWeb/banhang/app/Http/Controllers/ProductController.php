@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Input;
 use App\Product;
 use App\ProductType;
 use App\BillDetail;
@@ -117,8 +118,11 @@ class ProductController extends Controller
 */
 
     public function search(Request $re){
-        $s_products = Product::where('name', 'like', '%'.$re->search.'%')
-                            ->orwhere('price', $re->search)->paginate(5);
+        $s = Input::get('search');
+        $s_products = Product::where('name', 'like', '%' . $s . '%')
+                            ->orwhere('price', $s)->paginate(6);
+        $s_products->appends(['search' => $s]);
+        
         return view('admin.products.search', compact('s_products'));
     }
 

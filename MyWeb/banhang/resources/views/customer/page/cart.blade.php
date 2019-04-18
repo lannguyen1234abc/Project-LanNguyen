@@ -42,6 +42,10 @@
                                 Quantity   
                             </div>
                         </th>
+                        <th class="update"> 
+                            <div class="d-flex justify-content-center align-items-center">Update     
+                            </div>
+                        </th>
                         <th class="total"> 
                             <div class="d-flex justify-content-center align-items-center">Total    
                             </div>
@@ -50,6 +54,8 @@
                             <div class="d-flex justify-content-center align-items-center">Remove     
                             </div>
                         </th>
+                        
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -97,10 +103,15 @@
                                     <button> {{$product['quantity']}} </button>
 
                                     <button> 
-                                        <a href="customer/giohang/add-to-giohang/{{$product['item']['id']}}" class="link"> + </a> 
+                                        <a  class="cart" abc="{{$product['item']['id']}}" class="link"> + </a> 
                                     </button>      
                                 </div>
-                                
+                                    
+                            </td>
+                            <td>
+                                <div class="d-flex justify-content-center">
+                                    <a href="customer/giohang/show"> <i class="far fa-edit"></i> </a>
+                                </div>
                             </td>
                             <td>
                                 <div class="d-flex justify-content-center">
@@ -114,6 +125,7 @@
                                 </div>
                                 
                             </td>
+                            
                         </tr>
                         @endforeach
                         @endif
@@ -149,4 +161,15 @@
             </div>
         </div>
     </div>
+     <script>
+      $(document).ready(function(){
+      $(".cart").click(function() {
+     var key = $(this).attr("abc");
+      $.get("customer/giohang/add-to-giohang/"+key,function(data){
+     $("#ca").html(data);
+   });
+        });
+      });
+   
+      </script>
     @endsection

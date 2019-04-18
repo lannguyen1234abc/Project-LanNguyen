@@ -32,6 +32,11 @@
                             @endif
                         </div>  
                     </div>
+                      @if(Auth::check())
+                                <input type="hidden" id="idu" name="test" value="{{ Auth::user()->id}}">
+                                @else
+                                <input type="hidden" id="idu" name="test" value="0">
+                                @endif
                     <div class="col-md-6 col-6">
                         <div class="mb-3"> <h4> {{$product->name}}</h4></div>
                         <div class="mb-3"> <b> ID: </b> {{$product->id}} </div>
@@ -54,11 +59,15 @@
                         </div>
 
                         <div class="mt-3 d-flex flex-row">
+                            @if($product->status == 'Còn')
                             <b class="text-danger mr-3"> 
                                 Thêm vào giỏ:  
                             </b>
                             
-                                <a href="customer/giohang/add-to-giohang/{{$product->id}}"> <i class="fas fa-shopping-cart"></i> </a> 
+                            <a class="cart" abc="{{$product->id}}"> <i class="fas fa-shopping-cart"></i> </a> 
+                            @else
+                                 
+                            @endif
                             
                         </div> 
 
@@ -87,7 +96,7 @@
         <!-- Viết bình luận -->
         @if( Auth::check())
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-9 col-12">
                 <div class="">
                     <div class="text-success">
                         @if( session('thongbao'))
@@ -120,6 +129,7 @@
                         <p> 
                             <b>{{$cm->user->name}}</b> <i>{{$cm->created_at}}</i>
                         </p>
+                        
                         <p> {{$cm->comment}} </p>
                         
                     </div>

@@ -20,4 +20,20 @@ class CommentController extends Controller
 
         return redirect()->back()->with('thongbao', 'Bình luận thành công');
     }
+
+    public function edit($id)
+    {
+        $comment = Comment::find($id);
+        return view('customer.page.chitietsanpham', ['comment' => $comment]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $comment = Comment::find($id);
+        
+        $comment->comment = $request->comment;
+        
+        $comment->save();
+        return redirect()->back();
+    }
 }

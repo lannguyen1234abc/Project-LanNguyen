@@ -7,7 +7,7 @@
     <div class="row mt-3 mb-3">
         <div class="col-md-12 d-flex flex-column">
             <div class="d-flex flex-row">
-                <b class="mr-3"> Tổng hóa đơn: </b> {{count($s_bills)}}
+                <b class="mr-3"> Tổng hóa đơn: </b> {{count($total_bill)}}
             </div>
             <div class="d-flex flex-row">
                 <b class="mr-3"> Tổng tiền: </b> {{number_format($tk_total)}}
@@ -59,11 +59,11 @@
             </tbody>
     </table>
 
-    <div class="row mt-3">
-        <div class="col-md-12 d-flex justify-content-center ">
-            {{$s_bills->links("pagination::bootstrap-4")}}
-        </div>
-    </div>
+   <div class="row mt-4">
+                    <div class="col-md-12 d-flex justify-content-center ">
+                        {{$s_bills->links("pagination::bootstrap-4")}}
+                    </div>
+                </div> 
 </div>
 
 

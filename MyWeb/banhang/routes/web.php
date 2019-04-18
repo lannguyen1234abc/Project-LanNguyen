@@ -17,10 +17,15 @@ Route::group(['prefix'=>'luckycake'], function(){
 		Route::get('chitiettintuc/{id}', 'PageController@cttintuc');
 		Route::get('search', 'PageController@search');
 		Route::get('chitietsanpham/{id}', 'PageController@chitiet');
+
 		Route::post('comment/{id}', 'CommentController@postComment');
+		//Route::get('comment/edit/{id}', 'CommentController@edit');
+		Route::put('comment/update/{id}', 'CommentController@update');
+
 		Route::post('contact', 'ContactController@store');
 
 	});
+
 //Customer
 Route::group(['prefix'=>'customer'], function(){
 	Route::group(['prefix'=>'giohang'], function(){

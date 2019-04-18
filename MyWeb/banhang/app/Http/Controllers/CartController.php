@@ -39,16 +39,17 @@ class CartController extends Controller
             $product = Product::find($id);
             $oldCart = Session::has('cart') ? Session::get('cart') : null;
             $cart = new Cart($oldCart);
-            $cart->add($product, $product->id);
-
             
+            $cart->add($product, $product->id);
+ 
             $req->session()->put('cart', $cart );
-
+            
             //dd($cart);
-            return redirect()->back();
+            return view('ca');
+
         }
         else{
-            return redirect('dangnhap')->with('Cart_Tbao', 'Bạn phải đăng nhập để thêm sản phẩm vào giỏ hàng' );
+           return view('dangnhap');
         }
     }
 

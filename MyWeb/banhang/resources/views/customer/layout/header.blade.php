@@ -39,7 +39,7 @@
                     </div>
                     @endif
 
-                    <div class=" text-dark mr-3" > 
+                    <div class=" text-dark mr-3" id="ca"> 
                         <a href="customer/giohang/show" class="link text-dark"> <i class="fas fa-shopping-cart"></i> 
                         </a> 
                         <span> 

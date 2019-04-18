@@ -43,6 +43,11 @@
                 </ul>
             </div>
         </div>
+         @if(Auth::check())
+                                <input type="hidden" id="idu" name="test" value="{{ Auth::user()->id}}">
+                                @else
+                                <input type="hidden" id="idu" name="test" value="0">
+                                @endif
         <div class="col-md-9 col-12">
             <div class="row">
                 @foreach($product_type as $sp_type)
@@ -69,10 +74,16 @@
 
                                 </div>
                                 <div class="d-flex flex-row mt-3">
+                                    @if($sp_type->status == 'Còn')
                                     <button class="btn btn-warning"> 
-                                        <a href="customer/giohang/add-to-giohang/{{$sp_type->id}}"> <i class="fas fa-shopping-cart text-white"></i> </a> 
+                                        <a class="cart" abc="{{$sp_type->id}}"> <i class="fas fa-shopping-cart text-white"></i> </a> 
                                     </button>
-                                    
+                                    @else
+                                        <button class="btn btn-warning" onclick="myFunction()"> 
+                                            <i class="fas fa-shopping-cart text-white"></i>  
+                                        </button>
+                                    @endif
+                        
                                     <button class="btn btn-outline-primary"> 
                                         <a href="luckycake/chitietsanpham/{{$sp_type->id}}" class="link"> Chi tiết >> </a> 
                                     </button>

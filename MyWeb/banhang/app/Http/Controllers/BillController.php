@@ -112,10 +112,16 @@ class BillController extends Controller
     }
 
     public function search(Request $re){
-        $s_bills = Bill::where('date_order', $re->search)->paginate(5);
-        $tk_total = Bill::where('date_order', $re->search)->sum('total');
+        $q = Input::get('search');
+        $total_bill = Bill::where('date_order', 'LIKE', '%' . $q . '%')->get();
+        $s_bills = Bill::where('date_order', 'LIKE', '%' . $q . '%')->paginate(6);
+        $s_bills->appends(['search' => $q]);
+    
+        $tk_total = Bill::where('date_order', 'LIKE', '%' . $q . '%')->sum('total');
 
-        return view('admin.bills.search', compact('s_bills', 'tk_total'));
+        //$s_bills = Bill::search('date_order' , $re->search)->paginate(5);
+        //$tk_total = Bill::search('date_order', $re->search)->sum('total');
+        return view('admin.bills.search', compact('total_bill', 's_bills', 'tk_total'));
     }
 
    
