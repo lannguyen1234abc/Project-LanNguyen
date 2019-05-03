@@ -75,7 +75,7 @@
                             <b class="mr-3"> 
                                 Số sản phẩm đã bán:  
                             </b>
-                            <span> {{$pr->count()}} </span> 
+                            <span> {{$pr}} </span> 
                             
                         </div> 
                     </div>

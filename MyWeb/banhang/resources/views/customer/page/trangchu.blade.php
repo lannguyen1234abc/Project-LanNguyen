@@ -91,7 +91,7 @@
     </div>
 
     <div class="row mb-3">
-        <div class="row">
+        
             @foreach($new_products as $index)
             @if($index->new == 1)
             <div class="col-md-3 col-6 mb-3 ">
@@ -142,7 +142,7 @@
             </div>
             @endif
             @endforeach
-        </div>  
+        
     </div>  
     <div class="row mt-5">
         <div class="col-md-12 col-12 d-flex justify-content-center display-5">

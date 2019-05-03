@@ -5,9 +5,8 @@
     <div class="row h-100">
     
         <div class="col-md-2 bg-secondary shadow-lg rounded Admin_Size_content-left">
-                <div class="mb-3 text-white "> <h2> Dashboard </h2> </div>
                 
-                <div class="mb-3">
+                <div class="mb-3 mt-3">
                     <a href="#demo" class="text-white Menu_Link" data-toggle="collapse"> 
                         <i class="fas fa-user mr-2"></i> 
                         Users

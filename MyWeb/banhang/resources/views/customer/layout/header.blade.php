@@ -1,5 +1,5 @@
-<div class="container-fluid bg-light">
-        <div class="row">
+<div class="container-fluid bg-white border-bottom shadow-sm mb-3 sticky-top ">
+        <div class="row bg-light">
             <div class="col-md-6 d-none d-md-block">
                 <div class="d-flex justify-content-center align-items-center mt-2">
                     <b> <i class="fas fa-home"></i> </b>
@@ -54,8 +54,8 @@
                 </div>
             </div>
         </div>
-</div>
-<div class="container-fluid bg-white border-bottom shadow-sm mb-3 sticky-top ">
+
+
             <div class="row">
                 <div class="col-md-3 offset-1 col-5 d-md-block Menu_Size">
                     <div class="d-flex align-items-center text-danger">

@@ -47,7 +47,7 @@ class PageController extends Controller
         $product = Product::where('id', $re->id)->first();
         $comment = Comment::where('product_id', $re->id)->get();
 
-        $pr = BillDetail::where('product_id', $re->id);
+        $pr = BillDetail::where('product_id', $re->id)->sum('quantity');
         //dd($pr);
         //dd($comment);
         //$products = Product::paginate(5);
